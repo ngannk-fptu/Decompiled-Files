@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.google.guava_guava-32.1.3-jre.jar
+Decompiled with CFR 0.152
+
+
+com.google.common.util.concurrent.AbstractFuture
+----------------------------
+
+removeWaiter(com.google.common.util.concurrent.AbstractFuture$Waiter )
+  Unable to fully structure code

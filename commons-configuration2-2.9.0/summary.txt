@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\commons-configuration2-2.9.0.jar
+Decompiled with CFR 0.152
+
+
+org.apache.commons.configuration2.io.FileHandler
+----------------------------
+
+load(java.net.URL org.apache.commons.configuration2.io.FileLocator )
+  Loose catch block

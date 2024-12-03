@@ -1,0 +1,91 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.amazonaws.services.kms.model;
+
+import com.amazonaws.AmazonWebServiceRequest;
+import java.io.Serializable;
+
+public class ListKeysRequest
+extends AmazonWebServiceRequest
+implements Serializable,
+Cloneable {
+    private Integer limit;
+    private String marker;
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    public ListKeysRequest withLimit(Integer limit) {
+        this.setLimit(limit);
+        return this;
+    }
+
+    public void setMarker(String marker) {
+        this.marker = marker;
+    }
+
+    public String getMarker() {
+        return this.marker;
+    }
+
+    public ListKeysRequest withMarker(String marker) {
+        this.setMarker(marker);
+        return this;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        if (this.getLimit() != null) {
+            sb.append("Limit: ").append(this.getLimit()).append(",");
+        }
+        if (this.getMarker() != null) {
+            sb.append("Marker: ").append(this.getMarker());
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof ListKeysRequest)) {
+            return false;
+        }
+        ListKeysRequest other = (ListKeysRequest)obj;
+        if (other.getLimit() == null ^ this.getLimit() == null) {
+            return false;
+        }
+        if (other.getLimit() != null && !other.getLimit().equals(this.getLimit())) {
+            return false;
+        }
+        if (other.getMarker() == null ^ this.getMarker() == null) {
+            return false;
+        }
+        return other.getMarker() == null || other.getMarker().equals(this.getMarker());
+    }
+
+    public int hashCode() {
+        int prime = 31;
+        int hashCode = 1;
+        hashCode = 31 * hashCode + (this.getLimit() == null ? 0 : this.getLimit().hashCode());
+        hashCode = 31 * hashCode + (this.getMarker() == null ? 0 : this.getMarker().hashCode());
+        return hashCode;
+    }
+
+    @Override
+    public ListKeysRequest clone() {
+        return (ListKeysRequest)super.clone();
+    }
+}
+

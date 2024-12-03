@@ -1,0 +1,16 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.plugins_atlassian-plugins-core-7.4.0.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.plugin.factories.LegacyDynamicPluginFactory
+----------------------------
+
+create(com.atlassian.plugin.PluginArtifact com.atlassian.plugin.ModuleDescriptorFactory )
+  Loose catch block
+
+
+com.atlassian.plugin.manager.DefaultPluginManager
+----------------------------
+
+lambda$addPlugins$22(java.util.Collection com.atlassian.plugin.loaders.PluginLoader )
+  Unable to fully structure code

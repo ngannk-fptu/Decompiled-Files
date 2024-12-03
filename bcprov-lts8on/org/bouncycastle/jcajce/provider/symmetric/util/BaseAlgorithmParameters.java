@@ -1,0 +1,25 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.bouncycastle.jcajce.provider.symmetric.util;
+
+import java.security.AlgorithmParametersSpi;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.InvalidParameterSpecException;
+
+public abstract class BaseAlgorithmParameters
+extends AlgorithmParametersSpi {
+    protected boolean isASN1FormatString(String format) {
+        return format == null || format.equals("ASN.1");
+    }
+
+    protected AlgorithmParameterSpec engineGetParameterSpec(Class paramSpec) throws InvalidParameterSpecException {
+        if (paramSpec == null) {
+            throw new NullPointerException("argument to getParameterSpec must not be null");
+        }
+        return this.localEngineGetParameterSpec(paramSpec);
+    }
+
+    protected abstract AlgorithmParameterSpec localEngineGetParameterSpec(Class var1) throws InvalidParameterSpecException;
+}
+

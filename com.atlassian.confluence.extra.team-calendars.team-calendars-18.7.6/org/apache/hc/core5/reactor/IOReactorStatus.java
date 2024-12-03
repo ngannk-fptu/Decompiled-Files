@@ -1,0 +1,13 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.apache.hc.core5.reactor;
+
+public enum IOReactorStatus {
+    INACTIVE,
+    ACTIVE,
+    SHUTTING_DOWN,
+    SHUT_DOWN;
+
+}
+

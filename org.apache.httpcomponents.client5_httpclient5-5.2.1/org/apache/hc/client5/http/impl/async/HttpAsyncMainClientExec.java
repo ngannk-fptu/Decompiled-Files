@@ -1,0 +1,221 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.hc.core5.annotation.Contract
+ *  org.apache.hc.core5.annotation.Internal
+ *  org.apache.hc.core5.annotation.ThreadingBehavior
+ *  org.apache.hc.core5.concurrent.CancellableDependency
+ *  org.apache.hc.core5.http.EntityDetails
+ *  org.apache.hc.core5.http.Header
+ *  org.apache.hc.core5.http.HttpException
+ *  org.apache.hc.core5.http.HttpRequest
+ *  org.apache.hc.core5.http.HttpResponse
+ *  org.apache.hc.core5.http.message.RequestLine
+ *  org.apache.hc.core5.http.nio.AsyncClientExchangeHandler
+ *  org.apache.hc.core5.http.nio.AsyncDataConsumer
+ *  org.apache.hc.core5.http.nio.AsyncEntityProducer
+ *  org.apache.hc.core5.http.nio.CapacityChannel
+ *  org.apache.hc.core5.http.nio.DataStreamChannel
+ *  org.apache.hc.core5.http.nio.RequestChannel
+ *  org.apache.hc.core5.http.protocol.HttpContext
+ *  org.apache.hc.core5.http.protocol.HttpProcessor
+ *  org.apache.hc.core5.util.Args
+ *  org.apache.hc.core5.util.TimeValue
+ *  org.slf4j.Logger
+ *  org.slf4j.LoggerFactory
+ */
+package org.apache.hc.client5.http.impl.async;
+
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.nio.ByteBuffer;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import org.apache.hc.client5.http.ConnectionKeepAliveStrategy;
+import org.apache.hc.client5.http.HttpRoute;
+import org.apache.hc.client5.http.UserTokenHandler;
+import org.apache.hc.client5.http.async.AsyncExecCallback;
+import org.apache.hc.client5.http.async.AsyncExecChain;
+import org.apache.hc.client5.http.async.AsyncExecChainHandler;
+import org.apache.hc.client5.http.async.AsyncExecRuntime;
+import org.apache.hc.client5.http.impl.async.LoggingAsyncClientExchangeHandler;
+import org.apache.hc.client5.http.protocol.HttpClientContext;
+import org.apache.hc.core5.annotation.Contract;
+import org.apache.hc.core5.annotation.Internal;
+import org.apache.hc.core5.annotation.ThreadingBehavior;
+import org.apache.hc.core5.concurrent.CancellableDependency;
+import org.apache.hc.core5.http.EntityDetails;
+import org.apache.hc.core5.http.Header;
+import org.apache.hc.core5.http.HttpException;
+import org.apache.hc.core5.http.HttpRequest;
+import org.apache.hc.core5.http.HttpResponse;
+import org.apache.hc.core5.http.message.RequestLine;
+import org.apache.hc.core5.http.nio.AsyncClientExchangeHandler;
+import org.apache.hc.core5.http.nio.AsyncDataConsumer;
+import org.apache.hc.core5.http.nio.AsyncEntityProducer;
+import org.apache.hc.core5.http.nio.CapacityChannel;
+import org.apache.hc.core5.http.nio.DataStreamChannel;
+import org.apache.hc.core5.http.nio.RequestChannel;
+import org.apache.hc.core5.http.protocol.HttpContext;
+import org.apache.hc.core5.http.protocol.HttpProcessor;
+import org.apache.hc.core5.util.Args;
+import org.apache.hc.core5.util.TimeValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Contract(threading=ThreadingBehavior.STATELESS)
+@Internal
+class HttpAsyncMainClientExec
+implements AsyncExecChainHandler {
+    private static final Logger LOG = LoggerFactory.getLogger(HttpAsyncMainClientExec.class);
+    private final HttpProcessor httpProcessor;
+    private final ConnectionKeepAliveStrategy keepAliveStrategy;
+    private final UserTokenHandler userTokenHandler;
+
+    HttpAsyncMainClientExec(HttpProcessor httpProcessor, ConnectionKeepAliveStrategy keepAliveStrategy, UserTokenHandler userTokenHandler) {
+        this.httpProcessor = (HttpProcessor)Args.notNull((Object)httpProcessor, (String)"HTTP protocol processor");
+        this.keepAliveStrategy = keepAliveStrategy;
+        this.userTokenHandler = userTokenHandler;
+    }
+
+    @Override
+    public void execute(final HttpRequest request, final AsyncEntityProducer entityProducer, AsyncExecChain.Scope scope, AsyncExecChain chain, final AsyncExecCallback asyncExecCallback) throws HttpException, IOException {
+        String exchangeId = scope.exchangeId;
+        final HttpRoute route = scope.route;
+        CancellableDependency operation = scope.cancellableDependency;
+        final HttpClientContext clientContext = scope.clientContext;
+        final AsyncExecRuntime execRuntime = scope.execRuntime;
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("{} executing {}", (Object)exchangeId, (Object)new RequestLine(request));
+        }
+        final AtomicInteger messageCountDown = new AtomicInteger(2);
+        AsyncClientExchangeHandler internalExchangeHandler = new AsyncClientExchangeHandler(){
+            private final AtomicReference<AsyncDataConsumer> entityConsumerRef = new AtomicReference();
+
+            public void releaseResources() {
+                AsyncDataConsumer entityConsumer = this.entityConsumerRef.getAndSet(null);
+                if (entityConsumer != null) {
+                    entityConsumer.releaseResources();
+                }
+            }
+
+            public void failed(Exception cause) {
+                AsyncDataConsumer entityConsumer = this.entityConsumerRef.getAndSet(null);
+                if (entityConsumer != null) {
+                    entityConsumer.releaseResources();
+                }
+                execRuntime.markConnectionNonReusable();
+                asyncExecCallback.failed(cause);
+            }
+
+            public void cancel() {
+                if (messageCountDown.get() > 0) {
+                    this.failed(new InterruptedIOException());
+                }
+            }
+
+            public void produceRequest(RequestChannel channel, HttpContext context) throws HttpException, IOException {
+                clientContext.setAttribute("http.route", route);
+                clientContext.setAttribute("http.request", request);
+                HttpAsyncMainClientExec.this.httpProcessor.process(request, (EntityDetails)entityProducer, (HttpContext)clientContext);
+                channel.sendRequest(request, (EntityDetails)entityProducer, context);
+                if (entityProducer == null) {
+                    messageCountDown.decrementAndGet();
+                }
+            }
+
+            public int available() {
+                return entityProducer.available();
+            }
+
+            public void produce(final DataStreamChannel channel) throws IOException {
+                entityProducer.produce(new DataStreamChannel(){
+
+                    public void requestOutput() {
+                        channel.requestOutput();
+                    }
+
+                    public int write(ByteBuffer src) throws IOException {
+                        return channel.write(src);
+                    }
+
+                    public void endStream(List<? extends Header> trailers) throws IOException {
+                        channel.endStream(trailers);
+                        if (messageCountDown.decrementAndGet() <= 0) {
+                            asyncExecCallback.completed();
+                        }
+                    }
+
+                    public void endStream() throws IOException {
+                        channel.endStream();
+                        if (messageCountDown.decrementAndGet() <= 0) {
+                            asyncExecCallback.completed();
+                        }
+                    }
+                });
+            }
+
+            public void consumeInformation(HttpResponse response, HttpContext context) throws HttpException, IOException {
+                asyncExecCallback.handleInformationResponse(response);
+            }
+
+            public void consumeResponse(HttpResponse response, EntityDetails entityDetails, HttpContext context) throws HttpException, IOException {
+                clientContext.setAttribute("http.response", response);
+                HttpAsyncMainClientExec.this.httpProcessor.process(response, entityDetails, (HttpContext)clientContext);
+                this.entityConsumerRef.set(asyncExecCallback.handleResponse(response, entityDetails));
+                if (response.getCode() >= 400) {
+                    messageCountDown.decrementAndGet();
+                }
+                TimeValue keepAliveDuration = HttpAsyncMainClientExec.this.keepAliveStrategy.getKeepAliveDuration(response, (HttpContext)clientContext);
+                Object userToken = clientContext.getUserToken();
+                if (userToken == null) {
+                    userToken = HttpAsyncMainClientExec.this.userTokenHandler.getUserToken(route, request, (HttpContext)clientContext);
+                    clientContext.setAttribute("http.user-token", userToken);
+                }
+                execRuntime.markConnectionReusable(userToken, keepAliveDuration);
+                if (entityDetails == null) {
+                    execRuntime.validateConnection();
+                    if (messageCountDown.decrementAndGet() <= 0) {
+                        asyncExecCallback.completed();
+                    }
+                }
+            }
+
+            public void updateCapacity(CapacityChannel capacityChannel) throws IOException {
+                AsyncDataConsumer entityConsumer = this.entityConsumerRef.get();
+                if (entityConsumer != null) {
+                    entityConsumer.updateCapacity(capacityChannel);
+                } else {
+                    capacityChannel.update(Integer.MAX_VALUE);
+                }
+            }
+
+            public void consume(ByteBuffer src) throws IOException {
+                AsyncDataConsumer entityConsumer = this.entityConsumerRef.get();
+                if (entityConsumer != null) {
+                    entityConsumer.consume(src);
+                }
+            }
+
+            public void streamEnd(List<? extends Header> trailers) throws HttpException, IOException {
+                AsyncDataConsumer entityConsumer = this.entityConsumerRef.getAndSet(null);
+                if (entityConsumer != null) {
+                    entityConsumer.streamEnd(trailers);
+                } else {
+                    execRuntime.validateConnection();
+                }
+                if (messageCountDown.decrementAndGet() <= 0) {
+                    asyncExecCallback.completed();
+                }
+            }
+        };
+        if (LOG.isDebugEnabled()) {
+            operation.setDependency(execRuntime.execute(exchangeId, new LoggingAsyncClientExchangeHandler(LOG, exchangeId, internalExchangeHandler), clientContext));
+        } else {
+            operation.setDependency(execRuntime.execute(exchangeId, internalExchangeHandler, clientContext));
+        }
+    }
+}
+

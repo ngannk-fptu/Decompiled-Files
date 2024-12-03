@@ -1,0 +1,65 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\antlr_antlr-2.7.7.jar
+Decompiled with CFR 0.152
+
+
+antlr.actions.cpp.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.actions.csharp.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.actions.java.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.actions.python.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.actions.python.CodeLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.ANTLRLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [31[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.ANTLRTokdefLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [13[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.preprocessor.PreprocessorLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [20[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+antlr.PreservingFileWriter
+----------------------------
+
+close()
+  Unable to fully structure code

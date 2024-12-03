@@ -1,0 +1,18 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\tomcat-websocket.jar
+Decompiled with CFR 0.152
+
+
+org.apache.tomcat.websocket.AsyncChannelWrapperSecure
+----------------------------
+
+run()
+  Unable to fully structure code
+
+
+org.apache.tomcat.websocket.WsFrameBase
+----------------------------
+
+suspend()
+  Unable to fully structure code
+resume()
+  Unable to fully structure code

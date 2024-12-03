@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.hibernate.common_hibernate-commons-annotations-5.1.2.Final.jar
+Decompiled with CFR 0.152

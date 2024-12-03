@@ -1,0 +1,39 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.plugins.rest.atlassian-rest-module-7.1.9_1701914062000.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.plugins.rest.module.scanner.JarIndexer
+----------------------------
+
+scanDeeply(java.util.jar.JarEntry )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 4 blocks at once
+
+
+com.sun.jersey.core.spi.scanning.PackageNamesScanner
+----------------------------
+
+scan(com.sun.jersey.core.spi.scanning.ScannerListener )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+org.objectweb.asm.signature.SignatureReader
+----------------------------
+
+parseType(java.lang.String int org.objectweb.asm.signature.SignatureVisitor )
+  Unable to fully structure code
+
+
+org.codehaus.jackson.impl.ReaderBasedParser
+----------------------------
+
+parseNumberText(int )
+  Unable to fully structure code
+
+
+org.codehaus.jackson.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code

@@ -1,0 +1,37 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\platform-spring-bundle-6.4.8.jar
+Decompiled with CFR 0.152
+
+
+org.springframework.beans.factory.xml.XmlBeanDefinitionReader
+----------------------------
+
+loadBeanDefinitions(org.springframework.core.io.support.EncodedResource )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+org.springframework.beans.factory.support.DefaultListableBeanFactory
+----------------------------
+
+doResolveDependency(org.springframework.beans.factory.config.DependencyDescriptor java.lang.String java.util.Set<java.lang.String> org.springframework.beans.TypeConverter )
+  Loose catch block
+
+
+org.springframework.asm.ClassReader
+----------------------------
+
+readStream(java.io.InputStream boolean )
+  Loose catch block
+
+
+org.springframework.cglib.core.AbstractClassGenerator
+----------------------------
+
+generate(org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [9[CATCHBLOCK]], but top level block is 3[TRYBLOCK]
+
+
+org.springframework.web.servlet.DispatcherServlet
+----------------------------
+
+doDispatch(javax.servlet.http.HttpServletRequest javax.servlet.http.HttpServletResponse )
+  Loose catch block

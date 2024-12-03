@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.springframework.scheduling;
+
+import org.springframework.core.task.AsyncTaskExecutor;
+
+public interface SchedulingTaskExecutor
+extends AsyncTaskExecutor {
+    default public boolean prefersShortLivedTasks() {
+        return true;
+    }
+}
+

@@ -1,0 +1,64 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.hazelcast.client.impl.protocol.task.replicatedmap;
+
+import com.hazelcast.client.impl.protocol.ClientMessage;
+import com.hazelcast.client.impl.protocol.codec.ReplicatedMapEntrySetCodec;
+import com.hazelcast.client.impl.protocol.task.AbstractPartitionMessageTask;
+import com.hazelcast.instance.Node;
+import com.hazelcast.nio.Connection;
+import com.hazelcast.replicatedmap.impl.client.ReplicatedMapEntries;
+import com.hazelcast.replicatedmap.impl.operation.EntrySetOperation;
+import com.hazelcast.security.permission.ReplicatedMapPermission;
+import com.hazelcast.spi.Operation;
+import java.security.Permission;
+
+public class ReplicatedMapEntrySetMessageTask
+extends AbstractPartitionMessageTask<ReplicatedMapEntrySetCodec.RequestParameters> {
+    public ReplicatedMapEntrySetMessageTask(ClientMessage clientMessage, Node node, Connection connection) {
+        super(clientMessage, node, connection);
+    }
+
+    @Override
+    protected Operation prepareOperation() {
+        return new EntrySetOperation(((ReplicatedMapEntrySetCodec.RequestParameters)this.parameters).name);
+    }
+
+    @Override
+    protected ReplicatedMapEntrySetCodec.RequestParameters decodeClientMessage(ClientMessage clientMessage) {
+        return ReplicatedMapEntrySetCodec.decodeRequest(clientMessage);
+    }
+
+    @Override
+    protected ClientMessage encodeResponse(Object response) {
+        ReplicatedMapEntries entries = (ReplicatedMapEntries)response;
+        return ReplicatedMapEntrySetCodec.encodeResponse(entries.entries());
+    }
+
+    @Override
+    public String getServiceName() {
+        return "hz:impl:replicatedMapService";
+    }
+
+    @Override
+    public Permission getRequiredPermission() {
+        return new ReplicatedMapPermission(((ReplicatedMapEntrySetCodec.RequestParameters)this.parameters).name, "read");
+    }
+
+    @Override
+    public String getDistributedObjectName() {
+        return ((ReplicatedMapEntrySetCodec.RequestParameters)this.parameters).name;
+    }
+
+    @Override
+    public String getMethodName() {
+        return "entrySet";
+    }
+
+    @Override
+    public Object[] getParameters() {
+        return null;
+    }
+}
+

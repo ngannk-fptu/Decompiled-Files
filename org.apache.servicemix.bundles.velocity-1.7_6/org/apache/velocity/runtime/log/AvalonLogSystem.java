@@ -1,0 +1,16 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.apache.velocity.runtime.log;
+
+import org.apache.velocity.runtime.log.AvalonLogChute;
+import org.apache.velocity.runtime.log.LogSystem;
+
+public class AvalonLogSystem
+extends AvalonLogChute
+implements LogSystem {
+    public void logVelocityMessage(int level, String message) {
+        this.log(level, message);
+    }
+}
+

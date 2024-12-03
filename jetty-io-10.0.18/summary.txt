@@ -1,0 +1,20 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\jetty-io-10.0.18.jar
+Decompiled with CFR 0.152
+
+
+org.eclipse.jetty.io.AbstractEndPoint
+----------------------------
+
+shutdownInput()
+  Unable to fully structure code
+shutdownOutput()
+  Unable to fully structure code
+
+
+org.eclipse.jetty.io.ssl.SslConnection
+----------------------------
+
+fill(java.nio.ByteBuffer )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [8[TRYBLOCK]], but top level block is 39[CASE]
+flush(java.nio.ByteBuffer[] )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [8[TRYBLOCK]], but top level block is 39[CASE]

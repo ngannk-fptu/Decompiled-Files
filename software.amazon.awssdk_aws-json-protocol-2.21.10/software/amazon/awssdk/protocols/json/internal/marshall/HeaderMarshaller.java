@@ -1,0 +1,86 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  software.amazon.awssdk.annotations.SdkInternalApi
+ *  software.amazon.awssdk.core.SdkField
+ *  software.amazon.awssdk.core.protocol.MarshallLocation
+ *  software.amazon.awssdk.core.traits.JsonValueTrait
+ *  software.amazon.awssdk.core.traits.ListTrait
+ *  software.amazon.awssdk.core.traits.RequiredTrait
+ *  software.amazon.awssdk.protocols.core.ValueToStringConverter
+ *  software.amazon.awssdk.protocols.core.ValueToStringConverter$ValueToString
+ *  software.amazon.awssdk.utils.BinaryUtils
+ *  software.amazon.awssdk.utils.CollectionUtils
+ *  software.amazon.awssdk.utils.StringUtils
+ */
+package software.amazon.awssdk.protocols.json.internal.marshall;
+
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+import software.amazon.awssdk.annotations.SdkInternalApi;
+import software.amazon.awssdk.core.SdkField;
+import software.amazon.awssdk.core.protocol.MarshallLocation;
+import software.amazon.awssdk.core.traits.JsonValueTrait;
+import software.amazon.awssdk.core.traits.ListTrait;
+import software.amazon.awssdk.core.traits.RequiredTrait;
+import software.amazon.awssdk.protocols.core.ValueToStringConverter;
+import software.amazon.awssdk.protocols.json.internal.marshall.JsonMarshaller;
+import software.amazon.awssdk.protocols.json.internal.marshall.JsonMarshallerContext;
+import software.amazon.awssdk.protocols.json.internal.marshall.JsonProtocolMarshaller;
+import software.amazon.awssdk.utils.BinaryUtils;
+import software.amazon.awssdk.utils.CollectionUtils;
+import software.amazon.awssdk.utils.StringUtils;
+
+@SdkInternalApi
+public final class HeaderMarshaller {
+    public static final JsonMarshaller<String> STRING = new SimpleHeaderMarshaller<String>((val, field) -> field.containsTrait(JsonValueTrait.class) ? BinaryUtils.toBase64((byte[])val.getBytes(StandardCharsets.UTF_8)) : val);
+    public static final JsonMarshaller<Integer> INTEGER = new SimpleHeaderMarshaller<Integer>((ValueToStringConverter.ValueToString)ValueToStringConverter.FROM_INTEGER);
+    public static final JsonMarshaller<Long> LONG = new SimpleHeaderMarshaller<Long>((ValueToStringConverter.ValueToString)ValueToStringConverter.FROM_LONG);
+    public static final JsonMarshaller<Short> SHORT = new SimpleHeaderMarshaller<Short>((ValueToStringConverter.ValueToString)ValueToStringConverter.FROM_SHORT);
+    public static final JsonMarshaller<Double> DOUBLE = new SimpleHeaderMarshaller<Double>((ValueToStringConverter.ValueToString)ValueToStringConverter.FROM_DOUBLE);
+    public static final JsonMarshaller<Float> FLOAT = new SimpleHeaderMarshaller<Float>((ValueToStringConverter.ValueToString)ValueToStringConverter.FROM_FLOAT);
+    public static final JsonMarshaller<Boolean> BOOLEAN = new SimpleHeaderMarshaller<Boolean>((ValueToStringConverter.ValueToString)ValueToStringConverter.FROM_BOOLEAN);
+    public static final JsonMarshaller<Instant> INSTANT = new SimpleHeaderMarshaller<Instant>(JsonProtocolMarshaller.INSTANT_VALUE_TO_STRING);
+    public static final JsonMarshaller<List<?>> LIST = (list, context, paramName, sdkField) -> {
+        if (CollectionUtils.isNullOrEmpty((Collection)list)) {
+            return;
+        }
+        SdkField memberFieldInfo = ((ListTrait)sdkField.getRequiredTrait(ListTrait.class)).memberFieldInfo();
+        for (Object listValue : list) {
+            if (HeaderMarshaller.shouldSkipElement(listValue)) continue;
+            JsonMarshaller marshaller = context.marshallerRegistry().getMarshaller(MarshallLocation.HEADER, listValue);
+            marshaller.marshall(listValue, context, paramName, memberFieldInfo);
+        }
+    };
+    public static final JsonMarshaller<Void> NULL = (val, context, paramName, sdkField) -> {
+        if (Objects.nonNull(sdkField) && sdkField.containsTrait(RequiredTrait.class)) {
+            throw new IllegalArgumentException(String.format("Parameter '%s' must not be null", paramName));
+        }
+    };
+
+    private HeaderMarshaller() {
+    }
+
+    private static boolean shouldSkipElement(Object element) {
+        return element instanceof String && StringUtils.isBlank((CharSequence)((String)element));
+    }
+
+    private static class SimpleHeaderMarshaller<T>
+    implements JsonMarshaller<T> {
+        private final ValueToStringConverter.ValueToString<T> converter;
+
+        private SimpleHeaderMarshaller(ValueToStringConverter.ValueToString<T> converter) {
+            this.converter = converter;
+        }
+
+        @Override
+        public void marshall(T val, JsonMarshallerContext context, String paramName, SdkField<T> sdkField) {
+            context.request().appendHeader(paramName, this.converter.convert(val, sdkField));
+        }
+    }
+}
+

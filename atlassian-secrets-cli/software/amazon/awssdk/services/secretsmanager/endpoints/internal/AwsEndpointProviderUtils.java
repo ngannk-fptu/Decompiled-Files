@@ -1,0 +1,147 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package software.amazon.awssdk.services.secretsmanager.endpoints.internal;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Map;
+import software.amazon.awssdk.annotations.SdkInternalApi;
+import software.amazon.awssdk.awscore.AwsExecutionAttribute;
+import software.amazon.awssdk.awscore.endpoints.AwsEndpointAttribute;
+import software.amazon.awssdk.core.exception.SdkClientException;
+import software.amazon.awssdk.core.interceptor.ExecutionAttributes;
+import software.amazon.awssdk.core.interceptor.SdkExecutionAttribute;
+import software.amazon.awssdk.core.interceptor.SdkInternalExecutionAttribute;
+import software.amazon.awssdk.endpoints.Endpoint;
+import software.amazon.awssdk.http.SdkHttpRequest;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.AuthSchemeUtils;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.Value;
+import software.amazon.awssdk.utils.FunctionalUtils;
+import software.amazon.awssdk.utils.HostnameValidator;
+import software.amazon.awssdk.utils.Logger;
+import software.amazon.awssdk.utils.StringUtils;
+import software.amazon.awssdk.utils.http.SdkHttpUtils;
+
+@SdkInternalApi
+public final class AwsEndpointProviderUtils {
+    private static final Logger LOG = Logger.loggerFor(AwsEndpointProviderUtils.class);
+
+    private AwsEndpointProviderUtils() {
+    }
+
+    public static Region regionBuiltIn(ExecutionAttributes executionAttributes) {
+        return executionAttributes.getAttribute(AwsExecutionAttribute.AWS_REGION);
+    }
+
+    public static Boolean dualStackEnabledBuiltIn(ExecutionAttributes executionAttributes) {
+        return executionAttributes.getAttribute(AwsExecutionAttribute.DUALSTACK_ENDPOINT_ENABLED);
+    }
+
+    public static Boolean fipsEnabledBuiltIn(ExecutionAttributes executionAttributes) {
+        return executionAttributes.getAttribute(AwsExecutionAttribute.FIPS_ENDPOINT_ENABLED);
+    }
+
+    public static String endpointBuiltIn(ExecutionAttributes executionAttributes) {
+        if (AwsEndpointProviderUtils.endpointIsOverridden(executionAttributes)) {
+            return FunctionalUtils.invokeSafely(() -> {
+                URI endpointOverride = executionAttributes.getAttribute(SdkExecutionAttribute.CLIENT_ENDPOINT);
+                return new URI(endpointOverride.getScheme(), null, endpointOverride.getHost(), endpointOverride.getPort(), endpointOverride.getPath(), null, endpointOverride.getFragment()).toString();
+            });
+        }
+        return null;
+    }
+
+    public static Boolean useGlobalEndpointBuiltIn(ExecutionAttributes executionAttributes) {
+        return executionAttributes.getAttribute(AwsExecutionAttribute.USE_GLOBAL_ENDPOINT);
+    }
+
+    public static boolean endpointIsOverridden(ExecutionAttributes attrs) {
+        return attrs.getOptionalAttribute(SdkExecutionAttribute.ENDPOINT_OVERRIDDEN).orElse(false);
+    }
+
+    public static boolean endpointIsDiscovered(ExecutionAttributes attrs) {
+        return attrs.getOptionalAttribute(SdkInternalExecutionAttribute.IS_DISCOVERED_ENDPOINT).orElse(false);
+    }
+
+    public static boolean disableHostPrefixInjection(ExecutionAttributes attrs) {
+        return attrs.getOptionalAttribute(SdkInternalExecutionAttribute.DISABLE_HOST_PREFIX_INJECTION).orElse(false);
+    }
+
+    public static Endpoint addHostPrefix(Endpoint endpoint, String prefix) {
+        if (StringUtils.isBlank(prefix)) {
+            return endpoint;
+        }
+        AwsEndpointProviderUtils.validatePrefixIsHostNameCompliant(prefix);
+        URI originalUrl = endpoint.url();
+        String newHost = prefix + endpoint.url().getHost();
+        URI newUrl = FunctionalUtils.invokeSafely(() -> new URI(originalUrl.getScheme(), null, newHost, originalUrl.getPort(), originalUrl.getPath(), originalUrl.getQuery(), originalUrl.getFragment()));
+        return endpoint.toBuilder().url(newUrl).build();
+    }
+
+    public static Endpoint valueAsEndpointOrThrow(Value value) {
+        if (value instanceof Value.Endpoint) {
+            Value.Endpoint endpoint = value.expectEndpoint();
+            Endpoint.Builder builder = Endpoint.builder();
+            builder.url(URI.create(endpoint.getUrl()));
+            Map<String, List<String>> headers = endpoint.getHeaders();
+            if (headers != null) {
+                headers.forEach((name, values) -> values.forEach(v -> builder.putHeader((String)name, (String)v)));
+            }
+            AwsEndpointProviderUtils.addKnownProperties(builder, endpoint.getProperties());
+            return builder.build();
+        }
+        if (value instanceof Value.Str) {
+            String errorMsg = value.expectString();
+            if (errorMsg.contains("Invalid ARN") && errorMsg.contains(":s3:::")) {
+                errorMsg = errorMsg + ". Use the bucket name instead of simple bucket ARNs in GetBucketLocationRequest.";
+            }
+            throw SdkClientException.create(errorMsg);
+        }
+        throw SdkClientException.create("Rule engine return neither an endpoint result or error value. Returned value was:" + value);
+    }
+
+    public static SdkHttpRequest setUri(SdkHttpRequest request, URI clientEndpoint, URI resolvedUri) {
+        String clientEndpointPath = clientEndpoint.getRawPath();
+        String requestPath = request.encodedPath();
+        String resolvedUriPath = resolvedUri.getRawPath();
+        String finalPath = requestPath;
+        if (!resolvedUriPath.equals(clientEndpointPath)) {
+            finalPath = AwsEndpointProviderUtils.combinePath(clientEndpointPath, requestPath, resolvedUriPath);
+        }
+        return (SdkHttpRequest)((SdkHttpRequest.Builder)request.toBuilder()).protocol(resolvedUri.getScheme()).host(resolvedUri.getHost()).port(resolvedUri.getPort()).encodedPath(finalPath).build();
+    }
+
+    private static String combinePath(String clientEndpointPath, String requestPath, String resolvedUriPath) {
+        String requestPathWithClientPathRemoved = StringUtils.replaceOnce(requestPath, clientEndpointPath, "");
+        String finalPath = SdkHttpUtils.appendUri(resolvedUriPath, requestPathWithClientPathRemoved);
+        return finalPath;
+    }
+
+    private static void addKnownProperties(Endpoint.Builder builder, Map<String, Value> properties) {
+        properties.forEach((n, v) -> {
+            switch (n) {
+                case "authSchemes": {
+                    builder.putAttribute(AwsEndpointAttribute.AUTH_SCHEMES, AuthSchemeUtils.createAuthSchemes(v));
+                    break;
+                }
+                default: {
+                    LOG.debug(() -> "Ignoring unknown endpoint property: " + n);
+                }
+            }
+        });
+    }
+
+    private static void validatePrefixIsHostNameCompliant(String prefix) {
+        String[] components;
+        for (String component : components = AwsEndpointProviderUtils.splitHostLabelOnDots(prefix)) {
+            HostnameValidator.validateHostnameCompliant(component, component, "request");
+        }
+    }
+
+    private static String[] splitHostLabelOnDots(String label) {
+        return label.split("\\.");
+    }
+}
+

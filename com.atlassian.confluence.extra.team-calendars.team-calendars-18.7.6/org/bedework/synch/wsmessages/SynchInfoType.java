@@ -1,0 +1,32 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.xml.bind.annotation.XmlAccessType
+ *  javax.xml.bind.annotation.XmlAccessorType
+ *  javax.xml.bind.annotation.XmlElement
+ *  javax.xml.bind.annotation.XmlType
+ */
+package org.bedework.synch.wsmessages;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+import org.bedework.synch.wsmessages.ArrayOfSynchConnectorInfo;
+
+@XmlAccessorType(value=XmlAccessType.FIELD)
+@XmlType(name="SynchInfoType", propOrder={"connectors"})
+public class SynchInfoType {
+    @XmlElement(required=true)
+    protected ArrayOfSynchConnectorInfo connectors;
+
+    public ArrayOfSynchConnectorInfo getConnectors() {
+        return this.connectors;
+    }
+
+    public void setConnectors(ArrayOfSynchConnectorInfo value) {
+        this.connectors = value;
+    }
+}
+

@@ -1,0 +1,345 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.openxmlformats.schemas.wordprocessingml.x2006.main.impl;
+
+import javax.xml.namespace.QName;
+import org.apache.xmlbeans.SchemaType;
+import org.apache.xmlbeans.SimpleValue;
+import org.apache.xmlbeans.impl.values.XmlComplexContentImpl;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTColor;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STHexColor;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STThemeColor;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STUcharHexNumber;
+
+public class CTColorImpl
+extends XmlComplexContentImpl
+implements CTColor {
+    private static final long serialVersionUID = 1L;
+    private static final QName[] PROPERTY_QNAME = new QName[]{new QName("http://schemas.openxmlformats.org/wordprocessingml/2006/main", "val"), new QName("http://schemas.openxmlformats.org/wordprocessingml/2006/main", "themeColor"), new QName("http://schemas.openxmlformats.org/wordprocessingml/2006/main", "themeTint"), new QName("http://schemas.openxmlformats.org/wordprocessingml/2006/main", "themeShade")};
+
+    public CTColorImpl(SchemaType sType) {
+        super(sType);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public Object getVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[0]));
+            return target == null ? null : target.getObjectValue();
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public STHexColor xgetVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STHexColor target = null;
+            target = (STHexColor)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[0]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void setVal(Object val) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[0]));
+            if (target == null) {
+                target = (SimpleValue)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[0]));
+            }
+            target.setObjectValue(val);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void xsetVal(STHexColor val) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STHexColor target = null;
+            target = (STHexColor)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[0]));
+            if (target == null) {
+                target = (STHexColor)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[0]));
+            }
+            target.set(val);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public STThemeColor.Enum getThemeColor() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[1]));
+            return target == null ? null : (STThemeColor.Enum)target.getEnumValue();
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public STThemeColor xgetThemeColor() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STThemeColor target = null;
+            target = (STThemeColor)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[1]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetThemeColor() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().find_attribute_user(PROPERTY_QNAME[1]) != null;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void setThemeColor(STThemeColor.Enum themeColor) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[1]));
+            if (target == null) {
+                target = (SimpleValue)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[1]));
+            }
+            target.setEnumValue(themeColor);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void xsetThemeColor(STThemeColor themeColor) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STThemeColor target = null;
+            target = (STThemeColor)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[1]));
+            if (target == null) {
+                target = (STThemeColor)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[1]));
+            }
+            target.set(themeColor);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetThemeColor() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_attribute(PROPERTY_QNAME[1]);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public byte[] getThemeTint() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[2]));
+            return target == null ? null : target.getByteArrayValue();
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public STUcharHexNumber xgetThemeTint() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STUcharHexNumber target = null;
+            target = (STUcharHexNumber)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[2]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetThemeTint() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().find_attribute_user(PROPERTY_QNAME[2]) != null;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void setThemeTint(byte[] themeTint) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[2]));
+            if (target == null) {
+                target = (SimpleValue)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[2]));
+            }
+            target.setByteArrayValue(themeTint);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void xsetThemeTint(STUcharHexNumber themeTint) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STUcharHexNumber target = null;
+            target = (STUcharHexNumber)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[2]));
+            if (target == null) {
+                target = (STUcharHexNumber)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[2]));
+            }
+            target.set(themeTint);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetThemeTint() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_attribute(PROPERTY_QNAME[2]);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public byte[] getThemeShade() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[3]));
+            return target == null ? null : target.getByteArrayValue();
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public STUcharHexNumber xgetThemeShade() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STUcharHexNumber target = null;
+            target = (STUcharHexNumber)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[3]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetThemeShade() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().find_attribute_user(PROPERTY_QNAME[3]) != null;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void setThemeShade(byte[] themeShade) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            SimpleValue target = null;
+            target = (SimpleValue)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[3]));
+            if (target == null) {
+                target = (SimpleValue)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[3]));
+            }
+            target.setByteArrayValue(themeShade);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void xsetThemeShade(STUcharHexNumber themeShade) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            STUcharHexNumber target = null;
+            target = (STUcharHexNumber)((Object)this.get_store().find_attribute_user(PROPERTY_QNAME[3]));
+            if (target == null) {
+                target = (STUcharHexNumber)((Object)this.get_store().add_attribute_user(PROPERTY_QNAME[3]));
+            }
+            target.set(themeShade);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetThemeShade() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_attribute(PROPERTY_QNAME[3]);
+        }
+    }
+}
+

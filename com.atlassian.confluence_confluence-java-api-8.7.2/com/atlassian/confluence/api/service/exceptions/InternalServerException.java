@@ -1,0 +1,23 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.confluence.api.service.exceptions;
+
+import com.atlassian.confluence.api.model.validation.ValidationResult;
+import com.atlassian.confluence.api.service.exceptions.ServiceException;
+
+public class InternalServerException
+extends ServiceException {
+    public InternalServerException(Throwable throwable) {
+        super(throwable);
+    }
+
+    public InternalServerException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public InternalServerException(String message, ValidationResult validationResult) {
+        super(message, validationResult);
+    }
+}
+

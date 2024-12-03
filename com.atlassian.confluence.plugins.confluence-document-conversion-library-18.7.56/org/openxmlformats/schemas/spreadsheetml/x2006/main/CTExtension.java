@@ -1,0 +1,29 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.openxmlformats.schemas.spreadsheetml.x2006.main;
+
+import org.apache.poi.schemas.ooxml.system.ooxml.TypeSystemHolder;
+import org.apache.xmlbeans.SchemaType;
+import org.apache.xmlbeans.XmlObject;
+import org.apache.xmlbeans.XmlToken;
+import org.apache.xmlbeans.impl.schema.DocumentFactory;
+
+public interface CTExtension
+extends XmlObject {
+    public static final DocumentFactory<CTExtension> Factory = new DocumentFactory(TypeSystemHolder.typeSystem, "ctextension1f1etype");
+    public static final SchemaType type = Factory.getType();
+
+    public String getUri();
+
+    public XmlToken xgetUri();
+
+    public boolean isSetUri();
+
+    public void setUri(String var1);
+
+    public void xsetUri(XmlToken var1);
+
+    public void unsetUri();
+}
+

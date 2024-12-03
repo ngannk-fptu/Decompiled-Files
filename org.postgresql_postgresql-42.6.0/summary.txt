@@ -1,0 +1,46 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.postgresql_postgresql-42.6.0.jar
+Decompiled with CFR 0.152
+
+
+org.postgresql.Driver
+----------------------------
+
+getResult(long )
+  Unable to fully structure code
+
+
+org.postgresql.core.v3.QueryExecutorImpl
+----------------------------
+
+processNotifies(int )
+  Loose catch block
+
+
+org.postgresql.jdbc.PgConnection
+----------------------------
+
+getSchema()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+org.postgresql.jdbc.PgPreparedStatement
+----------------------------
+
+executeWithFlags(int )
+  Loose catch block
+
+
+org.postgresql.jdbc.PgSQLXML
+----------------------------
+
+getBinaryStream()
+  Loose catch block
+setResult(java.lang.Class<T> )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [0[TRYBLOCK]], but top level block is 26[SIMPLE_IF_TAKEN]
+
+
+org.postgresql.ssl.LazyKeyManager
+----------------------------
+
+getCertificateChain(java.lang.String )
+  Loose catch block

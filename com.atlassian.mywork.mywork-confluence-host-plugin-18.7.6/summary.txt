@@ -1,0 +1,38 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.mywork.mywork-confluence-host-plugin-18.7.6.jar
+Decompiled with CFR 0.152
+
+
+com.ibm.icu.util.MutableCodePointTrie
+----------------------------
+
+compactWholeDataBlocks(int com.ibm.icu.util.MutableCodePointTrie$AllSameBlocks )
+  Unable to fully structure code
+
+
+com.google.inject.internal.asm.$ClassReader
+----------------------------
+
+accept(com.google.inject.internal.asm.$ClassVisitor com.google.inject.internal.asm.$Attribute[] int )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+com.ibm.icu.impl.ICUResourceBundle
+----------------------------
+
+findStringWithFallback(java.lang.String com.ibm.icu.util.UResourceBundle com.ibm.icu.util.UResourceBundle )
+  Unable to fully structure code
+
+
+com.ibm.icu.impl.coll.CollationFastLatinBuilder
+----------------------------
+
+encodeUniqueCEs()
+  Unable to fully structure code
+
+
+com.ibm.icu.text.UnicodeSet
+----------------------------
+
+applyPropertyAlias(java.lang.String java.lang.String com.ibm.icu.text.SymbolTable )
+  Unable to fully structure code

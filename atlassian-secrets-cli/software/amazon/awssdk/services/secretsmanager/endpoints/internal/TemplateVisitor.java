@@ -1,0 +1,23 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package software.amazon.awssdk.services.secretsmanager.endpoints.internal;
+
+import software.amazon.awssdk.annotations.SdkInternalApi;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.Expr;
+
+@SdkInternalApi
+public interface TemplateVisitor<T> {
+    public T visitStaticTemplate(String var1);
+
+    public T visitSingleDynamicTemplate(Expr var1);
+
+    public T visitStaticElement(String var1);
+
+    public T visitDynamicElement(Expr var1);
+
+    public T startMultipartTemplate();
+
+    public T finishMultipartTemplate();
+}
+

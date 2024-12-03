@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.hibernate.procedure;
+
+import org.hibernate.HibernateException;
+
+public class NoSuchParameterException
+extends HibernateException {
+    public NoSuchParameterException(String message) {
+        super(message);
+    }
+}
+

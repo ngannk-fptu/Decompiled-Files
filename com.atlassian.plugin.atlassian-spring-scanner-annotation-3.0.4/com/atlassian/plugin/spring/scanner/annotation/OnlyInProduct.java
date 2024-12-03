@@ -1,0 +1,17 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.plugin.spring.scanner.annotation;
+
+import com.atlassian.plugin.spring.scanner.ProductFilter;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(value={ElementType.ANNOTATION_TYPE})
+@Retention(value=RetentionPolicy.RUNTIME)
+public @interface OnlyInProduct {
+    public ProductFilter value();
+}
+

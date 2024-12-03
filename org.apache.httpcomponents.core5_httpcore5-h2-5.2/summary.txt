@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.httpcomponents.core5_httpcore5-h2-5.2.jar
+Decompiled with CFR 0.152

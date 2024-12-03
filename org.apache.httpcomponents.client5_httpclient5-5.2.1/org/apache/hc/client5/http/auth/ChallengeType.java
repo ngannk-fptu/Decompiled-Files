@@ -1,0 +1,11 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.apache.hc.client5.http.auth;
+
+public enum ChallengeType {
+    TARGET,
+    PROXY;
+
+}
+

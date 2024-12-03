@@ -1,0 +1,8 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.plugin.webresource.models;
+
+public class NormalizedRequest {
+}
+

@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.glassfish.jaxb_jaxb-runtime-2.3.1.jar
+Decompiled with CFR 0.152
+
+
+com.sun.xml.bind.v2.runtime.ValueListBeanInfoImpl
+----------------------------
+
+text(com.sun.xml.bind.v2.runtime.unmarshaller.UnmarshallingContext$State java.lang.CharSequence )
+  Unable to fully structure code

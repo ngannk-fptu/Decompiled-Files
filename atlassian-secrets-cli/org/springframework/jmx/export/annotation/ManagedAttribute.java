@@ -1,0 +1,26 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.springframework.jmx.export.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(value={ElementType.METHOD})
+@Retention(value=RetentionPolicy.RUNTIME)
+@Documented
+public @interface ManagedAttribute {
+    public String defaultValue() default "";
+
+    public String description() default "";
+
+    public int currencyTimeLimit() default -1;
+
+    public String persistPolicy() default "";
+
+    public int persistPeriod() default -1;
+}
+

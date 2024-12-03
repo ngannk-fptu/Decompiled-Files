@@ -1,0 +1,94 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.nimbusds.oauth2.sdk;
+
+import com.nimbusds.oauth2.sdk.ParseException;
+import com.nimbusds.oauth2.sdk.id.Identifier;
+import com.nimbusds.oauth2.sdk.util.StringUtils;
+import com.nimbusds.openid.connect.sdk.OIDCResponseTypeValue;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.StringTokenizer;
+import net.jcip.annotations.Immutable;
+import net.jcip.annotations.NotThreadSafe;
+
+@NotThreadSafe
+public class ResponseType
+extends HashSet<Value> {
+    public static ResponseType getDefault() {
+        ResponseType defaultResponseType = new ResponseType();
+        defaultResponseType.add(Value.CODE);
+        return defaultResponseType;
+    }
+
+    public ResponseType() {
+    }
+
+    public ResponseType(String ... values) {
+        for (String v : values) {
+            this.add(new Value(v));
+        }
+    }
+
+    public ResponseType(Value ... values) {
+        this.addAll(Arrays.asList(values));
+    }
+
+    public static ResponseType parse(String s) throws ParseException {
+        if (StringUtils.isBlank(s)) {
+            throw new ParseException("Null or empty response type string");
+        }
+        ResponseType rt = new ResponseType();
+        StringTokenizer st = new StringTokenizer(s, " ");
+        while (st.hasMoreTokens()) {
+            rt.add(new Value(st.nextToken()));
+        }
+        return rt;
+    }
+
+    public boolean impliesCodeFlow() {
+        return this.equals(new ResponseType(Value.CODE));
+    }
+
+    public boolean impliesImplicitFlow() {
+        return this.equals(new ResponseType(Value.TOKEN)) || this.equals(new ResponseType(OIDCResponseTypeValue.ID_TOKEN, Value.TOKEN)) || this.equals(new ResponseType(OIDCResponseTypeValue.ID_TOKEN));
+    }
+
+    public boolean impliesHybridFlow() {
+        return this.equals(new ResponseType(Value.CODE, OIDCResponseTypeValue.ID_TOKEN)) || this.equals(new ResponseType(Value.CODE, Value.TOKEN)) || this.equals(new ResponseType(Value.CODE, OIDCResponseTypeValue.ID_TOKEN, Value.TOKEN));
+    }
+
+    public boolean contains(String value) {
+        return this.contains(new Value(value));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Value v : this) {
+            if (sb.length() > 0) {
+                sb.append(' ');
+            }
+            sb.append(v.getValue());
+        }
+        return sb.toString();
+    }
+
+    @Immutable
+    public static final class Value
+    extends Identifier {
+        public static final Value CODE = new Value("code");
+        public static final Value TOKEN = new Value("token");
+
+        public Value(String value) {
+            super(value);
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            return object instanceof Value && this.toString().equals(object.toString());
+        }
+    }
+}
+

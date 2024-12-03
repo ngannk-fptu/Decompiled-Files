@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.plugins_atlassian-plugins-osgi-7.4.0.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.plugin.osgi.factory.transform.stage.HostComponentSpringStage
+----------------------------
+
+findUsedHostComponents(java.util.Set<java.lang.String> java.util.Set<java.lang.String> java.util.List<java.lang.String> java.io.InputStream )
+  Unable to fully structure code

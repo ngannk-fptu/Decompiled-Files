@@ -1,0 +1,101 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.eclipse.jdt.internal.compiler.lookup;
+
+public interface TagBits {
+    public static final long IsArrayType = 1L;
+    public static final long IsBaseType = 2L;
+    public static final long IsNestedType = 4L;
+    public static final long IsMemberType = 8L;
+    public static final long ContainsNestedTypeReferences = 2048L;
+    public static final long MemberTypeMask = 2060L;
+    public static final long IsLocalType = 16L;
+    public static final long LocalTypeMask = 2068L;
+    public static final long IsAnonymousType = 32L;
+    public static final long AnonymousTypeMask = 2100L;
+    public static final long IsBinaryBinding = 64L;
+    public static final long HasMissingType = 128L;
+    public static final long HasUncheckedTypeArgumentForBoundCheck = 256L;
+    public static final long ForcedToBeRawType = 512L;
+    public static final long HasUnresolvedArguments = 512L;
+    public static final long BeginHierarchyCheck = 256L;
+    public static final long EndHierarchyCheck = 512L;
+    public static final long PauseHierarchyCheck = 524288L;
+    public static final long HasParameterAnnotations = 1024L;
+    public static final long KnowsDefaultAbstractMethods = 1024L;
+    public static final long IsArgument = 1024L;
+    public static final long ClearPrivateModifier = 512L;
+    public static final long IsEffectivelyFinal = 2048L;
+    public static final long MultiCatchParameter = 4096L;
+    public static final long IsResource = 8192L;
+    public static final long IsCanonicalConstructor = 2048L;
+    public static final long isImplicit = 4096L;
+    public static final long IsNullnessKnown = 4096L;
+    public static final long AreFieldsSorted = 4096L;
+    public static final long AreFieldsComplete = 8192L;
+    public static final long AreMethodsSorted = 16384L;
+    public static final long AreMethodsComplete = 32768L;
+    public static final long HasNoMemberTypes = 65536L;
+    public static final long HierarchyHasProblems = 131072L;
+    public static final long TypeVariablesAreConnected = 262144L;
+    public static final long PassedBoundCheck = 0x400000L;
+    public static final long IsBoundParameterizedType = 0x800000L;
+    public static final long HasAnnotatedVariants = 0x800000L;
+    public static final long HasUnresolvedTypeVariables = 0x1000000L;
+    public static final long HasUnresolvedSuperclass = 0x2000000L;
+    public static final long HasUnresolvedSuperinterfaces = 0x4000000L;
+    public static final long HasUnresolvedEnclosingType = 0x8000000L;
+    public static final long HasUnresolvedMemberTypes = 0x10000000L;
+    public static final long HasTypeVariable = 0x20000000L;
+    public static final long HasDirectWildcard = 0x40000000L;
+    public static final long BeginAnnotationCheck = 0x80000000L;
+    public static final long EndAnnotationCheck = 0x100000000L;
+    public static final long AnnotationResolved = 0x200000000L;
+    public static final long DeprecatedAnnotationResolved = 0x400000000L;
+    public static final long AnnotationTarget = 0x800000000L;
+    public static final long AnnotationForType = 0x1000000000L;
+    public static final long AnnotationForField = 0x2000000000L;
+    public static final long AnnotationForMethod = 0x4000000000L;
+    public static final long AnnotationForParameter = 0x8000000000L;
+    public static final long AnnotationForConstructor = 0x10000000000L;
+    public static final long AnnotationForLocalVariable = 0x20000000000L;
+    public static final long AnnotationForAnnotationType = 0x40000000000L;
+    public static final long AnnotationForPackage = 0x80000000000L;
+    public static final long AnnotationForTypeUse = 0x20000000000000L;
+    public static final long AnnotationForTypeParameter = 0x40000000000000L;
+    public static final long AnnotationForModule = 0x2000000000000000L;
+    public static final long SE7AnnotationTargetMASK = 0xFF000000000L;
+    public static final long AnnotationSourceRetention = 0x100000000000L;
+    public static final long AnnotationClassRetention = 0x200000000000L;
+    public static final long AnnotationRuntimeRetention = 0x300000000000L;
+    public static final long AnnotationRetentionMASK = 0x300000000000L;
+    public static final long AnnotationDeprecated = 0x400000000000L;
+    public static final long AnnotationDocumented = 0x800000000000L;
+    public static final long AnnotationInherited = 0x1000000000000L;
+    public static final long AnnotationOverride = 0x2000000000000L;
+    public static final long AnnotationSuppressWarnings = 0x4000000000000L;
+    public static final long AnnotationSafeVarargs = 0x8000000000000L;
+    public static final long AnnotationPolymorphicSignature = 0x10000000000000L;
+    public static final long AnnotationNullable = 0x80000000000000L;
+    public static final long AnnotationNonNull = 0x100000000000000L;
+    @Deprecated
+    public static final long AnnotationNonNullByDefault = 0x200000000000000L;
+    @Deprecated
+    public static final long AnnotationNullUnspecifiedByDefault = 0x400000000000000L;
+    public static final long AnnotationFunctionalInterface = 0x800000000000000L;
+    public static final long AnnotationRepeatable = 0x1000000000000000L;
+    public static final long AnnotationTerminallyDeprecated = 0x4000000000000000L;
+    public static final long AnnotationForRecordComponent = 0x40000000L;
+    public static final long AnnotationTargetMASK = 2332882165877964800L;
+    public static final long AllStandardAnnotationsMask = 8646911251265355776L;
+    public static final long AnnotationNullMASK = 0x180000000000000L;
+    public static final long HasNullTypeAnnotation = 0x100000L;
+    public static final long HasTypeAnnotations = 0x200000L;
+    public static final long DefaultValueResolved = 0x800000000000000L;
+    public static final long AnnotationPreviewFeature = 0x180000000L;
+    public static final long EssentialAPI = 1024L;
+    public static final long HasNonPrivateConstructor = 0x1000000000000000L;
+    public static final long HasCapturedWildcard = 0x2000000000000000L;
+}
+

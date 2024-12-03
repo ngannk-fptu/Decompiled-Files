@@ -1,0 +1,26 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.atlassian.annotations.PublicApi
+ *  com.atlassian.plugin.module.ModuleFactory
+ *  org.springframework.context.annotation.Bean
+ *  org.springframework.context.annotation.Configuration
+ */
+package com.atlassian.plugins.osgi.javaconfig.configs.beans;
+
+import com.atlassian.annotations.PublicApi;
+import com.atlassian.plugin.module.ModuleFactory;
+import com.atlassian.plugins.osgi.javaconfig.OsgiServices;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@PublicApi
+public class ModuleFactoryBean {
+    @Bean
+    public ModuleFactory moduleFactory() {
+        return OsgiServices.importOsgiService(ModuleFactory.class);
+    }
+}
+

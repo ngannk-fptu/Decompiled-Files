@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.commons_commons-text-1.10.0.jar
+Decompiled with CFR 0.152
+
+
+org.apache.commons.text.ExtendedMessageFormat
+----------------------------
+
+readArgumentIndex(java.lang.String java.text.ParsePosition )
+  Unable to fully structure code

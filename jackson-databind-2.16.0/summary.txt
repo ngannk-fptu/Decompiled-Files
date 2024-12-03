@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\jackson-databind-2.16.0.jar
+Decompiled with CFR 0.152
+
+
+com.fasterxml.jackson.databind.type.TypeFactory
+----------------------------
+
+constructSpecializedType(com.fasterxml.jackson.databind.JavaType java.lang.Class<?> boolean )
+  Unable to fully structure code

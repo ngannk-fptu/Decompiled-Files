@@ -1,0 +1,131 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.springframework.beans.BeansException
+ *  org.springframework.beans.factory.BeanInitializationException
+ *  org.springframework.beans.factory.config.ConfigurableListableBeanFactory
+ *  org.springframework.beans.factory.config.PlaceholderConfigurerSupport
+ *  org.springframework.core.env.ConfigurableEnvironment
+ *  org.springframework.core.env.ConfigurablePropertyResolver
+ *  org.springframework.core.env.Environment
+ *  org.springframework.core.env.MutablePropertySources
+ *  org.springframework.core.env.PropertiesPropertySource
+ *  org.springframework.core.env.PropertyResolver
+ *  org.springframework.core.env.PropertySource
+ *  org.springframework.core.env.PropertySources
+ *  org.springframework.core.env.PropertySourcesPropertyResolver
+ *  org.springframework.lang.Nullable
+ *  org.springframework.util.Assert
+ *  org.springframework.util.StringValueResolver
+ */
+package org.springframework.context.support;
+
+import java.io.IOException;
+import java.util.Properties;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanInitializationException;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.PlaceholderConfigurerSupport;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.ConfigurablePropertyResolver;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.MutablePropertySources;
+import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.env.PropertyResolver;
+import org.springframework.core.env.PropertySource;
+import org.springframework.core.env.PropertySources;
+import org.springframework.core.env.PropertySourcesPropertyResolver;
+import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
+import org.springframework.util.StringValueResolver;
+
+public class PropertySourcesPlaceholderConfigurer
+extends PlaceholderConfigurerSupport
+implements EnvironmentAware {
+    public static final String LOCAL_PROPERTIES_PROPERTY_SOURCE_NAME = "localProperties";
+    public static final String ENVIRONMENT_PROPERTIES_PROPERTY_SOURCE_NAME = "environmentProperties";
+    @Nullable
+    private MutablePropertySources propertySources;
+    @Nullable
+    private PropertySources appliedPropertySources;
+    @Nullable
+    private Environment environment;
+
+    public void setPropertySources(PropertySources propertySources) {
+        this.propertySources = new MutablePropertySources(propertySources);
+    }
+
+    @Override
+    public void setEnvironment(Environment environment2) {
+        this.environment = environment2;
+    }
+
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        if (this.propertySources == null) {
+            this.propertySources = new MutablePropertySources();
+            if (this.environment != null) {
+                Environment propertyResolver = this.environment;
+                if (this.ignoreUnresolvablePlaceholders && this.environment instanceof ConfigurableEnvironment) {
+                    ConfigurableEnvironment configurableEnvironment = (ConfigurableEnvironment)this.environment;
+                    PropertySourcesPropertyResolver resolver = new PropertySourcesPropertyResolver((PropertySources)configurableEnvironment.getPropertySources());
+                    resolver.setIgnoreUnresolvableNestedPlaceholders(true);
+                    propertyResolver = resolver;
+                }
+                Environment propertyResolverToUse = propertyResolver;
+                this.propertySources.addLast((PropertySource)new PropertySource<Environment>(ENVIRONMENT_PROPERTIES_PROPERTY_SOURCE_NAME, this.environment, (PropertyResolver)propertyResolverToUse){
+                    final /* synthetic */ PropertyResolver val$propertyResolverToUse;
+                    {
+                        this.val$propertyResolverToUse = propertyResolver;
+                        super(x0, (Object)x1);
+                    }
+
+                    @Nullable
+                    public String getProperty(String key) {
+                        return this.val$propertyResolverToUse.getProperty(key);
+                    }
+                });
+            }
+            try {
+                PropertiesPropertySource localPropertySource = new PropertiesPropertySource(LOCAL_PROPERTIES_PROPERTY_SOURCE_NAME, this.mergeProperties());
+                if (this.localOverride) {
+                    this.propertySources.addFirst((PropertySource)localPropertySource);
+                } else {
+                    this.propertySources.addLast((PropertySource)localPropertySource);
+                }
+            }
+            catch (IOException ex) {
+                throw new BeanInitializationException("Could not load properties", (Throwable)ex);
+            }
+        }
+        this.processProperties(beanFactory, (ConfigurablePropertyResolver)new PropertySourcesPropertyResolver((PropertySources)this.propertySources));
+        this.appliedPropertySources = this.propertySources;
+    }
+
+    protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, ConfigurablePropertyResolver propertyResolver) throws BeansException {
+        propertyResolver.setPlaceholderPrefix(this.placeholderPrefix);
+        propertyResolver.setPlaceholderSuffix(this.placeholderSuffix);
+        propertyResolver.setValueSeparator(this.valueSeparator);
+        StringValueResolver valueResolver = strVal -> {
+            String resolved;
+            String string = resolved = this.ignoreUnresolvablePlaceholders ? propertyResolver.resolvePlaceholders(strVal) : propertyResolver.resolveRequiredPlaceholders(strVal);
+            if (this.trimValues) {
+                resolved = resolved.trim();
+            }
+            return resolved.equals(this.nullValue) ? null : resolved;
+        };
+        this.doProcessProperties(beanFactoryToProcess, valueResolver);
+    }
+
+    @Deprecated
+    protected void processProperties(ConfigurableListableBeanFactory beanFactory, Properties props) {
+        throw new UnsupportedOperationException("Call processProperties(ConfigurableListableBeanFactory, ConfigurablePropertyResolver) instead");
+    }
+
+    public PropertySources getAppliedPropertySources() throws IllegalStateException {
+        Assert.state((this.appliedPropertySources != null ? 1 : 0) != 0, (String)"PropertySources have not yet been applied");
+        return this.appliedPropertySources;
+    }
+}
+

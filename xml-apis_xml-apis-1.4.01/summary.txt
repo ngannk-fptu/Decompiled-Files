@@ -1,0 +1,37 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\xml-apis_xml-apis-1.4.01.jar
+Decompiled with CFR 0.152
+
+
+javax.xml.datatype.FactoryFinder
+----------------------------
+
+findJarServiceProvider(java.lang.String )
+  Loose catch block
+
+
+javax.xml.parsers.FactoryFinder
+----------------------------
+
+findJarServiceProvider(java.lang.String )
+  Loose catch block
+
+
+javax.xml.stream.FactoryFinder
+----------------------------
+
+findJarServiceProvider(java.lang.String )
+  Loose catch block
+
+
+javax.xml.transform.FactoryFinder
+----------------------------
+
+findJarServiceProvider(java.lang.String )
+  Loose catch block
+
+
+org.xml.sax.helpers.XMLReaderFactory
+----------------------------
+
+createXMLReader()
+  Loose catch block

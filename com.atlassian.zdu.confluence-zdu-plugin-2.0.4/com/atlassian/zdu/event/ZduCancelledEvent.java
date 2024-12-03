@@ -1,0 +1,41 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.atlassian.analytics.api.annotations.EventName
+ *  javax.annotation.Nonnull
+ */
+package com.atlassian.zdu.event;
+
+import com.atlassian.analytics.api.annotations.EventName;
+import com.atlassian.zdu.event.BuildInfo;
+import java.io.Serializable;
+import java.util.Objects;
+import javax.annotation.Nonnull;
+
+@EventName(value="zdu.upgrade-state.cancel")
+public class ZduCancelledEvent
+implements Serializable {
+    private static final long serialVersionUID = -7304798803254822150L;
+    private final long nodeCount;
+    private final BuildInfo nodeBuild;
+
+    public ZduCancelledEvent(long nodeCount, @Nonnull BuildInfo nodeBuild) {
+        this.nodeCount = nodeCount;
+        this.nodeBuild = Objects.requireNonNull(nodeBuild);
+    }
+
+    public long getNodeCount() {
+        return this.nodeCount;
+    }
+
+    @Nonnull
+    public BuildInfo getNodeBuild() {
+        return this.nodeBuild;
+    }
+
+    public String getNodeVersion() {
+        return this.nodeBuild.getVersion();
+    }
+}
+

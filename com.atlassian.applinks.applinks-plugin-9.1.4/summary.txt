@@ -1,0 +1,25 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.applinks.applinks-plugin-9.1.4.jar
+Decompiled with CFR 0.152
+
+
+com.fasterxml.jackson.core.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code
+
+
+com.fasterxml.jackson.databind.type.TypeFactory
+----------------------------
+
+constructSpecializedType(com.fasterxml.jackson.databind.JavaType java.lang.Class<?> boolean )
+  Unable to fully structure code
+
+
+com.atlassian.applinks.core.upgrade.FishEyeCrucibleHashAuthenticatorPropertiesUpgradeTask
+----------------------------
+
+doUpgrade()
+  Loose catch block

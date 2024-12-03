@@ -1,0 +1,65 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.jwt.jwt-plugin-3.3.2.jar
+Decompiled with CFR 0.152
+
+
+org.bouncycastle.cms.jcajce.JceKeyAgreeRecipient
+----------------------------
+
+extractSecretKey(org.bouncycastle.asn1.x509.AlgorithmIdentifier org.bouncycastle.asn1.x509.AlgorithmIdentifier org.bouncycastle.asn1.x509.SubjectPublicKeyInfo org.bouncycastle.asn1.ASN1OctetString byte[] )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 3 blocks at once
+
+
+org.bouncycastle.crypto.generators.GOST3410ParametersGenerator
+----------------------------
+
+procedure_B(int int java.math.BigInteger[] )
+  Unable to fully structure code
+procedure_Bb(long long java.math.BigInteger[] )
+  Unable to fully structure code
+
+
+org.bouncycastle.crypto.generators.DSAParametersGenerator
+----------------------------
+
+generateParameters_FIPS186_2()
+  Unable to fully structure code
+generateParameters_FIPS186_3()
+  Unable to fully structure code
+
+
+org.objectweb.asm.signature.SignatureReader
+----------------------------
+
+parseType(java.lang.String int org.objectweb.asm.signature.SignatureVisitor )
+  Unable to fully structure code
+
+
+org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi
+----------------------------
+
+engineLoad(java.io.InputStream char[] )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+org.bouncycastle.est.ESTService
+----------------------------
+
+getCACerts()
+  Unable to fully structure code
+getCSRAttributes()
+  Unable to fully structure code
+
+
+com.nimbusds.jose.shaded.gson.internal.$Gson$Types
+----------------------------
+
+resolve(java.lang.reflect.Type java.lang.Class<?> java.lang.reflect.Type java.util.Map<java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type> )
+  Unable to fully structure code
+
+
+org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher
+----------------------------
+
+engineDoFinal(byte[] int int )
+  Loose catch block

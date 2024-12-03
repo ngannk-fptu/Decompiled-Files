@@ -1,0 +1,16 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.plugins.document-conversion-library-2.7.11.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.plugins.conversion.convert.image.ImagingConverter
+----------------------------
+
+convert(com.atlassian.plugins.conversion.convert.FileFormat com.atlassian.plugins.conversion.convert.FileFormat java.io.InputStream com.atlassian.plugins.conversion.convert.store.ConversionStore java.lang.String java.util.Collection<java.lang.Integer> )
+  Unable to fully structure code
+
+
+com.atlassian.plugins.conversion.convert.image.PsdConverter
+----------------------------
+
+convert(java.io.InputStream java.io.OutputStream com.atlassian.plugins.conversion.convert.FileFormat com.atlassian.plugins.conversion.convert.bean.BeanFile )
+  Unable to fully structure code

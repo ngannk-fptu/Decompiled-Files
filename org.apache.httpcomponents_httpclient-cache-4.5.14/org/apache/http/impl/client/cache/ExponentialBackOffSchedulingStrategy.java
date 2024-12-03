@@ -1,0 +1,102 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.http.annotation.Contract
+ *  org.apache.http.annotation.ThreadingBehavior
+ *  org.apache.http.util.Args
+ */
+package org.apache.http.impl.client.cache;
+
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import org.apache.http.annotation.Contract;
+import org.apache.http.annotation.ThreadingBehavior;
+import org.apache.http.impl.client.cache.AsynchronousValidationRequest;
+import org.apache.http.impl.client.cache.CacheConfig;
+import org.apache.http.impl.client.cache.SchedulingStrategy;
+import org.apache.http.util.Args;
+
+@Contract(threading=ThreadingBehavior.SAFE)
+public class ExponentialBackOffSchedulingStrategy
+implements SchedulingStrategy {
+    public static final long DEFAULT_BACK_OFF_RATE = 10L;
+    public static final long DEFAULT_INITIAL_EXPIRY_IN_MILLIS = TimeUnit.SECONDS.toMillis(6L);
+    public static final long DEFAULT_MAX_EXPIRY_IN_MILLIS = TimeUnit.SECONDS.toMillis(86400L);
+    private final long backOffRate;
+    private final long initialExpiryInMillis;
+    private final long maxExpiryInMillis;
+    private final ScheduledExecutorService executor;
+
+    public ExponentialBackOffSchedulingStrategy(CacheConfig cacheConfig) {
+        this(cacheConfig, 10L, DEFAULT_INITIAL_EXPIRY_IN_MILLIS, DEFAULT_MAX_EXPIRY_IN_MILLIS);
+    }
+
+    public ExponentialBackOffSchedulingStrategy(CacheConfig cacheConfig, long backOffRate, long initialExpiryInMillis, long maxExpiryInMillis) {
+        this(ExponentialBackOffSchedulingStrategy.createThreadPoolFromCacheConfig(cacheConfig), backOffRate, initialExpiryInMillis, maxExpiryInMillis);
+    }
+
+    private static ScheduledThreadPoolExecutor createThreadPoolFromCacheConfig(CacheConfig cacheConfig) {
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(cacheConfig.getAsynchronousWorkersMax());
+        scheduledThreadPoolExecutor.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
+        return scheduledThreadPoolExecutor;
+    }
+
+    ExponentialBackOffSchedulingStrategy(ScheduledExecutorService executor, long backOffRate, long initialExpiryInMillis, long maxExpiryInMillis) {
+        this.executor = (ScheduledExecutorService)Args.notNull((Object)executor, (String)"Executor");
+        this.backOffRate = Args.notNegative((long)backOffRate, (String)"BackOffRate");
+        this.initialExpiryInMillis = Args.notNegative((long)initialExpiryInMillis, (String)"InitialExpiryInMillis");
+        this.maxExpiryInMillis = Args.notNegative((long)maxExpiryInMillis, (String)"MaxExpiryInMillis");
+    }
+
+    @Override
+    public void schedule(AsynchronousValidationRequest revalidationRequest) {
+        Args.notNull((Object)revalidationRequest, (String)"RevalidationRequest");
+        int consecutiveFailedAttempts = revalidationRequest.getConsecutiveFailedAttempts();
+        long delayInMillis = this.calculateDelayInMillis(consecutiveFailedAttempts);
+        this.executor.schedule(revalidationRequest, delayInMillis, TimeUnit.MILLISECONDS);
+    }
+
+    @Override
+    public void close() {
+        this.executor.shutdown();
+    }
+
+    public long getBackOffRate() {
+        return this.backOffRate;
+    }
+
+    public long getInitialExpiryInMillis() {
+        return this.initialExpiryInMillis;
+    }
+
+    public long getMaxExpiryInMillis() {
+        return this.maxExpiryInMillis;
+    }
+
+    protected long calculateDelayInMillis(int consecutiveFailedAttempts) {
+        if (consecutiveFailedAttempts > 0) {
+            long delayInSeconds = (long)((double)this.initialExpiryInMillis * Math.pow(this.backOffRate, consecutiveFailedAttempts - 1));
+            return Math.min(delayInSeconds, this.maxExpiryInMillis);
+        }
+        return 0L;
+    }
+
+    @Deprecated
+    protected static <T> T checkNotNull(String parameterName, T value) {
+        if (value == null) {
+            throw new IllegalArgumentException(parameterName + " may not be null");
+        }
+        return value;
+    }
+
+    @Deprecated
+    protected static long checkNotNegative(String parameterName, long value) {
+        if (value < 0L) {
+            throw new IllegalArgumentException(parameterName + " may not be negative");
+        }
+        return value;
+    }
+}
+

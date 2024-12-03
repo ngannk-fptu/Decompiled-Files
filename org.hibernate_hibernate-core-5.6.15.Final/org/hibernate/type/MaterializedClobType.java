@@ -1,0 +1,23 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.hibernate.type;
+
+import org.hibernate.type.AbstractSingleColumnStandardBasicType;
+import org.hibernate.type.descriptor.java.StringTypeDescriptor;
+import org.hibernate.type.descriptor.sql.ClobTypeDescriptor;
+
+public class MaterializedClobType
+extends AbstractSingleColumnStandardBasicType<String> {
+    public static final MaterializedClobType INSTANCE = new MaterializedClobType();
+
+    public MaterializedClobType() {
+        super(ClobTypeDescriptor.DEFAULT, StringTypeDescriptor.INSTANCE);
+    }
+
+    @Override
+    public String getName() {
+        return "materialized_clob";
+    }
+}
+

@@ -1,0 +1,41 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.activeobjects.activeobjects-plugin-5.2.1.jar
+Decompiled with CFR 0.152
+
+
+com.ctc.wstx.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code
+
+
+net.java.ao.EntityProxy
+----------------------------
+
+fetchOneToMany(java.lang.reflect.Method net.java.ao.OneToMany )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+fetchOneToOne(java.lang.reflect.Method net.java.ao.OneToOne )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+com.ctc.wstx.io.UTF8Reader
+----------------------------
+
+read(char[] int int )
+  Unable to fully structure code
+
+
+com.ctc.wstx.sr.BasicStreamReader
+----------------------------
+
+readIndentation(char int )
+  Unable to fully structure code
+
+
+net.java.ao.DatabaseProvider
+----------------------------
+
+parseValue(int java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [0[TRYBLOCK]], but top level block is 7[SWITCH]

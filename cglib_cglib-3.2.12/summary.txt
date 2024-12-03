@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\cglib_cglib-3.2.12.jar
+Decompiled with CFR 0.152
+
+
+net.sf.cglib.core.AbstractClassGenerator
+----------------------------
+
+generate(net.sf.cglib.core.AbstractClassGenerator$ClassLoaderData )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [9[CATCHBLOCK]], but top level block is 3[TRYBLOCK]

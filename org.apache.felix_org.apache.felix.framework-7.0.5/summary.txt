@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.felix_org.apache.felix.framework-7.0.5.jar
+Decompiled with CFR 0.152
+
+
+org.apache.felix.framework.cache.BundleCache
+----------------------------
+
+read(java.io.InputStream int )
+  Loose catch block

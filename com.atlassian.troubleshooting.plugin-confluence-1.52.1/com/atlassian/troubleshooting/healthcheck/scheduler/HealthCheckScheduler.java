@@ -1,0 +1,9 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.troubleshooting.healthcheck.scheduler;
+
+public interface HealthCheckScheduler {
+    public void schedule();
+}
+

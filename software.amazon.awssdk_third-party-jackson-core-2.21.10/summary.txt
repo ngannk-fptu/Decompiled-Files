@@ -1,0 +1,11 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\software.amazon.awssdk_third-party-jackson-core-2.21.10.jar
+Decompiled with CFR 0.152
+
+
+software.amazon.awssdk.thirdparty.jackson.core.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code

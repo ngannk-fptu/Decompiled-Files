@@ -1,0 +1,150 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.google.common.collect.ImmutableList
+ *  com.google.common.collect.ImmutableSet
+ *  com.google.common.collect.ImmutableSet$Builder
+ */
+package com.google.inject.internal;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import com.google.inject.Key;
+import com.google.inject.MembersInjector;
+import com.google.inject.TypeLiteral;
+import com.google.inject.internal.ContextualCallable;
+import com.google.inject.internal.EncounterImpl;
+import com.google.inject.internal.Errors;
+import com.google.inject.internal.ErrorsException;
+import com.google.inject.internal.InjectorImpl;
+import com.google.inject.internal.InternalContext;
+import com.google.inject.internal.MethodAspect;
+import com.google.inject.internal.ProvisionListenerStackCallback;
+import com.google.inject.internal.SingleMemberInjector;
+import com.google.inject.spi.InjectionListener;
+import com.google.inject.spi.InjectionPoint;
+
+/*
+ * This class specifies class file version 49.0 but uses Java 6 signatures.  Assumed Java 6.
+ */
+final class MembersInjectorImpl<T>
+implements MembersInjector<T> {
+    private final TypeLiteral<T> typeLiteral;
+    private final InjectorImpl injector;
+    private final ImmutableList<SingleMemberInjector> memberInjectors;
+    private final ImmutableSet<MembersInjector<? super T>> userMembersInjectors;
+    private final ImmutableSet<InjectionListener<? super T>> injectionListeners;
+    private final ImmutableList<MethodAspect> addedAspects;
+
+    MembersInjectorImpl(InjectorImpl injector, TypeLiteral<T> typeLiteral, EncounterImpl<T> encounter, ImmutableList<SingleMemberInjector> memberInjectors) {
+        this.injector = injector;
+        this.typeLiteral = typeLiteral;
+        this.memberInjectors = memberInjectors;
+        this.userMembersInjectors = encounter.getMembersInjectors();
+        this.injectionListeners = encounter.getInjectionListeners();
+        this.addedAspects = encounter.getAspects();
+    }
+
+    public ImmutableList<SingleMemberInjector> getMemberInjectors() {
+        return this.memberInjectors;
+    }
+
+    @Override
+    public void injectMembers(T instance) {
+        Errors errors = new Errors(this.typeLiteral);
+        try {
+            this.injectAndNotify(instance, errors, null, null, this.typeLiteral, false);
+        }
+        catch (ErrorsException e) {
+            errors.merge(e.getErrors());
+        }
+        errors.throwProvisionExceptionIfErrorsExist();
+    }
+
+    void injectAndNotify(final T instance, final Errors errors, final Key<T> key, final ProvisionListenerStackCallback<T> provisionCallback, final Object source, final boolean toolableOnly) throws ErrorsException {
+        if (instance == null) {
+            return;
+        }
+        this.injector.callInContext(new ContextualCallable<Void>(){
+
+            /*
+             * WARNING - Removed try catching itself - possible behaviour change.
+             */
+            @Override
+            public Void call(final InternalContext context) throws ErrorsException {
+                context.pushState(key, source);
+                try {
+                    if (provisionCallback != null && provisionCallback.hasListeners()) {
+                        provisionCallback.provision(errors, context, new ProvisionListenerStackCallback.ProvisionCallback<T>(){
+
+                            @Override
+                            public T call() {
+                                MembersInjectorImpl.this.injectMembers(instance, errors, context, toolableOnly);
+                                return instance;
+                            }
+                        });
+                    } else {
+                        MembersInjectorImpl.this.injectMembers(instance, errors, context, toolableOnly);
+                    }
+                }
+                finally {
+                    context.popState();
+                }
+                return null;
+            }
+        });
+        if (!toolableOnly) {
+            this.notifyListeners(instance, errors);
+        }
+    }
+
+    void notifyListeners(T instance, Errors errors) throws ErrorsException {
+        int numErrorsBefore = errors.size();
+        for (InjectionListener injectionListener : this.injectionListeners) {
+            try {
+                injectionListener.afterInjection(instance);
+            }
+            catch (RuntimeException e) {
+                errors.errorNotifyingInjectionListener(injectionListener, this.typeLiteral, e);
+            }
+        }
+        errors.throwIfNewErrors(numErrorsBefore);
+    }
+
+    void injectMembers(T t, Errors errors, InternalContext context, boolean toolableOnly) {
+        int size = this.memberInjectors.size();
+        for (int i = 0; i < size; ++i) {
+            SingleMemberInjector injector = (SingleMemberInjector)this.memberInjectors.get(i);
+            if (toolableOnly && !injector.getInjectionPoint().isToolable()) continue;
+            injector.inject(errors, context, t);
+        }
+        if (!toolableOnly) {
+            for (MembersInjector userMembersInjector : this.userMembersInjectors) {
+                try {
+                    userMembersInjector.injectMembers(t);
+                }
+                catch (RuntimeException e) {
+                    errors.errorInUserInjector(userMembersInjector, this.typeLiteral, e);
+                }
+            }
+        }
+    }
+
+    public String toString() {
+        return "MembersInjector<" + this.typeLiteral + ">";
+    }
+
+    public ImmutableSet<InjectionPoint> getInjectionPoints() {
+        ImmutableSet.Builder builder = ImmutableSet.builder();
+        for (SingleMemberInjector memberInjector : this.memberInjectors) {
+            builder.add((Object)memberInjector.getInjectionPoint());
+        }
+        return builder.build();
+    }
+
+    public ImmutableList<MethodAspect> getAddedAspects() {
+        return this.addedAspects;
+    }
+}
+

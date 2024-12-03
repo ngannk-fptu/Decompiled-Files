@@ -1,0 +1,88 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.cryptomator.siv.SivMode
+ */
+package com.nimbusds.openid.connect.sdk.id;
+
+import com.nimbusds.jose.util.Base64URL;
+import com.nimbusds.jose.util.ByteUtils;
+import com.nimbusds.oauth2.sdk.id.Subject;
+import com.nimbusds.openid.connect.sdk.id.InvalidPairwiseSubjectException;
+import com.nimbusds.openid.connect.sdk.id.PairwiseSubjectCodec;
+import com.nimbusds.openid.connect.sdk.id.SectorID;
+import java.util.AbstractMap;
+import java.util.Map;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import net.jcip.annotations.ThreadSafe;
+import org.cryptomator.siv.SivMode;
+
+@ThreadSafe
+public class SIVAESBasedPairwiseSubjectCodec
+extends PairwiseSubjectCodec {
+    private static final SivMode AES_SIV = new SivMode();
+    private final byte[] aesCtrKey;
+    private final byte[] macKey;
+
+    public SIVAESBasedPairwiseSubjectCodec(SecretKey secretKey) {
+        super(null);
+        if (secretKey == null) {
+            throw new IllegalArgumentException("The SIV AES secret key must not be null");
+        }
+        byte[] keyBytes = secretKey.getEncoded();
+        switch (keyBytes.length) {
+            case 32: {
+                this.aesCtrKey = ByteUtils.subArray(keyBytes, 0, 16);
+                this.macKey = ByteUtils.subArray(keyBytes, 16, 16);
+                break;
+            }
+            case 48: {
+                this.aesCtrKey = ByteUtils.subArray(keyBytes, 0, 24);
+                this.macKey = ByteUtils.subArray(keyBytes, 24, 24);
+                break;
+            }
+            case 64: {
+                this.aesCtrKey = ByteUtils.subArray(keyBytes, 0, 32);
+                this.macKey = ByteUtils.subArray(keyBytes, 32, 32);
+                break;
+            }
+            default: {
+                throw new IllegalArgumentException("The SIV AES secret key length must be 256, 384 or 512 bits");
+            }
+        }
+    }
+
+    public SecretKey getSecretKey() {
+        return new SecretKeySpec(ByteUtils.concat(this.aesCtrKey, this.macKey), "AES");
+    }
+
+    @Override
+    public Subject encode(SectorID sectorID, Subject localSub) {
+        byte[] plainText = (sectorID.getValue().replace("|", "\\|") + '|' + localSub.getValue().replace("|", "\\|")).getBytes(CHARSET);
+        byte[] cipherText = AES_SIV.encrypt(this.aesCtrKey, this.macKey, plainText, (byte[][])new byte[0][]);
+        return new Subject(Base64URL.encode(cipherText).toString());
+    }
+
+    @Override
+    public Map.Entry<SectorID, Subject> decode(Subject pairwiseSubject) throws InvalidPairwiseSubjectException {
+        byte[] plainText;
+        byte[] cipherText = new Base64URL(pairwiseSubject.getValue()).decode();
+        try {
+            plainText = AES_SIV.decrypt(this.aesCtrKey, this.macKey, cipherText, (byte[][])new byte[0][]);
+        }
+        catch (Exception e) {
+            throw new InvalidPairwiseSubjectException("Decryption failed: " + e.getMessage(), e);
+        }
+        String[] parts = new String(plainText, CHARSET).split("(?<!\\\\)\\|");
+        for (int i = 0; i < parts.length; ++i) {
+            parts[i] = parts[i].replace("\\|", "|");
+        }
+        if (parts.length != 2) {
+            throw new InvalidPairwiseSubjectException("Invalid format: Unexpected number of tokens: " + parts.length);
+        }
+        return new AbstractMap.SimpleImmutableEntry<SectorID, Subject>(new SectorID(parts[0]), new Subject(parts[1]));
+    }
+}
+

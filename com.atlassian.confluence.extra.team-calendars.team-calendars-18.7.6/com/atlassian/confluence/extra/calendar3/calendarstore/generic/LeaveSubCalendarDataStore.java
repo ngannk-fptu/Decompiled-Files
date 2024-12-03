@@ -1,0 +1,75 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.xml.bind.annotation.XmlElement
+ *  org.springframework.beans.factory.annotation.Autowired
+ *  org.springframework.stereotype.Component
+ */
+package com.atlassian.confluence.extra.calendar3.calendarstore.generic;
+
+import com.atlassian.confluence.extra.calendar3.calendarstore.DataStoreCommonPropertyAccessor;
+import com.atlassian.confluence.extra.calendar3.calendarstore.generic.AbstractLocallyManagedChildSubCalendarDataStore;
+import com.atlassian.confluence.extra.calendar3.calendarstore.generic.ParentSubCalendarHelper;
+import com.atlassian.confluence.extra.calendar3.calendarstore.generic.RequiresInvitees;
+import com.atlassian.confluence.extra.calendar3.model.AbstractChildSubCalendar;
+import javax.xml.bind.annotation.XmlElement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component(value="leaveSubCalendarDataStore")
+public class LeaveSubCalendarDataStore
+extends AbstractLocallyManagedChildSubCalendarDataStore<LeaveSubCalendar> {
+    public static final String STORE_KEY = "com.atlassian.confluence.extra.calendar3.calendarstore.generic.LeaveSubCalendarDataStore";
+    public static final String SUB_CALENDAR_TYPE = "leaves";
+
+    @Autowired
+    public LeaveSubCalendarDataStore(DataStoreCommonPropertyAccessor dataStoreCommonPropertyAccessor, ParentSubCalendarHelper parentSubCalendarHelper) {
+        super(dataStoreCommonPropertyAccessor, parentSubCalendarHelper);
+    }
+
+    @Override
+    protected String getDefaultSubCalendarColour() {
+        return "subcalendar-orange";
+    }
+
+    @Override
+    protected LeaveSubCalendar createNewSubCalendarInstance() {
+        return new LeaveSubCalendar();
+    }
+
+    @Override
+    protected String getStoreKey() {
+        return STORE_KEY;
+    }
+
+    @Override
+    public String getType() {
+        return SUB_CALENDAR_TYPE;
+    }
+
+    public static class LeaveSubCalendar
+    extends AbstractChildSubCalendar
+    implements Cloneable,
+    RequiresInvitees {
+        @Override
+        @XmlElement
+        public String getType() {
+            return LeaveSubCalendarDataStore.SUB_CALENDAR_TYPE;
+        }
+
+        @Override
+        public Object clone() {
+            LeaveSubCalendar leaveSubCalendar = new LeaveSubCalendar();
+            leaveSubCalendar.setParent(this.getParent());
+            leaveSubCalendar.setId(this.getId());
+            leaveSubCalendar.setName(this.getName());
+            leaveSubCalendar.setDescription(this.getDescription());
+            leaveSubCalendar.setCreator(this.getCreator());
+            leaveSubCalendar.setColor(this.getColor());
+            leaveSubCalendar.setTimeZoneId(this.getTimeZoneId());
+            return leaveSubCalendar;
+        }
+    }
+}
+

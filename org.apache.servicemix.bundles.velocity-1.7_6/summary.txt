@@ -1,0 +1,23 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.servicemix.bundles.velocity-1.7_6.jar
+Decompiled with CFR 0.152
+
+
+org.apache.velocity.anakia.AnakiaTask
+----------------------------
+
+process(java.lang.String org.jdom.Document )
+  Loose catch block
+
+
+org.apache.velocity.convert.WebMacro
+----------------------------
+
+writeTemplate(java.lang.String java.lang.String java.lang.String )
+  Loose catch block
+
+
+org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader
+----------------------------
+
+readLastModified(org.apache.velocity.runtime.resource.Resource java.lang.String )
+  Loose catch block

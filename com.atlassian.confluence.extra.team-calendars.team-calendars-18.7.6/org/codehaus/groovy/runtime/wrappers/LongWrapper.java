@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.codehaus.groovy.runtime.wrappers;
+
+import org.codehaus.groovy.runtime.wrappers.PojoWrapper;
+
+public class LongWrapper
+extends PojoWrapper {
+    public LongWrapper(long wrapped) {
+        super(wrapped, Long.TYPE);
+    }
+}
+

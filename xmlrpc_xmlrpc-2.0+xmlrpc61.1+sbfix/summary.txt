@@ -1,0 +1,18 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\xmlrpc_xmlrpc-2.0+xmlrpc61.1+sbfix.jar
+Decompiled with CFR 0.152
+
+
+org.apache.xmlrpc.WebServer
+----------------------------
+
+run()
+  Unable to fully structure code
+run()
+  Loose catch block
+
+
+uk.co.wilson.xml.MinML
+----------------------------
+
+parse(java.io.Reader )
+  Unable to fully structure code

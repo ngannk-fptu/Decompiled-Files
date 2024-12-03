@@ -1,0 +1,60 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.plugins.authentication.atlassian-authentication-plugin-4.2.26.jar
+Decompiled with CFR 0.152
+
+
+org.apache.xml.security.utils.resolver.implementations.ResolverDirectHTTP
+----------------------------
+
+engineResolveURI(org.apache.xml.security.utils.resolver.ResourceResolverContext )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+com.ctc.wstx.sr.BasicStreamReader
+----------------------------
+
+readIndentation(char int )
+  Unable to fully structure code
+
+
+org.apache.jcp.xml.dsig.internal.dom.DOMReference
+----------------------------
+
+transform(javax.xml.crypto.Data javax.xml.crypto.XMLCryptoContext )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+org.apache.xml.security.signature.Reference
+----------------------------
+
+calculateDigest(boolean )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 3 blocks at once
+
+
+com.google.gson.internal.$Gson$Types
+----------------------------
+
+resolve(java.lang.reflect.Type java.lang.Class<?> java.lang.reflect.Type java.util.Map<java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type> )
+  Unable to fully structure code
+
+
+org.objectweb.asm.signature.SignatureReader
+----------------------------
+
+parseType(java.lang.String int org.objectweb.asm.signature.SignatureVisitor )
+  Unable to fully structure code
+
+
+com.ctc.wstx.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code
+
+
+com.ctc.wstx.io.UTF8Reader
+----------------------------
+
+read(char[] int int )
+  Unable to fully structure code

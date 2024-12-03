@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.vcache_atlassian-vcache-internal-legacy-2.0.0.jar
+Decompiled with CFR 0.152

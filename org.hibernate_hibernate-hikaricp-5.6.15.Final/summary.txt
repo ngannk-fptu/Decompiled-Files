@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.hibernate_hibernate-hikaricp-5.6.15.Final.jar
+Decompiled with CFR 0.152

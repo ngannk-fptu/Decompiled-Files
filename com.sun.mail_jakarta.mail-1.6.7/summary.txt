@@ -1,0 +1,37 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.sun.mail_jakarta.mail-1.6.7.jar
+Decompiled with CFR 0.152
+
+
+com.sun.mail.imap.IMAPStore
+----------------------------
+
+idle()
+  Loose catch block
+
+
+com.sun.mail.pop3.Protocol
+----------------------------
+
+authenticate(java.lang.String java.lang.String java.lang.String java.lang.String )
+  Loose catch block
+
+
+com.sun.mail.iap.ResponseInputStream
+----------------------------
+
+readResponse(com.sun.mail.iap.ByteArray )
+  Unable to fully structure code
+
+
+com.sun.mail.smtp.SMTPTransport
+----------------------------
+
+authenticate(java.lang.String java.lang.String java.lang.String java.lang.String )
+  Loose catch block
+
+
+javax.mail.internet.InternetAddress
+----------------------------
+
+parse(java.lang.String boolean boolean )
+  Unable to fully structure code

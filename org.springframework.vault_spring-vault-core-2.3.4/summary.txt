@@ -1,0 +1,11 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.springframework.vault_spring-vault-core-2.3.4.jar
+Decompiled with CFR 0.152
+
+
+org.springframework.vault.core.ReactiveVaultOperationsExtensionsKt
+----------------------------
+
+awaitWrite(org.springframework.vault.core.ReactiveVaultOperations java.lang.String kotlin.coroutines.Continuation<? super org.springframework.vault.support.VaultResponse> )
+  Unable to fully structure code
+awaitWrite(org.springframework.vault.core.ReactiveVaultOperations java.lang.String java.lang.Object kotlin.coroutines.Continuation<? super org.springframework.vault.support.VaultResponse> )
+  Unable to fully structure code

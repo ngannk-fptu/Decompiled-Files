@@ -1,0 +1,908 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.openxmlformats.schemas.drawingml.x2006.chart.CTTrendline
+ */
+package org.openxmlformats.schemas.drawingml.x2006.chart.impl;
+
+import java.util.List;
+import javax.xml.namespace.QName;
+import org.apache.xmlbeans.SchemaType;
+import org.apache.xmlbeans.XmlObject;
+import org.apache.xmlbeans.impl.values.JavaListXmlObject;
+import org.apache.xmlbeans.impl.values.XmlComplexContentImpl;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTAxDataSource;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTBoolean;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTBubbleSer;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTDLbls;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTDPt;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTErrBars;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTExtensionList;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTNumDataSource;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTSerTx;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTTrendline;
+import org.openxmlformats.schemas.drawingml.x2006.chart.CTUnsignedInt;
+import org.openxmlformats.schemas.drawingml.x2006.main.CTShapeProperties;
+
+public class CTBubbleSerImpl
+extends XmlComplexContentImpl
+implements CTBubbleSer {
+    private static final long serialVersionUID = 1L;
+    private static final QName[] PROPERTY_QNAME = new QName[]{new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "idx"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "order"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "tx"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "spPr"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "invertIfNegative"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "dPt"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "dLbls"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "trendline"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "errBars"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "xVal"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "yVal"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "bubbleSize"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "bubble3D"), new QName("http://schemas.openxmlformats.org/drawingml/2006/chart", "extLst")};
+
+    public CTBubbleSerImpl(SchemaType sType) {
+        super(sType);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTUnsignedInt getIdx() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTUnsignedInt target = null;
+            target = (CTUnsignedInt)((Object)this.get_store().find_element_user(PROPERTY_QNAME[0], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    @Override
+    public void setIdx(CTUnsignedInt idx) {
+        this.generatedSetterHelperImpl(idx, PROPERTY_QNAME[0], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTUnsignedInt addNewIdx() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTUnsignedInt target = null;
+            target = (CTUnsignedInt)((Object)this.get_store().add_element_user(PROPERTY_QNAME[0]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTUnsignedInt getOrder() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTUnsignedInt target = null;
+            target = (CTUnsignedInt)((Object)this.get_store().find_element_user(PROPERTY_QNAME[1], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    @Override
+    public void setOrder(CTUnsignedInt order) {
+        this.generatedSetterHelperImpl(order, PROPERTY_QNAME[1], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTUnsignedInt addNewOrder() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTUnsignedInt target = null;
+            target = (CTUnsignedInt)((Object)this.get_store().add_element_user(PROPERTY_QNAME[1]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTSerTx getTx() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTSerTx target = null;
+            target = (CTSerTx)((Object)this.get_store().find_element_user(PROPERTY_QNAME[2], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetTx() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[2]) != 0;
+        }
+    }
+
+    @Override
+    public void setTx(CTSerTx tx) {
+        this.generatedSetterHelperImpl(tx, PROPERTY_QNAME[2], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTSerTx addNewTx() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTSerTx target = null;
+            target = (CTSerTx)((Object)this.get_store().add_element_user(PROPERTY_QNAME[2]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetTx() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[2], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTShapeProperties getSpPr() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTShapeProperties target = null;
+            target = (CTShapeProperties)((Object)this.get_store().find_element_user(PROPERTY_QNAME[3], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetSpPr() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[3]) != 0;
+        }
+    }
+
+    @Override
+    public void setSpPr(CTShapeProperties spPr) {
+        this.generatedSetterHelperImpl(spPr, PROPERTY_QNAME[3], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTShapeProperties addNewSpPr() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTShapeProperties target = null;
+            target = (CTShapeProperties)((Object)this.get_store().add_element_user(PROPERTY_QNAME[3]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetSpPr() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[3], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTBoolean getInvertIfNegative() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTBoolean target = null;
+            target = (CTBoolean)((Object)this.get_store().find_element_user(PROPERTY_QNAME[4], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetInvertIfNegative() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[4]) != 0;
+        }
+    }
+
+    @Override
+    public void setInvertIfNegative(CTBoolean invertIfNegative) {
+        this.generatedSetterHelperImpl(invertIfNegative, PROPERTY_QNAME[4], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTBoolean addNewInvertIfNegative() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTBoolean target = null;
+            target = (CTBoolean)((Object)this.get_store().add_element_user(PROPERTY_QNAME[4]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetInvertIfNegative() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[4], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public List<CTDPt> getDPtList() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return new JavaListXmlObject<CTDPt>(this::getDPtArray, this::setDPtArray, this::insertNewDPt, this::removeDPt, this::sizeOfDPtArray);
+        }
+    }
+
+    @Override
+    public CTDPt[] getDPtArray() {
+        return (CTDPt[])this.getXmlObjectArray(PROPERTY_QNAME[5], new CTDPt[0]);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTDPt getDPtArray(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTDPt target = null;
+            target = (CTDPt)((Object)this.get_store().find_element_user(PROPERTY_QNAME[5], i));
+            if (target == null) {
+                throw new IndexOutOfBoundsException();
+            }
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public int sizeOfDPtArray() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[5]);
+        }
+    }
+
+    @Override
+    public void setDPtArray(CTDPt[] dPtArray) {
+        this.check_orphaned();
+        this.arraySetterHelper(dPtArray, PROPERTY_QNAME[5]);
+    }
+
+    @Override
+    public void setDPtArray(int i, CTDPt dPt) {
+        this.generatedSetterHelperImpl(dPt, PROPERTY_QNAME[5], i, (short)2);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTDPt insertNewDPt(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTDPt target = null;
+            target = (CTDPt)((Object)this.get_store().insert_element_user(PROPERTY_QNAME[5], i));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTDPt addNewDPt() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTDPt target = null;
+            target = (CTDPt)((Object)this.get_store().add_element_user(PROPERTY_QNAME[5]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void removeDPt(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[5], i);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTDLbls getDLbls() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTDLbls target = null;
+            target = (CTDLbls)((Object)this.get_store().find_element_user(PROPERTY_QNAME[6], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetDLbls() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[6]) != 0;
+        }
+    }
+
+    @Override
+    public void setDLbls(CTDLbls dLbls) {
+        this.generatedSetterHelperImpl(dLbls, PROPERTY_QNAME[6], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTDLbls addNewDLbls() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTDLbls target = null;
+            target = (CTDLbls)((Object)this.get_store().add_element_user(PROPERTY_QNAME[6]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetDLbls() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[6], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public List<CTTrendline> getTrendlineList() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return new JavaListXmlObject<CTTrendline>(this::getTrendlineArray, this::setTrendlineArray, this::insertNewTrendline, this::removeTrendline, this::sizeOfTrendlineArray);
+        }
+    }
+
+    @Override
+    public CTTrendline[] getTrendlineArray() {
+        return (CTTrendline[])this.getXmlObjectArray(PROPERTY_QNAME[7], (XmlObject[])new CTTrendline[0]);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTTrendline getTrendlineArray(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTTrendline target = null;
+            target = (CTTrendline)this.get_store().find_element_user(PROPERTY_QNAME[7], i);
+            if (target == null) {
+                throw new IndexOutOfBoundsException();
+            }
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public int sizeOfTrendlineArray() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[7]);
+        }
+    }
+
+    @Override
+    public void setTrendlineArray(CTTrendline[] trendlineArray) {
+        this.check_orphaned();
+        this.arraySetterHelper((XmlObject[])trendlineArray, PROPERTY_QNAME[7]);
+    }
+
+    @Override
+    public void setTrendlineArray(int i, CTTrendline trendline) {
+        this.generatedSetterHelperImpl((XmlObject)trendline, PROPERTY_QNAME[7], i, (short)2);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTTrendline insertNewTrendline(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTTrendline target = null;
+            target = (CTTrendline)this.get_store().insert_element_user(PROPERTY_QNAME[7], i);
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTTrendline addNewTrendline() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTTrendline target = null;
+            target = (CTTrendline)this.get_store().add_element_user(PROPERTY_QNAME[7]);
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void removeTrendline(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[7], i);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public List<CTErrBars> getErrBarsList() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return new JavaListXmlObject<CTErrBars>(this::getErrBarsArray, this::setErrBarsArray, this::insertNewErrBars, this::removeErrBars, this::sizeOfErrBarsArray);
+        }
+    }
+
+    @Override
+    public CTErrBars[] getErrBarsArray() {
+        return (CTErrBars[])this.getXmlObjectArray(PROPERTY_QNAME[8], new CTErrBars[0]);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTErrBars getErrBarsArray(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTErrBars target = null;
+            target = (CTErrBars)((Object)this.get_store().find_element_user(PROPERTY_QNAME[8], i));
+            if (target == null) {
+                throw new IndexOutOfBoundsException();
+            }
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public int sizeOfErrBarsArray() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[8]);
+        }
+    }
+
+    @Override
+    public void setErrBarsArray(CTErrBars[] errBarsArray) {
+        this.check_orphaned();
+        this.arraySetterHelper(errBarsArray, PROPERTY_QNAME[8]);
+    }
+
+    @Override
+    public void setErrBarsArray(int i, CTErrBars errBars) {
+        this.generatedSetterHelperImpl(errBars, PROPERTY_QNAME[8], i, (short)2);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTErrBars insertNewErrBars(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTErrBars target = null;
+            target = (CTErrBars)((Object)this.get_store().insert_element_user(PROPERTY_QNAME[8], i));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTErrBars addNewErrBars() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTErrBars target = null;
+            target = (CTErrBars)((Object)this.get_store().add_element_user(PROPERTY_QNAME[8]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void removeErrBars(int i) {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[8], i);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTAxDataSource getXVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTAxDataSource target = null;
+            target = (CTAxDataSource)((Object)this.get_store().find_element_user(PROPERTY_QNAME[9], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetXVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[9]) != 0;
+        }
+    }
+
+    @Override
+    public void setXVal(CTAxDataSource xVal) {
+        this.generatedSetterHelperImpl(xVal, PROPERTY_QNAME[9], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTAxDataSource addNewXVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTAxDataSource target = null;
+            target = (CTAxDataSource)((Object)this.get_store().add_element_user(PROPERTY_QNAME[9]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetXVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[9], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTNumDataSource getYVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTNumDataSource target = null;
+            target = (CTNumDataSource)((Object)this.get_store().find_element_user(PROPERTY_QNAME[10], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetYVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[10]) != 0;
+        }
+    }
+
+    @Override
+    public void setYVal(CTNumDataSource yVal) {
+        this.generatedSetterHelperImpl(yVal, PROPERTY_QNAME[10], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTNumDataSource addNewYVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTNumDataSource target = null;
+            target = (CTNumDataSource)((Object)this.get_store().add_element_user(PROPERTY_QNAME[10]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetYVal() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[10], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTNumDataSource getBubbleSize() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTNumDataSource target = null;
+            target = (CTNumDataSource)((Object)this.get_store().find_element_user(PROPERTY_QNAME[11], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetBubbleSize() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[11]) != 0;
+        }
+    }
+
+    @Override
+    public void setBubbleSize(CTNumDataSource bubbleSize) {
+        this.generatedSetterHelperImpl(bubbleSize, PROPERTY_QNAME[11], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTNumDataSource addNewBubbleSize() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTNumDataSource target = null;
+            target = (CTNumDataSource)((Object)this.get_store().add_element_user(PROPERTY_QNAME[11]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetBubbleSize() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[11], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTBoolean getBubble3D() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTBoolean target = null;
+            target = (CTBoolean)((Object)this.get_store().find_element_user(PROPERTY_QNAME[12], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetBubble3D() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[12]) != 0;
+        }
+    }
+
+    @Override
+    public void setBubble3D(CTBoolean bubble3D) {
+        this.generatedSetterHelperImpl(bubble3D, PROPERTY_QNAME[12], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTBoolean addNewBubble3D() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTBoolean target = null;
+            target = (CTBoolean)((Object)this.get_store().add_element_user(PROPERTY_QNAME[12]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetBubble3D() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[12], 0);
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTExtensionList getExtLst() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTExtensionList target = null;
+            target = (CTExtensionList)((Object)this.get_store().find_element_user(PROPERTY_QNAME[13], 0));
+            return target == null ? null : target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public boolean isSetExtLst() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            return this.get_store().count_elements(PROPERTY_QNAME[13]) != 0;
+        }
+    }
+
+    @Override
+    public void setExtLst(CTExtensionList extLst) {
+        this.generatedSetterHelperImpl(extLst, PROPERTY_QNAME[13], 0, (short)1);
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public CTExtensionList addNewExtLst() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            CTExtensionList target = null;
+            target = (CTExtensionList)((Object)this.get_store().add_element_user(PROPERTY_QNAME[13]));
+            return target;
+        }
+    }
+
+    /*
+     * WARNING - Removed try catching itself - possible behaviour change.
+     */
+    @Override
+    public void unsetExtLst() {
+        Object object = this.monitor();
+        synchronized (object) {
+            this.check_orphaned();
+            this.get_store().remove_element(PROPERTY_QNAME[13], 0);
+        }
+    }
+}
+

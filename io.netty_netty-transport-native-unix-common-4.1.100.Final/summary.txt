@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\io.netty_netty-transport-native-unix-common-4.1.100.Final.jar
+Decompiled with CFR 0.152

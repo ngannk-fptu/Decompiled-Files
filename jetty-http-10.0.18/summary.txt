@@ -1,0 +1,23 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\jetty-http-10.0.18.jar
+Decompiled with CFR 0.152
+
+
+org.eclipse.jetty.http.QuotedCSVParser
+----------------------------
+
+addValue(java.lang.String )
+  Unable to fully structure code
+
+
+org.eclipse.jetty.http.HttpGenerator
+----------------------------
+
+generateResponse(org.eclipse.jetty.http.MetaData$Response boolean java.nio.ByteBuffer java.nio.ByteBuffer java.nio.ByteBuffer boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jetty.http.RFC6265CookieParser
+----------------------------
+
+parseField(java.lang.String )
+  Unable to fully structure code

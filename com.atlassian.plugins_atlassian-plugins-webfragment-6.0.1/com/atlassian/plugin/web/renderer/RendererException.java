@@ -1,0 +1,20 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.plugin.web.renderer;
+
+public class RendererException
+extends RuntimeException {
+    public RendererException(Throwable cause) {
+        super(cause);
+    }
+
+    public RendererException(String message) {
+        super(message);
+    }
+
+    public RendererException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+

@@ -1,0 +1,41 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.confluence.content.render.xhtml;
+
+import com.atlassian.confluence.core.ContentEntityObject;
+import com.atlassian.confluence.event.events.ConfluenceEvent;
+
+public class XhtmlMacroTimeoutEvent
+extends ConfluenceEvent {
+    private static final long serialVersionUID = -682835325031607556L;
+    private final String name;
+    private final ContentEntityObject entity;
+    private final long allowedTimeInSeconds;
+    private final long exceededTimeInMilliseconds;
+
+    public XhtmlMacroTimeoutEvent(Object src, String name, ContentEntityObject entity, long allowedTimeInSeconds, long exceededTimeInMilliseconds) {
+        super(src);
+        this.name = name;
+        this.entity = entity;
+        this.allowedTimeInSeconds = allowedTimeInSeconds;
+        this.exceededTimeInMilliseconds = exceededTimeInMilliseconds;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public ContentEntityObject getEntity() {
+        return this.entity;
+    }
+
+    public long getAllowedTimeInSeconds() {
+        return this.allowedTimeInSeconds;
+    }
+
+    public long getExceededTimeInMilliseconds() {
+        return this.exceededTimeInMilliseconds;
+    }
+}
+

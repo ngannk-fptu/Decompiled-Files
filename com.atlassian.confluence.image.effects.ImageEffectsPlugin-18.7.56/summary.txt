@@ -1,0 +1,32 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.image.effects.ImageEffectsPlugin-18.7.56.jar
+Decompiled with CFR 0.152
+
+
+org.apache.commons.imaging.formats.xpm.XpmImageParser
+----------------------------
+
+loadColorNames()
+  Unable to fully structure code
+
+
+org.apache.commons.imaging.common.itu_t4.T4AndT6Compression
+----------------------------
+
+decompressModifiedHuffman(byte[] int int )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 5 blocks at once
+compressT6(byte[] int int )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 3 blocks at once
+
+
+org.apache.commons.imaging.formats.psd.PsdImageParser
+----------------------------
+
+readImageResourceBlocks(org.apache.commons.imaging.common.bytesource.ByteSource int[] int )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+com.atlassian.confluence.image.effects.ImageFilterTask
+----------------------------
+
+processRotationAndThumbnail()
+  Loose catch block

@@ -1,0 +1,53 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.ant_ant-1.10.14.jar
+Decompiled with CFR 0.152
+
+
+org.apache.tools.ant.Diagnostics
+----------------------------
+
+doReportTempDir(java.io.PrintStream )
+  Loose catch block
+
+
+org.apache.tools.ant.DirectoryScanner
+----------------------------
+
+scan()
+  Unable to fully structure code
+
+
+org.apache.tools.ant.helper.ProjectHelper2
+----------------------------
+
+parse(org.apache.tools.ant.Project java.lang.Object org.apache.tools.ant.helper.ProjectHelper2$RootHandler )
+  Loose catch block
+
+
+org.apache.tools.ant.listener.AnsiColorLogger
+----------------------------
+
+setColors()
+  Loose catch block
+
+
+org.apache.tools.ant.listener.MailLogger
+----------------------------
+
+buildFinished(org.apache.tools.ant.BuildEvent )
+  Loose catch block
+
+
+org.apache.tools.ant.util.ResourceUtils
+----------------------------
+
+binaryCompare(org.apache.tools.ant.types.Resource org.apache.tools.ant.types.Resource )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [12[WHILELOOP]], but top level block is 3[TRYBLOCK]
+textCompare(org.apache.tools.ant.types.Resource org.apache.tools.ant.types.Resource )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [14[WHILELOOP]], but top level block is 5[TRYBLOCK]
+
+
+org.apache.tools.bzip2.BlockSort
+----------------------------
+
+fallbackSort(int[] byte[] int )
+  Unable to fully structure code

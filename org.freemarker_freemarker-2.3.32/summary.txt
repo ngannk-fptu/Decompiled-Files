@@ -1,0 +1,16 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.freemarker_freemarker-2.3.32.jar
+Decompiled with CFR 0.152
+
+
+freemarker.core.Environment
+----------------------------
+
+invokeMacroOrFunctionCommonPart(freemarker.core.Macro java.util.Map<java.lang.String, ? extends freemarker.core.Expression> java.util.List<? extends freemarker.core.Expression> java.util.List<java.lang.String> freemarker.core.TemplateObject )
+  Loose catch block
+
+
+freemarker.core.FMParser
+----------------------------
+
+HeaderElement()
+  Unable to fully structure code

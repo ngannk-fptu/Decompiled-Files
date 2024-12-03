@@ -1,0 +1,339 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\ecj-4.20.jar
+Decompiled with CFR 0.152
+
+
+org.eclipse.jdt.core.compiler.CharOperation
+----------------------------
+
+endsWith(char[] char[] )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ReadManager
+----------------------------
+
+run()
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.ASTNode
+----------------------------
+
+resolvePolyExpressionArguments(org.eclipse.jdt.internal.compiler.ast.Invocation org.eclipse.jdt.internal.compiler.lookup.MethodBinding org.eclipse.jdt.internal.compiler.lookup.TypeBinding[] org.eclipse.jdt.internal.compiler.lookup.BlockScope )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.CastExpression
+----------------------------
+
+checkUnsafeCast(org.eclipse.jdt.internal.compiler.ast.Expression org.eclipse.jdt.internal.compiler.lookup.Scope org.eclipse.jdt.internal.compiler.lookup.TypeBinding org.eclipse.jdt.internal.compiler.lookup.TypeBinding org.eclipse.jdt.internal.compiler.lookup.TypeBinding boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration
+----------------------------
+
+reportNLSProblems()
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.FakedTrackingVariable
+----------------------------
+
+handleResourceAssignment(org.eclipse.jdt.internal.compiler.lookup.BlockScope org.eclipse.jdt.internal.compiler.flow.FlowInfo org.eclipse.jdt.internal.compiler.flow.FlowInfo org.eclipse.jdt.internal.compiler.flow.FlowContext org.eclipse.jdt.internal.compiler.ast.ASTNode org.eclipse.jdt.internal.compiler.ast.Expression org.eclipse.jdt.internal.compiler.lookup.LocalVariableBinding )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.IntersectionCastTypeReference
+----------------------------
+
+resolveType(org.eclipse.jdt.internal.compiler.lookup.BlockScope boolean int )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.SwitchStatement
+----------------------------
+
+resolve(org.eclipse.jdt.internal.compiler.lookup.BlockScope )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.ast.TypeDeclaration
+----------------------------
+
+resolve()
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+org.eclipse.jdt.internal.compiler.batch.ClasspathJar
+----------------------------
+
+fetchLinkedJars(org.eclipse.jdt.internal.compiler.batch.FileSystem$ClasspathSectionProblemReporter )
+  Loose catch block
+
+
+org.eclipse.jdt.internal.compiler.batch.FileSystem
+----------------------------
+
+findClass(java.lang.String char[] boolean char[] )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.batch.Main
+----------------------------
+
+configure(java.lang.String[] )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.batch.ModuleFinder
+----------------------------
+
+extractModuleFromArchive(java.io.File org.eclipse.jdt.internal.compiler.batch.FileSystem$Classpath java.lang.String java.lang.String )
+  Loose catch block
+
+
+org.eclipse.jdt.internal.compiler.classfmt.AnnotationInfo
+----------------------------
+
+decodeAnnotation()
+  Handled impossible loop by duplicating code
+
+
+org.eclipse.jdt.internal.compiler.classfmt.ClassFileReader
+----------------------------
+
+hasNonSyntheticFieldChanges(org.eclipse.jdt.internal.compiler.classfmt.FieldInfo[] org.eclipse.jdt.internal.compiler.classfmt.FieldInfo[] )
+  Unable to fully structure code
+hasNonSyntheticMethodChanges(org.eclipse.jdt.internal.compiler.classfmt.MethodInfo[] org.eclipse.jdt.internal.compiler.classfmt.MethodInfo[] )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.codegen.CodeStream
+----------------------------
+
+sort(int[] int int int[] )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.flow.FlowContext
+----------------------------
+
+checkExceptionHandlers(org.eclipse.jdt.internal.compiler.lookup.TypeBinding org.eclipse.jdt.internal.compiler.ast.ASTNode org.eclipse.jdt.internal.compiler.flow.FlowInfo org.eclipse.jdt.internal.compiler.lookup.BlockScope boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.flow.LoopingFlowContext
+----------------------------
+
+complainOnDeferredNullChecks(org.eclipse.jdt.internal.compiler.lookup.BlockScope org.eclipse.jdt.internal.compiler.flow.FlowInfo boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.flow.UnconditionalFlowInfo
+----------------------------
+
+addPotentialInitializationsFrom(org.eclipse.jdt.internal.compiler.flow.FlowInfo )
+  Unable to fully structure code
+mergedWith(org.eclipse.jdt.internal.compiler.flow.UnconditionalFlowInfo )
+  Unable to fully structure code
+mergeDefiniteInitsWith(org.eclipse.jdt.internal.compiler.flow.UnconditionalFlowInfo )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.AnnotatableTypeSystem
+----------------------------
+
+getAnnotatedType(org.eclipse.jdt.internal.compiler.lookup.TypeBinding org.eclipse.jdt.internal.compiler.lookup.TypeBinding org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding[] )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[CASE], 0[SWITCH]], but top level block is 5[SWITCH]
+
+
+org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope
+----------------------------
+
+faultInImports()
+  Unable to fully structure code
+typeToRecord(org.eclipse.jdt.internal.compiler.lookup.TypeBinding )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.ConstraintExpressionFormula
+----------------------------
+
+reduce(org.eclipse.jdt.internal.compiler.lookup.InferenceContext18 )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.ExternalAnnotationSuperimposer
+----------------------------
+
+apply(org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding java.lang.String )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+org.eclipse.jdt.internal.compiler.lookup.ImplicitNullAnnotationVerifier
+----------------------------
+
+checkNullSpecInheritance(org.eclipse.jdt.internal.compiler.lookup.MethodBinding org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration boolean org.eclipse.jdt.internal.compiler.lookup.ParameterNonNullDefaultProvider boolean org.eclipse.jdt.internal.compiler.lookup.MethodBinding org.eclipse.jdt.internal.compiler.lookup.MethodBinding[] org.eclipse.jdt.internal.compiler.lookup.Scope org.eclipse.jdt.internal.compiler.lookup.ImplicitNullAnnotationVerifier$InheritedNonNullnessInfo[] )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+org.eclipse.jdt.internal.compiler.lookup.InferenceContext18
+----------------------------
+
+forwardResults(org.eclipse.jdt.internal.compiler.lookup.BoundSet org.eclipse.jdt.internal.compiler.ast.Invocation org.eclipse.jdt.internal.compiler.lookup.ParameterizedMethodBinding org.eclipse.jdt.internal.compiler.lookup.TypeBinding )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment
+----------------------------
+
+askForType(org.eclipse.jdt.internal.compiler.lookup.PackageBinding char[] org.eclipse.jdt.internal.compiler.lookup.ModuleBinding )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.MethodVerifier
+----------------------------
+
+mustImplementAbstractMethod(org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.MethodVerifier15
+----------------------------
+
+checkTypeVariableMethods(org.eclipse.jdt.internal.compiler.ast.TypeParameter )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.ParameterizedGenericMethodBinding
+----------------------------
+
+inferFromArgumentTypes(org.eclipse.jdt.internal.compiler.lookup.Scope org.eclipse.jdt.internal.compiler.lookup.MethodBinding org.eclipse.jdt.internal.compiler.lookup.TypeBinding[] org.eclipse.jdt.internal.compiler.lookup.TypeBinding[] org.eclipse.jdt.internal.compiler.lookup.InferenceContext )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.ParameterizedTypeBinding
+----------------------------
+
+collectSubstitutes(org.eclipse.jdt.internal.compiler.lookup.Scope org.eclipse.jdt.internal.compiler.lookup.TypeBinding org.eclipse.jdt.internal.compiler.lookup.InferenceContext int )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding
+----------------------------
+
+getSingleAbstractMethod(org.eclipse.jdt.internal.compiler.lookup.Scope boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.Scope
+----------------------------
+
+connectTypeVariables(org.eclipse.jdt.internal.compiler.ast.TypeParameter[] boolean )
+  Unable to fully structure code
+  Could not resolve type clashes
+getImplicitMethod(char[] org.eclipse.jdt.internal.compiler.lookup.TypeBinding[] org.eclipse.jdt.internal.compiler.lookup.InvocationSite )
+  Unable to fully structure code
+getType(char[][] int )
+  Unable to fully structure code
+getTypeOrPackage(char[] int boolean )
+  Handled impossible loop by adding 'first' condition
+getTypeOrPackage(char[][] )
+  Unable to fully structure code
+isAcceptableMethod(org.eclipse.jdt.internal.compiler.lookup.MethodBinding org.eclipse.jdt.internal.compiler.lookup.MethodBinding )
+  Unable to fully structure code
+lowerUpperBound(org.eclipse.jdt.internal.compiler.lookup.TypeBinding[] java.util.ArrayList )
+  Unable to fully structure code
+  Could not resolve type clashes
+minimalErasedCandidates(org.eclipse.jdt.internal.compiler.lookup.TypeBinding[] java.util.Map )
+  Unable to fully structure code
+  Could not resolve type clashes
+tagAsAccessingEnclosingInstanceStateOf(org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.SignatureWrapper
+----------------------------
+
+computeEnd()
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.lookup.SourceTypeBinding
+----------------------------
+
+components()
+  Unable to fully structure code
+fields()
+  Unable to fully structure code
+getField(char[] boolean )
+  Unable to fully structure code
+methods()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [5[DOLOOP]], but top level block is 6[UNCONDITIONALDOLOOP]
+
+
+org.eclipse.jdt.internal.compiler.lookup.TypeBinding
+----------------------------
+
+findSuperTypeOriginatingFrom(org.eclipse.jdt.internal.compiler.lookup.TypeBinding )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.parser.AbstractCommentParser
+----------------------------
+
+commentParse()
+  Unable to fully structure code
+parseHref()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [1[TRYBLOCK], 0[TRYBLOCK]], but top level block is 8[DOLOOP]
+parseParam()
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.parser.Parser
+----------------------------
+
+parse()
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.parser.Scanner
+----------------------------
+
+checkTaskTag(int int )
+  Unable to fully structure code
+getNextToken0()
+  Unable to fully structure code
+scanForStringLiteral()
+  Unable to fully structure code
+jumpOverMethodBody()
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.parser.TypeConverter
+----------------------------
+
+decodeType(java.lang.String int int int )
+  Unable to fully structure code
+decodeType2(char[] int int int boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.parser.diagnose.DiagnoseParser
+----------------------------
+
+errorRecovery(int boolean )
+  Unable to fully structure code
+
+
+org.eclipse.jdt.internal.compiler.tool.EclipseCompilerImpl
+----------------------------
+
+handleLocations()
+  Could not resolve type clashes
+  Unable to fully structure code

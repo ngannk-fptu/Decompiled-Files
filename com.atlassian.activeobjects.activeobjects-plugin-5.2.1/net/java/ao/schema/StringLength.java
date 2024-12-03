@@ -1,0 +1,19 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package net.java.ao.schema;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(value=RetentionPolicy.RUNTIME)
+@Target(value={ElementType.METHOD})
+public @interface StringLength {
+    public static final int MAX_LENGTH = 450;
+    public static final int UNLIMITED = -1;
+
+    public int value();
+}
+

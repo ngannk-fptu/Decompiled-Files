@@ -1,0 +1,44 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.migration.migration-agent-3.9.2.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.migration.agent.newexport.store.JdbcConfluenceStore
+----------------------------
+
+checkIfTableExists(java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 3 blocks at once
+
+
+com.atlassian.migration.agent.service.check.CheckResultFileManager
+----------------------------
+
+readFromFile(java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 5 blocks at once
+
+
+com.atlassian.migration.agent.service.impl.TrustedDomainCsvWriterService
+----------------------------
+
+writeDomainsCsv(java.io.File java.util.List<com.atlassian.migration.agent.dto.UserDomainRuleDto> )
+  Exception : java.lang.UnsupportedOperationException
+
+
+com.atlassian.migration.agent.service.prc.PrcOkHttpAdapter
+----------------------------
+
+post(java.net.URL java.util.Map<java.lang.String, java.lang.String> java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+com.atlassian.migration.agent.service.stepexecutor.attachment.AttachmentMigrationExecutor
+----------------------------
+
+doAttachmentMigration(com.atlassian.migration.agent.entity.Step java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 5 blocks at once
+
+
+com.atlassian.migration.agent.service.stepexecutor.space.SpaceUsersMigrationExecutor
+----------------------------
+
+getSpaceUsersMigrationResult(com.atlassian.migration.agent.entity.Step long java.lang.String )
+  Loose catch block

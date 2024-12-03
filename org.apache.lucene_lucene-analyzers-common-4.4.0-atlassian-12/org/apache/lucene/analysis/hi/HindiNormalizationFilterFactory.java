@@ -1,0 +1,36 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.lucene.analysis.TokenStream
+ */
+package org.apache.lucene.analysis.hi;
+
+import java.util.Map;
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.hi.HindiNormalizationFilter;
+import org.apache.lucene.analysis.util.AbstractAnalysisFactory;
+import org.apache.lucene.analysis.util.MultiTermAwareComponent;
+import org.apache.lucene.analysis.util.TokenFilterFactory;
+
+public class HindiNormalizationFilterFactory
+extends TokenFilterFactory
+implements MultiTermAwareComponent {
+    public HindiNormalizationFilterFactory(Map<String, String> args) {
+        super(args);
+        if (!args.isEmpty()) {
+            throw new IllegalArgumentException("Unknown parameters: " + args);
+        }
+    }
+
+    @Override
+    public TokenStream create(TokenStream input) {
+        return new HindiNormalizationFilter(input);
+    }
+
+    @Override
+    public AbstractAnalysisFactory getMultiTermComponent() {
+        return this;
+    }
+}
+

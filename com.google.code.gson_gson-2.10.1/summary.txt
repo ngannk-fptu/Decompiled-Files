@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.google.code.gson_gson-2.10.1.jar
+Decompiled with CFR 0.152
+
+
+com.google.gson.internal.$Gson$Types
+----------------------------
+
+resolve(java.lang.reflect.Type java.lang.Class<?> java.lang.reflect.Type java.util.Map<java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type> )
+  Unable to fully structure code

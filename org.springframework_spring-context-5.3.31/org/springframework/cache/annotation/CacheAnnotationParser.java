@@ -1,0 +1,25 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.springframework.lang.Nullable
+ */
+package org.springframework.cache.annotation;
+
+import java.lang.reflect.Method;
+import java.util.Collection;
+import org.springframework.cache.interceptor.CacheOperation;
+import org.springframework.lang.Nullable;
+
+public interface CacheAnnotationParser {
+    default public boolean isCandidateClass(Class<?> targetClass) {
+        return true;
+    }
+
+    @Nullable
+    public Collection<CacheOperation> parseCacheAnnotations(Class<?> var1);
+
+    @Nullable
+    public Collection<CacheOperation> parseCacheAnnotations(Method var1);
+}
+

@@ -1,0 +1,27 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.microsoft.sqlserver_mssql-jdbc-12.4.2.jre11.jar
+Decompiled with CFR 0.152
+
+
+com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement
+----------------------------
+
+executeBatch()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [10[CATCHBLOCK], 2[TRYBLOCK], 3[TRYBLOCK]], but top level block is 5[TRYBLOCK]
+executeLargeBatch()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [10[CATCHBLOCK], 3[TRYBLOCK], 2[TRYBLOCK]], but top level block is 5[TRYBLOCK]
+
+
+com.microsoft.sqlserver.jdbc.SQLServerXAResource
+----------------------------
+
+dtc_XA_interface(int javax.transaction.xa.Xid int )
+  Unable to fully structure code
+
+
+com.microsoft.sqlserver.jdbc.TDSChannel
+----------------------------
+
+networkSocketStillConnected()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+poll()
+  Loose catch block

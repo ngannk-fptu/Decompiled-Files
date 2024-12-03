@@ -1,0 +1,118 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.hc.core5.annotation.Internal
+ *  org.apache.hc.core5.concurrent.FutureCallback
+ *  org.apache.hc.core5.http.impl.nio.BufferedData
+ *  org.apache.hc.core5.reactor.IOSession
+ *  org.apache.hc.core5.reactor.ProtocolIOSession
+ *  org.apache.hc.core5.reactor.ssl.TlsDetails
+ *  org.apache.hc.core5.util.Args
+ *  org.apache.hc.core5.util.TextUtils
+ */
+package org.apache.hc.core5.http2.impl.nio;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.apache.hc.core5.annotation.Internal;
+import org.apache.hc.core5.concurrent.FutureCallback;
+import org.apache.hc.core5.http.impl.nio.BufferedData;
+import org.apache.hc.core5.http2.impl.nio.ClientH2IOEventHandler;
+import org.apache.hc.core5.http2.impl.nio.ClientH2StreamMultiplexerFactory;
+import org.apache.hc.core5.http2.impl.nio.PrefaceHandlerBase;
+import org.apache.hc.core5.http2.impl.nio.ProtocolNegotiationException;
+import org.apache.hc.core5.http2.ssl.ApplicationProtocol;
+import org.apache.hc.core5.reactor.IOSession;
+import org.apache.hc.core5.reactor.ProtocolIOSession;
+import org.apache.hc.core5.reactor.ssl.TlsDetails;
+import org.apache.hc.core5.util.Args;
+import org.apache.hc.core5.util.TextUtils;
+
+@Internal
+public class ClientH2PrefaceHandler
+extends PrefaceHandlerBase {
+    static final byte[] PREFACE = new byte[]{80, 82, 73, 32, 42, 32, 72, 84, 84, 80, 47, 50, 46, 48, 13, 10, 13, 10, 83, 77, 13, 10, 13, 10};
+    private final ClientH2StreamMultiplexerFactory http2StreamHandlerFactory;
+    private final boolean strictALPNHandshake;
+    private final AtomicBoolean initialized;
+    private volatile ByteBuffer preface;
+    private volatile BufferedData inBuf;
+
+    public ClientH2PrefaceHandler(ProtocolIOSession ioSession, ClientH2StreamMultiplexerFactory http2StreamHandlerFactory, boolean strictALPNHandshake) {
+        this(ioSession, http2StreamHandlerFactory, strictALPNHandshake, null);
+    }
+
+    public ClientH2PrefaceHandler(ProtocolIOSession ioSession, ClientH2StreamMultiplexerFactory http2StreamHandlerFactory, boolean strictALPNHandshake, FutureCallback<ProtocolIOSession> resultCallback) {
+        super(ioSession, resultCallback);
+        this.http2StreamHandlerFactory = (ClientH2StreamMultiplexerFactory)Args.notNull((Object)http2StreamHandlerFactory, (String)"HTTP/2 stream handler factory");
+        this.strictALPNHandshake = strictALPNHandshake;
+        this.initialized = new AtomicBoolean();
+    }
+
+    private void initialize() throws IOException {
+        TlsDetails tlsDetails = this.ioSession.getTlsDetails();
+        if (tlsDetails != null) {
+            String applicationProtocol = tlsDetails.getApplicationProtocol();
+            if (TextUtils.isEmpty((CharSequence)applicationProtocol)) {
+                if (this.strictALPNHandshake) {
+                    throw new ProtocolNegotiationException("ALPN: missing application protocol");
+                }
+            } else if (!ApplicationProtocol.HTTP_2.id.equals(applicationProtocol)) {
+                throw new ProtocolNegotiationException("ALPN: unexpected application protocol '" + applicationProtocol + "'");
+            }
+        }
+        this.preface = ByteBuffer.wrap(PREFACE);
+        this.ioSession.setEvent(4);
+    }
+
+    private void writeOutPreface(IOSession session) throws IOException {
+        if (this.preface.hasRemaining()) {
+            session.write(this.preface);
+        }
+        if (!this.preface.hasRemaining()) {
+            session.clearEvent(4);
+            ByteBuffer data = this.inBuf != null ? this.inBuf.data() : null;
+            this.startProtocol(new ClientH2IOEventHandler(this.http2StreamHandlerFactory.create(this.ioSession)), data);
+            if (this.inBuf != null) {
+                this.inBuf.clear();
+            }
+            this.preface = null;
+        }
+    }
+
+    public void connected(IOSession session) throws IOException {
+        if (this.initialized.compareAndSet(false, true)) {
+            this.initialize();
+        }
+    }
+
+    public void outputReady(IOSession session) throws IOException {
+        if (this.initialized.compareAndSet(false, true)) {
+            this.initialize();
+        }
+        if (this.preface == null) {
+            throw new ProtocolNegotiationException("Unexpected output");
+        }
+        this.writeOutPreface(session);
+    }
+
+    public void inputReady(IOSession session, ByteBuffer src) throws IOException {
+        if (src != null) {
+            if (this.inBuf == null) {
+                this.inBuf = BufferedData.allocate((int)src.remaining());
+            }
+            this.inBuf.put(src);
+        }
+        if (this.preface == null) {
+            throw new ProtocolNegotiationException("Unexpected input");
+        }
+        this.writeOutPreface(session);
+    }
+
+    public String toString() {
+        return this.getClass().getName();
+    }
+}
+

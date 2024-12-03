@@ -1,0 +1,31 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.extra.confluence-flyingpdf-plugin-18.7.56.jar
+Decompiled with CFR 0.152
+
+
+com.lowagie.text.pdf.PdfReader
+----------------------------
+
+getSinglePage(int )
+  Unable to fully structure code
+
+
+org.apache.tika.io.MappedBufferCleaner
+----------------------------
+
+unmapHackImpl()
+  Loose catch block
+
+
+com.lowagie.text.xml.SAXiTextHandler
+----------------------------
+
+handleEndingTags(java.lang.String )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+com.lowagie.text.pdf.PdfPKCS7
+----------------------------
+
+verifyCertificates(java.security.cert.Certificate[] java.security.KeyStore java.util.Collection java.util.Calendar )
+  Loose catch block

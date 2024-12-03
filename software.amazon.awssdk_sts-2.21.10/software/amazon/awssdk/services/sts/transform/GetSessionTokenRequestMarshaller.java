@@ -1,0 +1,51 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  software.amazon.awssdk.annotations.SdkInternalApi
+ *  software.amazon.awssdk.core.SdkPojo
+ *  software.amazon.awssdk.core.exception.SdkClientException
+ *  software.amazon.awssdk.core.runtime.transform.Marshaller
+ *  software.amazon.awssdk.http.SdkHttpFullRequest
+ *  software.amazon.awssdk.http.SdkHttpMethod
+ *  software.amazon.awssdk.protocols.core.OperationInfo
+ *  software.amazon.awssdk.protocols.core.ProtocolMarshaller
+ *  software.amazon.awssdk.protocols.query.AwsQueryProtocolFactory
+ *  software.amazon.awssdk.utils.Validate
+ */
+package software.amazon.awssdk.services.sts.transform;
+
+import software.amazon.awssdk.annotations.SdkInternalApi;
+import software.amazon.awssdk.core.SdkPojo;
+import software.amazon.awssdk.core.exception.SdkClientException;
+import software.amazon.awssdk.core.runtime.transform.Marshaller;
+import software.amazon.awssdk.http.SdkHttpFullRequest;
+import software.amazon.awssdk.http.SdkHttpMethod;
+import software.amazon.awssdk.protocols.core.OperationInfo;
+import software.amazon.awssdk.protocols.core.ProtocolMarshaller;
+import software.amazon.awssdk.protocols.query.AwsQueryProtocolFactory;
+import software.amazon.awssdk.services.sts.model.GetSessionTokenRequest;
+import software.amazon.awssdk.utils.Validate;
+
+@SdkInternalApi
+public class GetSessionTokenRequestMarshaller
+implements Marshaller<GetSessionTokenRequest> {
+    private static final OperationInfo SDK_OPERATION_BINDING = OperationInfo.builder().requestUri("/").httpMethod(SdkHttpMethod.POST).hasExplicitPayloadMember(false).hasPayloadMembers(true).operationIdentifier("GetSessionToken").apiVersion("2011-06-15").build();
+    private final AwsQueryProtocolFactory protocolFactory;
+
+    public GetSessionTokenRequestMarshaller(AwsQueryProtocolFactory protocolFactory) {
+        this.protocolFactory = protocolFactory;
+    }
+
+    public SdkHttpFullRequest marshall(GetSessionTokenRequest getSessionTokenRequest) {
+        Validate.paramNotNull((Object)((Object)getSessionTokenRequest), (String)"getSessionTokenRequest");
+        try {
+            ProtocolMarshaller protocolMarshaller = this.protocolFactory.createProtocolMarshaller(SDK_OPERATION_BINDING);
+            return (SdkHttpFullRequest)protocolMarshaller.marshall((SdkPojo)getSessionTokenRequest);
+        }
+        catch (Exception e) {
+            throw SdkClientException.builder().message("Unable to marshall request to JSON: " + e.getMessage()).cause((Throwable)e).build();
+        }
+    }
+}
+

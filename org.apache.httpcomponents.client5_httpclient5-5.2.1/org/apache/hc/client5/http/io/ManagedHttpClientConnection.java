@@ -1,0 +1,29 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.hc.core5.annotation.Internal
+ *  org.apache.hc.core5.http.io.HttpClientConnection
+ */
+package org.apache.hc.client5.http.io;
+
+import java.io.IOException;
+import java.net.Socket;
+import javax.net.ssl.SSLSession;
+import org.apache.hc.core5.annotation.Internal;
+import org.apache.hc.core5.http.io.HttpClientConnection;
+
+@Internal
+public interface ManagedHttpClientConnection
+extends HttpClientConnection {
+    public void bind(Socket var1) throws IOException;
+
+    public Socket getSocket();
+
+    public SSLSession getSSLSession();
+
+    public void passivate();
+
+    public void activate();
+}
+

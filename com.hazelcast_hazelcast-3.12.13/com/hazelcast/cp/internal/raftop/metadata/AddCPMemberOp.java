@@ -1,0 +1,68 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.hazelcast.cp.internal.raftop.metadata;
+
+import com.hazelcast.cp.internal.CPMemberInfo;
+import com.hazelcast.cp.internal.IndeterminateOperationStateAware;
+import com.hazelcast.cp.internal.MetadataRaftGroupManager;
+import com.hazelcast.cp.internal.RaftServiceDataSerializerHook;
+import com.hazelcast.cp.internal.raft.impl.util.PostponedResponse;
+import com.hazelcast.cp.internal.raftop.metadata.MetadataRaftGroupOp;
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
+import java.io.IOException;
+
+public class AddCPMemberOp
+extends MetadataRaftGroupOp
+implements IndeterminateOperationStateAware,
+IdentifiedDataSerializable {
+    private CPMemberInfo member;
+
+    public AddCPMemberOp() {
+    }
+
+    public AddCPMemberOp(CPMemberInfo member) {
+        this.member = member;
+    }
+
+    @Override
+    public Object run(MetadataRaftGroupManager metadataGroupManager, long commitIndex) {
+        if (metadataGroupManager.addMember(commitIndex, this.member)) {
+            return null;
+        }
+        return PostponedResponse.INSTANCE;
+    }
+
+    @Override
+    public boolean isRetryableOnIndeterminateOperationState() {
+        return true;
+    }
+
+    @Override
+    public int getFactoryId() {
+        return RaftServiceDataSerializerHook.F_ID;
+    }
+
+    @Override
+    public int getId() {
+        return 33;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput out) throws IOException {
+        out.writeObject(this.member);
+    }
+
+    @Override
+    public void readData(ObjectDataInput in) throws IOException {
+        this.member = (CPMemberInfo)in.readObject();
+    }
+
+    @Override
+    protected void toString(StringBuilder sb) {
+        sb.append(", member=").append(this.member);
+    }
+}
+

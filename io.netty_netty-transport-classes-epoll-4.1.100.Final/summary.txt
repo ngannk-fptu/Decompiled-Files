@@ -1,0 +1,23 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\io.netty_netty-transport-classes-epoll-4.1.100.Final.jar
+Decompiled with CFR 0.152
+
+
+io.netty.channel.epoll.AbstractEpollServerChannel
+----------------------------
+
+epollInReady()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [5[DOLOOP]], but top level block is 9[SIMPLE_IF_TAKEN]
+
+
+io.netty.channel.epoll.EpollDatagramChannel
+----------------------------
+
+epollInReady()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [7[DOLOOP]], but top level block is 12[SIMPLE_IF_TAKEN]
+
+
+io.netty.channel.epoll.EpollEventLoop
+----------------------------
+
+run()
+  Unable to fully structure code

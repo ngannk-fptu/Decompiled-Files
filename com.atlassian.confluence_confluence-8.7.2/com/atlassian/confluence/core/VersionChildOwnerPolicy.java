@@ -1,0 +1,11 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.confluence.core;
+
+public enum VersionChildOwnerPolicy {
+    currentVersion,
+    originalVersion;
+
+}
+

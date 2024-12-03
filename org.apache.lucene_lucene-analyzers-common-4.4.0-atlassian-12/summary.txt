@@ -1,0 +1,69 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.lucene_lucene-analyzers-common-4.4.0-atlassian-12.jar
+Decompiled with CFR 0.152
+
+
+org.apache.lucene.analysis.charfilter.HTMLStripCharFilter
+----------------------------
+
+nextChar()
+  Unable to fully structure code
+
+
+org.tartarus.snowball.ext.PortugueseStemmer
+----------------------------
+
+r_mark_regions()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[WHILELOOP]], but top level block is 14[SIMPLE_IF_TAKEN]
+r_residual_form()
+  Unable to fully structure code
+stem()
+  Unable to fully structure code
+
+
+org.tartarus.snowball.ext.RomanianStemmer
+----------------------------
+
+r_mark_regions()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[WHILELOOP]], but top level block is 14[SIMPLE_IF_TAKEN]
+
+
+org.tartarus.snowball.ext.SpanishStemmer
+----------------------------
+
+r_mark_regions()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[WHILELOOP]], but top level block is 14[SIMPLE_IF_TAKEN]
+
+
+org.tartarus.snowball.ext.TurkishStemmer
+----------------------------
+
+r_stem_noun_suffixes()
+  Unable to fully structure code
+
+
+org.tartarus.snowball.ext.KpStemmer
+----------------------------
+
+r_Step_1()
+  Unable to fully structure code
+
+
+org.tartarus.snowball.ext.BasqueStemmer
+----------------------------
+
+r_mark_regions()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[WHILELOOP]], but top level block is 14[SIMPLE_IF_TAKEN]
+
+
+org.tartarus.snowball.ext.FrenchStemmer
+----------------------------
+
+r_mark_regions()
+  Unable to fully structure code
+
+
+org.tartarus.snowball.ext.ItalianStemmer
+----------------------------
+
+r_mark_regions()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[WHILELOOP]], but top level block is 14[SIMPLE_IF_TAKEN]

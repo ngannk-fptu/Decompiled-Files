@@ -1,0 +1,37 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.hibernate_hibernate-core-5.6.15.Final.jar
+Decompiled with CFR 0.152
+
+
+org.hibernate.boot.archive.internal.JarInputStreamBasedArchiveDescriptor
+----------------------------
+
+visitArchive(org.hibernate.boot.archive.spi.ArchiveContext )
+  Unable to fully structure code
+
+
+org.hibernate.graph.internal.parse.GraphLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [13[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.hibernate.hql.internal.antlr.HqlBaseLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [24[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.hibernate.sql.ordering.antlr.GeneratedOrderByLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [13[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.hibernate.tool.schema.ast.SqlScriptLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [10[DOLOOP]], but top level block is 1[TRYBLOCK]

@@ -1,0 +1,103 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.bedework.util.xml.tagdefs;
+
+import javax.xml.namespace.QName;
+import org.bedework.util.xml.tagdefs.CaldavDefs;
+
+public class CaldavTags
+implements CaldavDefs {
+    public static final QName allcomp = new QName("urn:ietf:params:xml:ns:caldav", "allcomp");
+    public static final QName allprop = new QName("urn:ietf:params:xml:ns:caldav", "allprop");
+    public static final QName attendeeAllowed = new QName("urn:ietf:params:xml:ns:caldav", "allowed-attendee-scheduling-object-change");
+    public static final QName calendar = new QName("urn:ietf:params:xml:ns:caldav", "calendar");
+    public static final QName calendarCollectionLocationOk = new QName("urn:ietf:params:xml:ns:caldav", "calendar-collection-location-ok");
+    public static final QName calendarData = new QName("urn:ietf:params:xml:ns:caldav", "calendar-data");
+    public static final QName calendarDescription = new QName("urn:ietf:params:xml:ns:caldav", "calendar-description");
+    public static final QName calendarFreeBusySet = new QName("urn:ietf:params:xml:ns:caldav", "calendar-free-busy-set");
+    public static final QName calendarHomeSet = new QName("urn:ietf:params:xml:ns:caldav", "calendar-home-set");
+    public static final QName calendarMultiget = new QName("urn:ietf:params:xml:ns:caldav", "calendar-multiget");
+    public static final QName calendarQuery = new QName("urn:ietf:params:xml:ns:caldav", "calendar-query");
+    public static final QName calendarTimezone = new QName("urn:ietf:params:xml:ns:caldav", "calendar-timezone");
+    public static final QName calendarUserAddressSet = new QName("urn:ietf:params:xml:ns:caldav", "calendar-user-address-set");
+    public static final QName calendarUserType = new QName("urn:ietf:params:xml:ns:caldav", "calendar-user-type");
+    public static final QName comp = new QName("urn:ietf:params:xml:ns:caldav", "comp");
+    public static final QName compFilter = new QName("urn:ietf:params:xml:ns:caldav", "comp-filter");
+    public static final QName defaultAlarmVeventDate = new QName("urn:ietf:params:xml:ns:caldav", "default-alarm-vevent-date");
+    public static final QName defaultAlarmVeventDatetime = new QName("urn:ietf:params:xml:ns:caldav", "default-alarm-vevent-datetime");
+    public static final QName defaultAlarmVtodoDate = new QName("urn:ietf:params:xml:ns:caldav", "default-alarm-vtodo-date");
+    public static final QName defaultAlarmVtodoDatetime = new QName("urn:ietf:params:xml:ns:caldav", "default-alarm-vtodo-datetime");
+    public static final QName expand = new QName("urn:ietf:params:xml:ns:caldav", "expand");
+    public static final QName filter = new QName("urn:ietf:params:xml:ns:caldav", "filter");
+    public static final QName freeBusyQuery = new QName("urn:ietf:params:xml:ns:caldav", "free-busy-query");
+    public static final QName isNotDefined = new QName("urn:ietf:params:xml:ns:caldav", "is-not-defined");
+    public static final QName limitFreebusySet = new QName("urn:ietf:params:xml:ns:caldav", "limit-freebusy-set");
+    public static final QName limitRecurrenceSet = new QName("urn:ietf:params:xml:ns:caldav", "limit-recurrence-set");
+    public static final QName mkcalendar = new QName("urn:ietf:params:xml:ns:caldav", "mkcalendar");
+    public static final QName maxAttendeesPerInstance = new QName("urn:ietf:params:xml:ns:caldav", "max-attendees-per-instance");
+    public static final QName maxDateTime = new QName("urn:ietf:params:xml:ns:caldav", "max-date-time");
+    public static final QName maxInstances = new QName("urn:ietf:params:xml:ns:caldav", "max-instances");
+    public static final QName maxResourceSize = new QName("urn:ietf:params:xml:ns:caldav", "max-resource-size");
+    public static final QName minDateTime = new QName("urn:ietf:params:xml:ns:caldav", "min-date-time");
+    public static final QName notProcessed = new QName("urn:ietf:params:xml:ns:caldav", "not-processed");
+    public static final QName noUidConflict = new QName("urn:ietf:params:xml:ns:caldav", "no-uid-conflict");
+    public static final QName opaque = new QName("urn:ietf:params:xml:ns:caldav", "opaque");
+    public static final QName organizerAllowed = new QName("urn:ietf:params:xml:ns:caldav", "allowed-organizer-scheduling-object-change");
+    public static final QName originator = new QName("urn:ietf:params:xml:ns:caldav", "originator");
+    public static final QName originatorAllowed = new QName("urn:ietf:params:xml:ns:caldav", "originator-allowed");
+    public static final QName paramFilter = new QName("urn:ietf:params:xml:ns:caldav", "param-filter");
+    public static final QName processed = new QName("urn:ietf:params:xml:ns:caldav", "processed");
+    public static final QName prop = new QName("urn:ietf:params:xml:ns:caldav", "prop");
+    public static final QName propFilter = new QName("urn:ietf:params:xml:ns:caldav", "prop-filter");
+    public static final QName readFreeBusy = new QName("urn:ietf:params:xml:ns:caldav", "read-free-busy");
+    public static final QName recipient = new QName("urn:ietf:params:xml:ns:caldav", "recipient");
+    public static final QName recipientPermissions = new QName("urn:ietf:params:xml:ns:caldav", "recipient-permissions");
+    public static final QName requestStatus = new QName("urn:ietf:params:xml:ns:caldav", "request-status");
+    public static final QName response = new QName("urn:ietf:params:xml:ns:caldav", "response");
+    public static final QName returnContentType = new QName("urn:ietf:params:xml:ns:caldav", "return-content-type");
+    public static final QName schedule = new QName("urn:ietf:params:xml:ns:caldav", "schedule");
+    public static final QName scheduleCalendarTransp = new QName("urn:ietf:params:xml:ns:caldav", "schedule-calendar-transp");
+    public static final QName scheduleDefaultCalendarURL = new QName("urn:ietf:params:xml:ns:caldav", "schedule-default-calendar-URL");
+    public static final QName scheduleDeliver = new QName("urn:ietf:params:xml:ns:caldav", "schedule-deliver");
+    public static final QName scheduleDeliverInvite = new QName("urn:ietf:params:xml:ns:caldav", "schedule-deliver-invite");
+    public static final QName scheduleDeliverReply = new QName("urn:ietf:params:xml:ns:caldav", "schedule-deliver-reply");
+    public static final QName scheduleFreeBusy = new QName("urn:ietf:params:xml:ns:caldav", "schedule-free-busy");
+    public static final QName scheduleInbox = new QName("urn:ietf:params:xml:ns:caldav", "schedule-inbox");
+    public static final QName scheduleInboxURL = new QName("urn:ietf:params:xml:ns:caldav", "schedule-inbox-URL");
+    public static final QName scheduleOutbox = new QName("urn:ietf:params:xml:ns:caldav", "schedule-outbox");
+    public static final QName scheduleOutboxURL = new QName("urn:ietf:params:xml:ns:caldav", "schedule-outbox-URL");
+    public static final QName scheduleQueryFreebusy = new QName("urn:ietf:params:xml:ns:caldav", "schedule-query-freebusy");
+    public static final QName scheduleReply = new QName("urn:ietf:params:xml:ns:caldav", "schedule-reply");
+    public static final QName scheduleRequest = new QName("urn:ietf:params:xml:ns:caldav", "schedule-request");
+    public static final QName scheduleResponse = new QName("urn:ietf:params:xml:ns:caldav", "schedule-response");
+    public static final QName scheduleSend = new QName("urn:ietf:params:xml:ns:caldav", "schedule-send");
+    public static final QName scheduleSendFreebusy = new QName("urn:ietf:params:xml:ns:caldav", "schedule-send-freebusy");
+    public static final QName scheduleSendInvite = new QName("urn:ietf:params:xml:ns:caldav", "schedule-send-invite");
+    public static final QName scheduleSendReply = new QName("urn:ietf:params:xml:ns:caldav", "schedule-send-reply");
+    public static final QName scheduleTag = new QName("urn:ietf:params:xml:ns:caldav", "schedule-tag");
+    public static final QName supportedCalendarComponentSet = new QName("urn:ietf:params:xml:ns:caldav", "supported-calendar-component-set");
+    public static final QName supportedCalendarData = new QName("urn:ietf:params:xml:ns:caldav", "supported-calendar-data");
+    public static final QName supportedFilter = new QName("urn:ietf:params:xml:ns:caldav", "supported-filter");
+    public static final QName textMatch = new QName("urn:ietf:params:xml:ns:caldav", "text-match");
+    public static final QName timeRange = new QName("urn:ietf:params:xml:ns:caldav", "time-range");
+    public static final QName timezone = new QName("urn:ietf:params:xml:ns:caldav", "timezone");
+    public static final QName timezoneId = new QName("urn:ietf:params:xml:ns:caldav", "timezone-id");
+    public static final QName timezoneServiceSet = new QName("urn:ietf:params:xml:ns:caldav", "timezone-service-set");
+    public static final QName transparent = new QName("urn:ietf:params:xml:ns:caldav", "transparent");
+    public static final QName validCalendarData = new QName("urn:ietf:params:xml:ns:caldav", "valid-calendar-data");
+    public static final QName validCalendarObjectResource = new QName("urn:ietf:params:xml:ns:caldav", "valid-calendar-object-resource");
+    public static final QName validFilter = new QName("urn:ietf:params:xml:ns:caldav", "valid-filter");
+    public static final QName validTimezone = new QName("urn:ietf:params:xml:ns:caldav", "valid-timezone");
+    public static final QName vpollMaxActive = new QName("urn:ietf:params:xml:ns:caldav", "vpoll-max-active");
+    public static final QName vpollMaxItems = new QName("urn:ietf:params:xml:ns:caldav", "vpoll-max-items");
+    public static final QName vpollMaxVoters = new QName("urn:ietf:params:xml:ns:caldav", "vpoll-max-voters");
+    public static final QName vpollSupportedComponentSet = new QName("urn:ietf:params:xml:ns:caldav", "vpoll-supported-component-set");
+    public static final QName originatorSpecified = new QName("urn:ietf:params:xml:ns:caldav", "originator-specified");
+    public static final QName recipientSpecified = new QName("urn:ietf:params:xml:ns:caldav", "recipient-specified");
+    public static final QName calendarAccess = new QName("urn:ietf:params:xml:ns:caldav", "calendar-access");
+    public static final QName calendarAutoschedule = new QName("urn:ietf:params:xml:ns:caldav", "calendar-auto-schedule");
+    public static final QName calendarDefaultAlarms = new QName("urn:ietf:params:xml:ns:caldav", "calendar-default-alarms");
+    public static final QName calendarNoTimezone = new QName("urn:ietf:params:xml:ns:caldav", "calendar-no-timezone");
+}
+

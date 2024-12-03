@@ -1,0 +1,59 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  lombok.Generated
+ *  org.slf4j.Logger
+ *  org.slf4j.LoggerFactory
+ */
+package com.atlassian.migration.agent.newexport.processor;
+
+import com.atlassian.migration.agent.entity.SpaceWithStatisticResult;
+import com.atlassian.migration.agent.newexport.processor.RowProcessor;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.Generated;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class SpaceWithStatisticResultProcessor
+implements RowProcessor {
+    @Generated
+    private static final Logger log = LoggerFactory.getLogger(SpaceWithStatisticResultProcessor.class);
+    private static final String SPACEID_COLUMN = "SPACEID";
+    private static final String SPACEKEY_COLUMN = "SPACEKEY";
+    private static final String SPACENAME_COLUMN = "SPACENAME";
+    private static final String SPACETYPE_COLUMN = "SPACETYPE";
+    private static final String LATEST_EXECUTION_STATUS_COLUMN = "LATEST_EXECUTION_STATUS";
+    private static final String PAGE_BLOG_DRAFT_COUNT_COLUMN = "SUMOFPAGEBLOGDRAFTCOUNT";
+    private static final String ATTACHMENT_SIZE_COLUMN = "ATTACHMENTSIZE";
+    private static final String ATTACHMENT_COUNT_COLUMN = "ATTACHMENTCOUNT";
+    private static final String TEAM_CALENDAR_COUNT_COLUMN = "TEAMCALENDARCOUNT";
+    private static final String ESTIMATED_MIGRATION_TIME_COLUMN = "ESTIMATEDMIGRATIONTIME";
+    private static final String LAST_MODIFIED_COLUMN = "LASTMODIFIED";
+    private final List<SpaceWithStatisticResult> result = new ArrayList<SpaceWithStatisticResult>();
+
+    @Override
+    public void process(ResultSet resultSet) {
+        try {
+            SpaceWithStatisticResult spaceWithStatisticResult = new SpaceWithStatisticResult(resultSet.getLong(SPACEID_COLUMN), resultSet.getString(SPACEKEY_COLUMN), resultSet.getString(SPACENAME_COLUMN), resultSet.getString(SPACETYPE_COLUMN), resultSet.getString(LATEST_EXECUTION_STATUS_COLUMN), this.getLong(resultSet, PAGE_BLOG_DRAFT_COUNT_COLUMN), this.getLong(resultSet, ATTACHMENT_SIZE_COLUMN), this.getLong(resultSet, ATTACHMENT_COUNT_COLUMN), this.getLong(resultSet, TEAM_CALENDAR_COUNT_COLUMN), this.getLong(resultSet, ESTIMATED_MIGRATION_TIME_COLUMN), resultSet.getTimestamp(LAST_MODIFIED_COLUMN));
+            this.result.add(spaceWithStatisticResult);
+        }
+        catch (SQLException e) {
+            log.error("Error in processing space selector result", (Throwable)e);
+            throw new RuntimeException("Error in processing space selector result", e);
+        }
+    }
+
+    private Long getLong(ResultSet resultSet, String columnName) throws SQLException {
+        Object columnValue = resultSet.getObject(columnName);
+        return columnValue == null ? null : Long.valueOf(((Number)columnValue).longValue());
+    }
+
+    public List<SpaceWithStatisticResult> getResult() {
+        return this.result;
+    }
+}
+

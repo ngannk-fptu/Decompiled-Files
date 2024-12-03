@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.gadgets.atlassian-gadgets-publisher-plugin-8.1.4.jar
+Decompiled with CFR 0.152

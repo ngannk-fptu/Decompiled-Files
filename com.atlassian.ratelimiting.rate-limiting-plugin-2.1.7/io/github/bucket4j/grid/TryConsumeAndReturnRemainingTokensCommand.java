@@ -1,0 +1,38 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package io.github.bucket4j.grid;
+
+import io.github.bucket4j.ConsumptionProbe;
+import io.github.bucket4j.grid.GridBucketState;
+import io.github.bucket4j.grid.GridCommand;
+
+public class TryConsumeAndReturnRemainingTokensCommand
+implements GridCommand<ConsumptionProbe> {
+    private static final long serialVersionUID = 1L;
+    private long tokensToConsume;
+    private boolean bucketStateModified = false;
+
+    public TryConsumeAndReturnRemainingTokensCommand(long tokensToConsume) {
+        this.tokensToConsume = tokensToConsume;
+    }
+
+    @Override
+    public ConsumptionProbe execute(GridBucketState state, long currentTimeNanos) {
+        state.refillAllBandwidth(currentTimeNanos);
+        long availableToConsume = state.getAvailableTokens();
+        if (this.tokensToConsume <= availableToConsume) {
+            state.consume(this.tokensToConsume);
+            this.bucketStateModified = true;
+            return ConsumptionProbe.consumed(availableToConsume - this.tokensToConsume);
+        }
+        long nanosToWaitForRefill = state.calculateDelayNanosAfterWillBePossibleToConsume(this.tokensToConsume, currentTimeNanos);
+        return ConsumptionProbe.rejected(availableToConsume, nanosToWaitForRefill);
+    }
+
+    @Override
+    public boolean isBucketStateModified() {
+        return this.bucketStateModified;
+    }
+}
+

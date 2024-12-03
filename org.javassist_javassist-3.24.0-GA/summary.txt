@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.javassist_javassist-3.24.0-GA.jar
+Decompiled with CFR 0.152
+
+
+javassist.bytecode.CodeIterator
+----------------------------
+
+insertGap2w(byte[] int int boolean java.util.List<javassist.bytecode.CodeIterator$Branch> javassist.bytecode.CodeIterator$Pointers )
+  Unable to fully structure code

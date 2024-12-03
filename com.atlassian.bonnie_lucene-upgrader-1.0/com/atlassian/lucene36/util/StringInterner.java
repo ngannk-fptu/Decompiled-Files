@@ -1,0 +1,15 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.lucene36.util;
+
+public class StringInterner {
+    public String intern(String s) {
+        return s.intern();
+    }
+
+    public String intern(char[] arr, int offset, int len) {
+        return this.intern(new String(arr, offset, len));
+    }
+}
+

@@ -1,0 +1,21 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.atlassian.analytics.api.annotations.EventName
+ *  javax.annotation.Nonnull
+ */
+package com.atlassian.business.insights.core.analytics.path;
+
+import com.atlassian.analytics.api.annotations.EventName;
+import com.atlassian.business.insights.core.analytics.path.CustomExportPathAnalyticEvent;
+import javax.annotation.Nonnull;
+
+@EventName(value="data-pipeline.custom.export.path.update.failed")
+public class CustomExportPathUpdateFailedAnalyticEvent
+extends CustomExportPathAnalyticEvent {
+    public CustomExportPathUpdateFailedAnalyticEvent(@Nonnull String pluginVersion) {
+        super(pluginVersion);
+    }
+}
+

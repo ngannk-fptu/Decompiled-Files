@@ -1,0 +1,11 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.fasterxml.jackson.core_jackson-core-2.16.0.jar
+Decompiled with CFR 0.152
+
+
+com.fasterxml.jackson.core.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code

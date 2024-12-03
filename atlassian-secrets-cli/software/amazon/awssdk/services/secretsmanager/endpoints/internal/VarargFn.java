@@ -1,0 +1,28 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package software.amazon.awssdk.services.secretsmanager.endpoints.internal;
+
+import java.util.List;
+import software.amazon.awssdk.annotations.SdkInternalApi;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.Expr;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.Fn;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.FnNode;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.Scope;
+import software.amazon.awssdk.services.secretsmanager.endpoints.internal.Value;
+
+@SdkInternalApi
+abstract class VarargFn
+extends Fn {
+    VarargFn(FnNode fnNode) {
+        super(fnNode);
+    }
+
+    @Override
+    public abstract Value eval(Scope<Value> var1);
+
+    protected List<Expr> args() {
+        return this.fnNode.getArgv();
+    }
+}
+

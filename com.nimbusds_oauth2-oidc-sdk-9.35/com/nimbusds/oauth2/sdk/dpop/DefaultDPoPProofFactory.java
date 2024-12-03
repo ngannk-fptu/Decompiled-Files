@@ -1,0 +1,91 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.nimbusds.jose.JOSEException
+ *  com.nimbusds.jose.JWSAlgorithm
+ *  com.nimbusds.jose.JWSAlgorithm$Family
+ *  com.nimbusds.jose.JWSHeader
+ *  com.nimbusds.jose.JWSHeader$Builder
+ *  com.nimbusds.jose.JWSSigner
+ *  com.nimbusds.jose.crypto.factories.DefaultJWSSignerFactory
+ *  com.nimbusds.jose.jwk.JWK
+ *  com.nimbusds.jwt.JWTClaimsSet
+ *  com.nimbusds.jwt.SignedJWT
+ */
+package com.nimbusds.oauth2.sdk.dpop;
+
+import com.nimbusds.jose.JOSEException;
+import com.nimbusds.jose.JWSAlgorithm;
+import com.nimbusds.jose.JWSHeader;
+import com.nimbusds.jose.JWSSigner;
+import com.nimbusds.jose.crypto.factories.DefaultJWSSignerFactory;
+import com.nimbusds.jose.jwk.JWK;
+import com.nimbusds.jwt.JWTClaimsSet;
+import com.nimbusds.jwt.SignedJWT;
+import com.nimbusds.oauth2.sdk.dpop.DPoPProofFactory;
+import com.nimbusds.oauth2.sdk.dpop.DPoPUtils;
+import com.nimbusds.oauth2.sdk.id.JWTID;
+import com.nimbusds.oauth2.sdk.token.AccessToken;
+import java.net.URI;
+import java.security.Provider;
+import java.util.Date;
+
+public class DefaultDPoPProofFactory
+implements DPoPProofFactory {
+    private final JWK publicJWK;
+    private final JWSAlgorithm jwsAlg;
+    private final JWSSigner jwsSigner;
+
+    public DefaultDPoPProofFactory(JWK jwk, JWSAlgorithm jwsAlg) throws JOSEException {
+        this(jwk, jwsAlg, null);
+    }
+
+    public DefaultDPoPProofFactory(JWK jwk, JWSAlgorithm jwsAlg, Provider jcaProvider) throws JOSEException {
+        if (!jwk.isPrivate()) {
+            throw new IllegalArgumentException("The JWK must include private parameters");
+        }
+        if (!JWSAlgorithm.Family.SIGNATURE.contains((Object)jwsAlg)) {
+            throw new IllegalArgumentException("The JWS algorithm must be for a digital signature");
+        }
+        this.jwsAlg = jwsAlg;
+        DefaultJWSSignerFactory factory = new DefaultJWSSignerFactory();
+        if (jcaProvider != null) {
+            factory.getJCAContext().setProvider(jcaProvider);
+        }
+        this.jwsSigner = factory.createJWSSigner(jwk, jwsAlg);
+        this.publicJWK = jwk.toPublicJWK();
+    }
+
+    public JWK getPublicJWK() {
+        return this.publicJWK;
+    }
+
+    public JWSAlgorithm getJWSAlgorithm() {
+        return this.jwsAlg;
+    }
+
+    public JWSSigner getJWSSigner() {
+        return this.jwsSigner;
+    }
+
+    @Override
+    public SignedJWT createDPoPJWT(String htm, URI htu) throws JOSEException {
+        return this.createDPoPJWT(htm, htu, null);
+    }
+
+    @Override
+    public SignedJWT createDPoPJWT(String htm, URI htu, AccessToken accessToken) throws JOSEException {
+        return this.createDPoPJWT(new JWTID(12), htm, htu, new Date(), accessToken);
+    }
+
+    @Override
+    public SignedJWT createDPoPJWT(JWTID jti, String htm, URI htu, Date iat, AccessToken accessToken) throws JOSEException {
+        JWSHeader jwsHeader = new JWSHeader.Builder(this.getJWSAlgorithm()).type(TYPE).jwk(this.getPublicJWK()).build();
+        JWTClaimsSet jwtClaimsSet = DPoPUtils.createJWTClaimsSet(jti, htm, htu, iat, accessToken);
+        SignedJWT signedJWT = new SignedJWT(jwsHeader, jwtClaimsSet);
+        signedJWT.sign(this.getJWSSigner());
+        return signedJWT;
+    }
+}
+

@@ -1,0 +1,16 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\io.netty_netty-handler-4.1.100.Final.jar
+Decompiled with CFR 0.152
+
+
+io.netty.handler.ssl.SslHandler
+----------------------------
+
+runDelegatedTasks(boolean )
+  Unable to fully structure code
+
+
+io.netty.handler.ssl.PemPrivateKey
+----------------------------
+
+toPEM(io.netty.buffer.ByteBufAllocator boolean byte[] )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once

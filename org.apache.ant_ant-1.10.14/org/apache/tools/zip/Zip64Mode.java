@@ -1,0 +1,12 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.apache.tools.zip;
+
+public enum Zip64Mode {
+    Always,
+    Never,
+    AsNeeded;
+
+}
+

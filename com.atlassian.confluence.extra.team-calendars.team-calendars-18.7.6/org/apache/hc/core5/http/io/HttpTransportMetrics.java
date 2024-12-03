@@ -1,0 +1,9 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.apache.hc.core5.http.io;
+
+public interface HttpTransportMetrics {
+    public long getBytesTransferred();
+}
+

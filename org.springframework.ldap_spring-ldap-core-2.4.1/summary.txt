@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.springframework.ldap_spring-ldap-core-2.4.1.jar
+Decompiled with CFR 0.152

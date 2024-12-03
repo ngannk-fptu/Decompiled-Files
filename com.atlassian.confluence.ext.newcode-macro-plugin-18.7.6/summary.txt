@@ -1,0 +1,65 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.ext.newcode-macro-plugin-18.7.6.jar
+Decompiled with CFR 0.152
+
+
+org.mozilla.javascript.tools.shell.Global
+----------------------------
+
+pipe(boolean java.io.InputStream java.io.OutputStream )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [0[TRYBLOCK]], but top level block is 11[UNCONDITIONALDOLOOP]
+
+
+org.mozilla.javascript.regexp.NativeRegExp
+----------------------------
+
+executeREBytecode(org.mozilla.javascript.regexp.REGlobalData java.lang.String int )
+  Unable to fully structure code
+
+
+org.mozilla.javascript.Interpreter
+----------------------------
+
+doCompare(org.mozilla.javascript.Interpreter$CallFrame int java.lang.Object[] double[] int )
+  Unable to fully structure code
+
+
+org.mozilla.javascript.tools.debugger.VariableModel
+----------------------------
+
+getValueAt(java.lang.Object int )
+  Unable to fully structure code
+
+
+org.mozilla.javascript.JavaMembers_jdk11
+----------------------------
+
+findAccessibleMethod(java.lang.reflect.Method )
+  Unable to fully structure code
+
+
+org.mozilla.javascript.tools.debugger.Dim
+----------------------------
+
+interrupted(org.mozilla.javascript.Context org.mozilla.javascript.tools.debugger.Dim$StackFrame java.lang.Throwable )
+  Unable to fully structure code
+
+
+com.atlassian.confluence.ext.code.languages.installers.BuiltInLanguageInstaller
+----------------------------
+
+onStart()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+org.mozilla.javascript.xmlimpl.XmlProcessor
+----------------------------
+
+toXml(java.lang.String java.lang.String )
+  Loose catch block
+
+
+org.mozilla.javascript.commonjs.module.provider.CachingModuleScriptProviderBase
+----------------------------
+
+getModuleScript(org.mozilla.javascript.Context java.lang.String java.net.URI java.net.URI org.mozilla.javascript.Scriptable )
+  Loose catch block

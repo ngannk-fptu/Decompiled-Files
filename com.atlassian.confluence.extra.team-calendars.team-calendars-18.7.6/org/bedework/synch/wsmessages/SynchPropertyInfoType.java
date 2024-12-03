@@ -1,0 +1,78 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.xml.bind.annotation.XmlAccessType
+ *  javax.xml.bind.annotation.XmlAccessorType
+ *  javax.xml.bind.annotation.XmlElement
+ *  javax.xml.bind.annotation.XmlType
+ */
+package org.bedework.synch.wsmessages;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlAccessorType(value=XmlAccessType.FIELD)
+@XmlType(name="SynchPropertyInfoType", propOrder={"name", "secure", "type", "description", "required", "value"})
+public class SynchPropertyInfoType {
+    @XmlElement(required=true)
+    protected String name;
+    protected boolean secure;
+    @XmlElement(required=true)
+    protected String type;
+    @XmlElement(required=true)
+    protected String description;
+    protected boolean required;
+    protected String value;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String value) {
+        this.name = value;
+    }
+
+    public boolean isSecure() {
+        return this.secure;
+    }
+
+    public void setSecure(boolean value) {
+        this.secure = value;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String value) {
+        this.type = value;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String value) {
+        this.description = value;
+    }
+
+    public boolean isRequired() {
+        return this.required;
+    }
+
+    public void setRequired(boolean value) {
+        this.required = value;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+}
+

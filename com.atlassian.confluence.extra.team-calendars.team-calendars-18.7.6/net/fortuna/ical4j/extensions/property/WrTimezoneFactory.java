@@ -1,0 +1,99 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package net.fortuna.ical4j.extensions.property;
+
+import groovy.lang.MetaClass;
+import groovy.util.FactoryBuilderSupport;
+import java.lang.ref.SoftReference;
+import java.util.Map;
+import net.fortuna.ical4j.extensions.property.WrTimezone;
+import net.fortuna.ical4j.model.ParameterList;
+import net.fortuna.ical4j.model.property.AbstractPropertyFactory;
+import org.codehaus.groovy.reflection.ClassInfo;
+import org.codehaus.groovy.runtime.ScriptBytecodeAdapter;
+import org.codehaus.groovy.runtime.callsite.CallSite;
+import org.codehaus.groovy.runtime.callsite.CallSiteArray;
+import org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation;
+import org.codehaus.groovy.runtime.typehandling.ShortTypeHandling;
+
+public class WrTimezoneFactory
+extends AbstractPropertyFactory {
+    private static /* synthetic */ ClassInfo $staticClassInfo;
+    public static transient /* synthetic */ boolean __$stMC;
+    private static /* synthetic */ SoftReference $callSiteArray;
+
+    public WrTimezoneFactory() {
+        CallSite[] callSiteArray = WrTimezoneFactory.$getCallSiteArray();
+    }
+
+    @Override
+    public Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) throws InstantiationException, IllegalAccessException {
+        CallSite[] callSiteArray = WrTimezoneFactory.$getCallSiteArray();
+        WrTimezone instance = null;
+        if (DefaultTypeTransformation.booleanUnbox(callSiteArray[0].call(FactoryBuilderSupport.class, value, name, WrTimezone.class))) {
+            WrTimezone wrTimezone;
+            instance = wrTimezone = (WrTimezone)ScriptBytecodeAdapter.castToType(value, WrTimezone.class);
+        } else {
+            String instanceValue = ShortTypeHandling.castToString(callSiteArray[1].call((Object)attributes, "value"));
+            if (ScriptBytecodeAdapter.compareNotEqual(instanceValue, null)) {
+                callSiteArray[2].call(attributes, "value", instanceValue);
+                Object object = ScriptBytecodeAdapter.invokeMethodOnSuperN(AbstractPropertyFactory.class, this, "newInstance", new Object[]{builder, name, value, attributes});
+                instance = (WrTimezone)ScriptBytecodeAdapter.castToType(object, WrTimezone.class);
+            } else {
+                Object object = ScriptBytecodeAdapter.invokeMethodOnSuperN(AbstractPropertyFactory.class, this, "newInstance", new Object[]{builder, name, value, attributes});
+                instance = (WrTimezone)ScriptBytecodeAdapter.castToType(object, WrTimezone.class);
+            }
+        }
+        return instance;
+    }
+
+    @Override
+    protected Object newInstance(ParameterList parameters, String value) {
+        CallSite[] callSiteArray = WrTimezoneFactory.$getCallSiteArray();
+        return callSiteArray[3].callConstructor(WrTimezone.class, parameters, value);
+    }
+
+    @Override
+    protected /* synthetic */ MetaClass $getStaticMetaClass() {
+        if (this.getClass() != WrTimezoneFactory.class) {
+            return ScriptBytecodeAdapter.initMetaClass(this);
+        }
+        ClassInfo classInfo = $staticClassInfo;
+        if (classInfo == null) {
+            $staticClassInfo = classInfo = ClassInfo.getClassInfo(this.getClass());
+        }
+        return classInfo.getMetaClass();
+    }
+
+    public /* synthetic */ Object super$3$newInstance(FactoryBuilderSupport factoryBuilderSupport, Object object, Object object2, Map map) {
+        return super.newInstance(factoryBuilderSupport, object, object2, map);
+    }
+
+    public /* synthetic */ MetaClass super$3$$getStaticMetaClass() {
+        return super.$getStaticMetaClass();
+    }
+
+    private static /* synthetic */ void $createCallSiteArray_1(String[] stringArray) {
+        stringArray[0] = "checkValueIsTypeNotString";
+        stringArray[1] = "remove";
+        stringArray[2] = "put";
+        stringArray[3] = "<$constructor$>";
+    }
+
+    private static /* synthetic */ CallSiteArray $createCallSiteArray() {
+        String[] stringArray = new String[4];
+        WrTimezoneFactory.$createCallSiteArray_1(stringArray);
+        return new CallSiteArray(WrTimezoneFactory.class, stringArray);
+    }
+
+    private static /* synthetic */ CallSite[] $getCallSiteArray() {
+        CallSiteArray callSiteArray;
+        if ($callSiteArray == null || (callSiteArray = (CallSiteArray)$callSiteArray.get()) == null) {
+            callSiteArray = WrTimezoneFactory.$createCallSiteArray();
+            $callSiteArray = new SoftReference<CallSiteArray>(callSiteArray);
+        }
+        return callSiteArray.array;
+    }
+}
+

@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.ratelimiting.rate-limiting-plugin-2.1.7.jar
+Decompiled with CFR 0.152
+
+
+com.querydsl.sql.AbstractSQLQuery
+----------------------------
+
+fetch()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [7[CATCHBLOCK]], but top level block is 5[TRYBLOCK]

@@ -1,0 +1,95 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.hibernate.boot.jaxb.internal.stax;
+
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Characters;
+import javax.xml.stream.events.EntityDeclaration;
+import javax.xml.stream.events.EntityReference;
+import javax.xml.stream.events.XMLEvent;
+import javax.xml.stream.util.EventReaderDelegate;
+import org.hibernate.boot.jaxb.internal.stax.XMLStreamConstantsUtils;
+
+public abstract class BaseXMLEventReader
+extends EventReaderDelegate {
+    private XMLEvent previousEvent;
+
+    public BaseXMLEventReader(XMLEventReader reader) {
+        super(reader);
+    }
+
+    protected abstract XMLEvent internalNextEvent() throws XMLStreamException;
+
+    protected final XMLEvent getPreviousEvent() {
+        return this.previousEvent;
+    }
+
+    @Override
+    public final XMLEvent nextEvent() throws XMLStreamException {
+        this.previousEvent = this.internalNextEvent();
+        return this.previousEvent;
+    }
+
+    @Override
+    public final Object next() {
+        try {
+            return this.nextEvent();
+        }
+        catch (XMLStreamException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public final String getElementText() throws XMLStreamException {
+        XMLEvent event = this.previousEvent;
+        if (event == null) {
+            throw new XMLStreamException("Must be on START_ELEMENT to read next text, element was null");
+        }
+        if (!event.isStartElement()) {
+            throw new XMLStreamException("Must be on START_ELEMENT to read next text", event.getLocation());
+        }
+        StringBuilder text = new StringBuilder();
+        while (!event.isEndDocument()) {
+            switch (event.getEventType()) {
+                case 4: 
+                case 6: 
+                case 12: {
+                    Characters characters = event.asCharacters();
+                    text.append(characters.getData());
+                    break;
+                }
+                case 9: {
+                    EntityReference entityReference = (EntityReference)event;
+                    EntityDeclaration declaration = entityReference.getDeclaration();
+                    text.append(declaration.getReplacementText());
+                    break;
+                }
+                case 3: 
+                case 5: {
+                    break;
+                }
+                default: {
+                    throw new XMLStreamException("Unexpected event type '" + XMLStreamConstantsUtils.getEventName(event.getEventType()) + "' encountered. Found event: " + event, event.getLocation());
+                }
+            }
+            event = this.nextEvent();
+        }
+        return text.toString();
+    }
+
+    @Override
+    public final XMLEvent nextTag() throws XMLStreamException {
+        XMLEvent event = this.nextEvent();
+        while (event.isCharacters() && event.asCharacters().isWhiteSpace() || event.isProcessingInstruction() || event.getEventType() == 5) {
+            event = this.nextEvent();
+        }
+        if (!event.isStartElement() && event.isEndElement()) {
+            throw new XMLStreamException("Unexpected event type '" + XMLStreamConstantsUtils.getEventName(event.getEventType()) + "' encountered. Found event: " + event, event.getLocation());
+        }
+        return event;
+    }
+}
+

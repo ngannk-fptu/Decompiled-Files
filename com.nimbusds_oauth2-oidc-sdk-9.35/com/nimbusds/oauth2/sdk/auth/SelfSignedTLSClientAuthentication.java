@@ -1,0 +1,54 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.jcip.annotations.Immutable
+ */
+package com.nimbusds.oauth2.sdk.auth;
+
+import com.nimbusds.oauth2.sdk.ParseException;
+import com.nimbusds.oauth2.sdk.auth.ClientAuthenticationMethod;
+import com.nimbusds.oauth2.sdk.auth.TLSClientAuthentication;
+import com.nimbusds.oauth2.sdk.http.HTTPRequest;
+import com.nimbusds.oauth2.sdk.id.ClientID;
+import com.nimbusds.oauth2.sdk.util.MultivaluedMapUtils;
+import com.nimbusds.oauth2.sdk.util.StringUtils;
+import com.nimbusds.oauth2.sdk.util.URLUtils;
+import java.security.cert.X509Certificate;
+import java.util.List;
+import java.util.Map;
+import javax.net.ssl.SSLSocketFactory;
+import net.jcip.annotations.Immutable;
+
+@Immutable
+public class SelfSignedTLSClientAuthentication
+extends TLSClientAuthentication {
+    public SelfSignedTLSClientAuthentication(ClientID clientID, SSLSocketFactory sslSocketFactory) {
+        super(ClientAuthenticationMethod.SELF_SIGNED_TLS_CLIENT_AUTH, clientID, sslSocketFactory);
+    }
+
+    public SelfSignedTLSClientAuthentication(ClientID clientID, X509Certificate certificate) {
+        super(ClientAuthenticationMethod.SELF_SIGNED_TLS_CLIENT_AUTH, clientID, certificate);
+        if (certificate == null) {
+            throw new IllegalArgumentException("The client X.509 certificate must not be null");
+        }
+    }
+
+    public static SelfSignedTLSClientAuthentication parse(HTTPRequest httpRequest) throws ParseException {
+        String query = httpRequest.getQuery();
+        if (query == null) {
+            throw new ParseException("Missing HTTP POST request entity body");
+        }
+        Map<String, List<String>> params = URLUtils.parseParameters(query);
+        String clientIDString = MultivaluedMapUtils.getFirstValue(params, "client_id");
+        if (StringUtils.isBlank(clientIDString)) {
+            throw new ParseException("Missing client_id parameter");
+        }
+        X509Certificate cert = httpRequest.getClientX509Certificate();
+        if (cert == null) {
+            throw new ParseException("Missing client X.509 certificate");
+        }
+        return new SelfSignedTLSClientAuthentication(new ClientID(clientIDString), cert);
+    }
+}
+

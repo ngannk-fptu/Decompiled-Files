@@ -1,0 +1,13 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.nimbusds.oauth2.sdk;
+
+import com.nimbusds.oauth2.sdk.ErrorObject;
+import com.nimbusds.oauth2.sdk.Response;
+
+public interface ErrorResponse
+extends Response {
+    public ErrorObject getErrorObject();
+}
+

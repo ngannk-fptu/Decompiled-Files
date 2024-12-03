@@ -1,0 +1,16 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.xmlgraphics_xmlgraphics-commons-2.9.jar
+Decompiled with CFR 0.152
+
+
+org.apache.xmlgraphics.image.loader.impl.ImageLoaderRawJPEG
+----------------------------
+
+loadImage(org.apache.xmlgraphics.image.loader.ImageInfo java.util.Map org.apache.xmlgraphics.image.loader.ImageSessionContext )
+  Unable to fully structure code
+
+
+org.apache.xmlgraphics.image.loader.impl.imageio.ImageLoaderImageIO
+----------------------------
+
+loadImage(org.apache.xmlgraphics.image.loader.ImageInfo java.util.Map org.apache.xmlgraphics.image.loader.ImageSessionContext )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [7[CATCHBLOCK]], but top level block is 3[TRYBLOCK]

@@ -1,0 +1,37 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.apache.commons_commons-math3-3.6.1.jar
+Decompiled with CFR 0.152
+
+
+org.apache.commons.math3.ml.neuralnet.twod.NeuronSquareMesh2D
+----------------------------
+
+createLinks()
+  Unable to fully structure code
+
+
+org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer
+----------------------------
+
+doOptimize()
+  Unable to fully structure code
+
+
+org.apache.commons.math3.optim.nonlinear.scalar.noderiv.BOBYQAOptimizer
+----------------------------
+
+bobyqb(double[] double[] )
+  Unable to fully structure code
+
+
+org.apache.commons.math3.optimization.direct.BOBYQAOptimizer
+----------------------------
+
+bobyqb(double[] double[] )
+  Unable to fully structure code
+
+
+org.apache.commons.math3.optimization.general.NonLinearConjugateGradientOptimizer
+----------------------------
+
+doOptimize()
+  Unable to fully structure code

@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.thoughtworks.xstream_xstream-1.4.20.jar
+Decompiled with CFR 0.152

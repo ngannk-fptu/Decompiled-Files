@@ -1,0 +1,25 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.servlet.http.HttpServletRequest
+ *  javax.servlet.http.HttpServletResponse
+ *  org.springframework.lang.Nullable
+ */
+package org.springframework.web.servlet;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.lang.Nullable;
+import org.springframework.web.servlet.ModelAndView;
+
+public interface HandlerAdapter {
+    public boolean supports(Object var1);
+
+    @Nullable
+    public ModelAndView handle(HttpServletRequest var1, HttpServletResponse var2, Object var3) throws Exception;
+
+    @Deprecated
+    public long getLastModified(HttpServletRequest var1, Object var2);
+}
+

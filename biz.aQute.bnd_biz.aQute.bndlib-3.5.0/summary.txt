@@ -1,0 +1,48 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\biz.aQute.bnd_biz.aQute.bndlib-3.5.0.jar
+Decompiled with CFR 0.152
+
+
+aQute.bnd.build.Project
+----------------------------
+
+getBundles(aQute.bnd.service.Strategy java.lang.String java.lang.String )
+  Unable to fully structure code
+buildLocal(boolean )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [1[TRYBLOCK]], but top level block is 42[SIMPLE_IF_TAKEN]
+pack(java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+aQute.bnd.junit.JUnitFramework
+----------------------------
+
+install()
+  Loose catch block
+
+
+aQute.bnd.signing.Signer
+----------------------------
+
+doSignatureFile(java.lang.String[] java.security.MessageDigest[] byte[] )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+aQute.lib.codec.HCodec
+----------------------------
+
+decode(java.io.File java.lang.Class<T> )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+aQute.lib.deployer.FileRepo
+----------------------------
+
+put(java.io.InputStream aQute.bnd.service.RepositoryPlugin$PutOptions )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 2 blocks at once
+
+
+aQute.lib.io.IO
+----------------------------
+
+copy(java.io.InputStream java.net.URL java.lang.String )
+  Loose catch block

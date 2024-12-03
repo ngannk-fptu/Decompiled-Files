@@ -1,0 +1,75 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\synchrony-standalone.jar
+Decompiled with CFR 0.152
+
+
+clj_time.core$plus
+----------------------------
+
+invokeStatic(java.lang.Object java.lang.Object clojure.lang.ISeq )
+  Unable to fully structure code
+
+
+clj_time.core$max_date$fn__19048
+----------------------------
+
+invoke(java.lang.Object java.lang.Object )
+  Unable to fully structure code
+
+
+clj_time.core$minus
+----------------------------
+
+invokeStatic(java.lang.Object java.lang.Object clojure.lang.ISeq )
+  Unable to fully structure code
+
+
+clj_time.core$min_date$fn__19043
+----------------------------
+
+invoke(java.lang.Object java.lang.Object )
+  Unable to fully structure code
+
+
+clj_time.core$number_of_days_in_the_month
+----------------------------
+
+invokeStatic(long long )
+  Unable to fully structure code
+invokeStatic(java.lang.Object )
+  Unable to fully structure code
+
+
+clj_time.core$overlaps_QMARK_
+----------------------------
+
+invokeStatic(java.lang.Object java.lang.Object java.lang.Object java.lang.Object )
+  Unable to fully structure code
+
+
+clj_time.core$within_QMARK_
+----------------------------
+
+invokeStatic(java.lang.Object java.lang.Object java.lang.Object )
+  Unable to fully structure code
+
+
+null$fn__33444
+----------------------------
+
+invoke()
+  Unable to fully structure code
+
+
+ginga.zip$replace_down
+----------------------------
+
+invokeStatic(java.lang.Object java.lang.Object )
+  Unable to fully structure code
+
+
+ginga.zip$shift_next_nodes_up
+----------------------------
+
+invokeStatic(java.lang.Object )
+  Unable to fully structure code
+Exception analysing jar Cannot create dumper org.benf.cfr.reader.util.output.Dumper$CannotCreate: java.io.FileNotFoundException: D:\decompiled\synchrony-standalone\ginga\async\haywire\*Msg$reify__10924.java (The filename, directory name, or volume label syntax is incorrect)

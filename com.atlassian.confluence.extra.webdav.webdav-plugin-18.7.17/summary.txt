@@ -1,0 +1,39 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.extra.webdav.webdav-plugin-18.7.17.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.confluence.extra.webdav.resource.PageAttachmentResourceImpl
+----------------------------
+
+copy(org.apache.jackrabbit.webdav.DavResource boolean )
+  Loose catch block
+
+
+org.apache.tika.detect.FileCommandDetector
+----------------------------
+
+detect(java.io.InputStream org.apache.tika.metadata.Metadata )
+  Loose catch block
+
+
+org.apache.tika.io.MappedBufferCleaner
+----------------------------
+
+unmapHackImpl()
+  Loose catch block
+
+
+org.apache.jackrabbit.spi.commons.query.xpath.XPath
+----------------------------
+
+DirPIContents()
+  Unable to fully structure code
+CDataSectionContents()
+  Unable to fully structure code
+
+
+org.apache.jackrabbit.spi.commons.lock.Locked
+----------------------------
+
+with(javax.jcr.Node boolean long )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[TRYBLOCK]], but top level block is 12[UNCONDITIONALDOLOOP]

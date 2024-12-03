@@ -1,0 +1,16 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.springframework_spring-core-5.3.31.jar
+Decompiled with CFR 0.152
+
+
+org.springframework.asm.ClassReader
+----------------------------
+
+readStream(java.io.InputStream boolean )
+  Loose catch block
+
+
+org.springframework.cglib.core.AbstractClassGenerator
+----------------------------
+
+generate(org.springframework.cglib.core.AbstractClassGenerator$ClassLoaderData )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [9[CATCHBLOCK]], but top level block is 3[TRYBLOCK]

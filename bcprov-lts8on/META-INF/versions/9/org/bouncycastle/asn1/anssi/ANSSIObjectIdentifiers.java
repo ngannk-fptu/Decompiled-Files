@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.bouncycastle.asn1.anssi;
+
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+/*
+ * Multiple versions of this class in jar - see https://www.benf.org/other/cfr/multi-version-jar.html
+ */
+public interface ANSSIObjectIdentifiers {
+    public static final ASN1ObjectIdentifier FRP256v1 = new ASN1ObjectIdentifier("1.2.250.1.223.101.256.1");
+}
+

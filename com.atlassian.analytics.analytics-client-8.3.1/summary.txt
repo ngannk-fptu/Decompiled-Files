@@ -1,0 +1,48 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.analytics.analytics-client-8.3.1.jar
+Decompiled with CFR 0.152
+
+
+com.fasterxml.jackson.databind.deser.std.ThrowableDeserializer
+----------------------------
+
+deserializeFromObject(com.fasterxml.jackson.core.JsonParser com.fasterxml.jackson.databind.DeserializationContext )
+  Could not resolve type clashes
+  Unable to fully structure code
+
+
+com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer
+----------------------------
+
+updateObject(com.fasterxml.jackson.core.JsonParser com.fasterxml.jackson.databind.DeserializationContext com.fasterxml.jackson.databind.node.ObjectNode com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer$ContainerStack )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+com.google.gson.internal.$Gson$Types
+----------------------------
+
+resolve(java.lang.reflect.Type java.lang.Class<?> java.lang.reflect.Type java.util.Map<java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type> )
+  Unable to fully structure code
+
+
+org.apache.logging.log4j.core.config.composite.DefaultMergeStrategy
+----------------------------
+
+mergConfigurations(org.apache.logging.log4j.core.config.Node org.apache.logging.log4j.core.config.Node org.apache.logging.log4j.core.config.plugins.util.PluginManager )
+  Unable to fully structure code
+
+
+com.fasterxml.jackson.core.io.UTF8Writer
+----------------------------
+
+write(char[] int int )
+  Unable to fully structure code
+write(java.lang.String int int )
+  Unable to fully structure code
+
+
+com.fasterxml.jackson.databind.type.TypeFactory
+----------------------------
+
+constructSpecializedType(com.fasterxml.jackson.databind.JavaType java.lang.Class<?> boolean )
+  Unable to fully structure code

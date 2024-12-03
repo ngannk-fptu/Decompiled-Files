@@ -1,0 +1,2 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.plugins_atlassian-whitelist-api-plugin-5.0.7.jar
+Decompiled with CFR 0.152

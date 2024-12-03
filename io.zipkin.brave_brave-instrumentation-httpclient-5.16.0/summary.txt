@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\io.zipkin.brave_brave-instrumentation-httpclient-5.16.0.jar
+Decompiled with CFR 0.152
+
+
+brave.httpclient.TracingProtocolExec
+----------------------------
+
+execute(org.apache.http.conn.routing.HttpRoute org.apache.http.client.methods.HttpRequestWrapper org.apache.http.client.protocol.HttpClientContext org.apache.http.client.methods.HttpExecutionAware )
+  Loose catch block

@@ -1,0 +1,20 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\ognl_ognl-3.3.4.jar
+Decompiled with CFR 0.152
+
+
+ognl.ASTCtor
+----------------------------
+
+getValueBody(ognl.OgnlContext java.lang.Object )
+  Unable to fully structure code
+
+
+ognl.OgnlParser
+----------------------------
+
+navigationChain()
+  Unable to fully structure code
+primaryExpression()
+  Unable to fully structure code
+constructorCall()
+  Unable to fully structure code

@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.plugins.collaborative-editing-feedback-plugin-18.7.51.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.confluence.plugins.collaborative.content.feedback.service.DataExportService
+----------------------------
+
+exportDataInternal(long com.atlassian.confluence.plugins.collaborative.content.feedback.rest.model.CollectMetadata )
+  Loose catch block

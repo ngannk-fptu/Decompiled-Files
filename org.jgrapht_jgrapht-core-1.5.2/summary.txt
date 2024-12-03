@@ -1,0 +1,33 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\org.jgrapht_jgrapht-core-1.5.2.jar
+Decompiled with CFR 0.152
+
+
+org.jgrapht.traverse.LexBreadthFirstIterator
+----------------------------
+
+insertBefore(org.jgrapht.traverse.LexBreadthFirstIterator$BucketList$Bucket )
+  Ignored method signature, as it can't be verified against descriptor
+
+
+org.jgrapht.alg.cycle.TiernanSimpleCycles
+----------------------------
+
+findSimpleCycles(java.util.function.Consumer<java.util.List<V>> )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+org.jgrapht.alg.shortestpath.DeltaSteppingShortestPath
+----------------------------
+
+run()
+  Unable to fully structure code
+run()
+  Unable to fully structure code
+
+
+org.jgrapht.alg.spanning.AhujaOrlinSharmaCapacitatedMinimumSpanningTree
+----------------------------
+
+executeNeighborhoodOperation(org.jgrapht.alg.spanning.AbstractCapacitatedMinimumSpanningTree$CapacitatedSpanningTreeSolutionRepresentation java.util.Map<java.lang.Integer, V> java.util.Map<org.jgrapht.alg.util.Pair<java.lang.Integer, org.jgrapht.alg.spanning.AhujaOrlinSharmaCapacitatedMinimumSpanningTree$ImprovementGraphVertexType>, java.lang.Integer> java.util.Map<V, org.jgrapht.alg.util.Pair<java.util.Set<V>, java.lang.Double>> org.jgrapht.graph.GraphWalk<org.jgrapht.alg.util.Pair<java.lang.Integer, org.jgrapht.alg.spanning.AhujaOrlinSharmaCapacitatedMinimumSpanningTree$ImprovementGraphVertexType>, org.jgrapht.graph.DefaultWeightedEdge> )
+  Unable to fully structure code

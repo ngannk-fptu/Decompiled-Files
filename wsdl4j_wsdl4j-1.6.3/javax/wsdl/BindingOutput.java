@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package javax.wsdl;
+
+import javax.wsdl.WSDLElement;
+
+public interface BindingOutput
+extends WSDLElement {
+    public void setName(String var1);
+
+    public String getName();
+}
+

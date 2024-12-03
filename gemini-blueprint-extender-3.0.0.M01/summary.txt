@@ -1,0 +1,9 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\gemini-blueprint-extender-3.0.0.M01.jar
+Decompiled with CFR 0.152
+
+
+org.eclipse.gemini.blueprint.extender.internal.support.LazyBundleRegistry
+----------------------------
+
+apply(org.eclipse.gemini.blueprint.extender.internal.support.LazyBundleRegistry$Operation<T, V> )
+  Could not resolve type clashes

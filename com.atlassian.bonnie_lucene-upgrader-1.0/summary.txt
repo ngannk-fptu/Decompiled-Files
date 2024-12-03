@@ -1,0 +1,46 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.bonnie_lucene-upgrader-1.0.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.lucene36.index.DirectoryReader
+----------------------------
+
+<init>(com.atlassian.lucene36.store.Directory com.atlassian.lucene36.index.SegmentInfos com.atlassian.lucene36.index.SegmentReader[] int[] java.util.Map<java.lang.String, byte[]> boolean boolean int )
+  Loose catch block
+
+
+com.atlassian.lucene36.index.DocumentsWriter
+----------------------------
+
+abort()
+  Loose catch block
+updateDocuments(java.util.Collection<com.atlassian.lucene36.document.Document> com.atlassian.lucene36.analysis.Analyzer com.atlassian.lucene36.index.Term )
+  Unable to fully structure code
+
+
+com.atlassian.lucene36.index.MultiReader
+----------------------------
+
+doReopen(boolean )
+  Unable to fully structure code
+
+
+com.atlassian.lucene36.index.ParallelReader
+----------------------------
+
+doReopen(boolean )
+  Unable to fully structure code
+
+
+com.atlassian.lucene36.search.NRTManagerReopenThread
+----------------------------
+
+run()
+  Unable to fully structure code
+
+
+com.atlassian.lucene36.store.NativeFSLock
+----------------------------
+
+obtain()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Missing node tying up JSR block

@@ -1,0 +1,93 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.annotation.Nullable
+ */
+package org.jsoup.helper;
+
+import java.io.UnsupportedEncodingException;
+import java.net.IDN;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import javax.annotation.Nullable;
+import org.jsoup.Connection;
+import org.jsoup.helper.DataUtil;
+import org.jsoup.helper.Validate;
+import org.jsoup.internal.StringUtil;
+
+final class UrlBuilder {
+    URL u;
+    @Nullable
+    StringBuilder q;
+
+    UrlBuilder(URL inputUrl) {
+        this.u = inputUrl;
+        if (this.u.getQuery() != null) {
+            this.q = StringUtil.borrowBuilder().append(this.u.getQuery());
+        }
+    }
+
+    URL build() {
+        try {
+            URI uri = new URI(this.u.getProtocol(), this.u.getUserInfo(), IDN.toASCII(UrlBuilder.decodePart(this.u.getHost())), this.u.getPort(), UrlBuilder.decodePart(this.u.getPath()), null, null);
+            String normUrl = uri.toASCIIString();
+            if (this.q != null || this.u.getRef() != null) {
+                StringBuilder sb = StringUtil.borrowBuilder().append(normUrl);
+                if (this.q != null) {
+                    sb.append('?');
+                    UrlBuilder.appendToAscii(StringUtil.releaseBuilder(this.q), true, sb);
+                }
+                if (this.u.getRef() != null) {
+                    sb.append('#');
+                    UrlBuilder.appendToAscii(this.u.getRef(), false, sb);
+                }
+                normUrl = StringUtil.releaseBuilder(sb);
+            }
+            this.u = new URL(normUrl);
+            return this.u;
+        }
+        catch (UnsupportedEncodingException | MalformedURLException | URISyntaxException e) {
+            assert (Validate.assertFail(e.toString()));
+            return this.u;
+        }
+    }
+
+    void appendKeyVal(Connection.KeyVal kv) throws UnsupportedEncodingException {
+        if (this.q == null) {
+            this.q = StringUtil.borrowBuilder();
+        } else {
+            this.q.append('&');
+        }
+        this.q.append(URLEncoder.encode(kv.key(), DataUtil.UTF_8.name())).append('=').append(URLEncoder.encode(kv.value(), DataUtil.UTF_8.name()));
+    }
+
+    private static String decodePart(String encoded) {
+        try {
+            return URLDecoder.decode(encoded, DataUtil.UTF_8.name());
+        }
+        catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void appendToAscii(String s, boolean spaceAsPlus, StringBuilder sb) throws UnsupportedEncodingException {
+        for (int i = 0; i < s.length(); ++i) {
+            int c = s.codePointAt(i);
+            if (c == 32) {
+                sb.append(spaceAsPlus ? Character.valueOf('+') : "%20");
+                continue;
+            }
+            if (c > 127) {
+                sb.append(URLEncoder.encode(new String(Character.toChars(c)), DataUtil.UTF_8.name()));
+                continue;
+            }
+            sb.append((char)c);
+        }
+    }
+}
+

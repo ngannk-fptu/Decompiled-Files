@@ -1,0 +1,46 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.atlassian.confluence.content.render.xhtml.ConversionContext
+ *  com.atlassian.confluence.content.render.xhtml.MarshallingRegistry
+ *  com.atlassian.confluence.content.render.xhtml.MarshallingType
+ *  com.atlassian.confluence.content.render.xhtml.XhtmlException
+ *  com.atlassian.confluence.content.render.xhtml.XmlEventReaderFactory
+ *  com.atlassian.confluence.content.render.xhtml.XmlOutputFactoryProvider
+ *  com.atlassian.event.api.EventPublisher
+ *  com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport
+ */
+package com.atlassian.confluence.plugins.attachment.reconciliation.marshalling;
+
+import com.atlassian.confluence.content.render.xhtml.ConversionContext;
+import com.atlassian.confluence.content.render.xhtml.MarshallingRegistry;
+import com.atlassian.confluence.content.render.xhtml.MarshallingType;
+import com.atlassian.confluence.content.render.xhtml.XhtmlException;
+import com.atlassian.confluence.content.render.xhtml.XmlEventReaderFactory;
+import com.atlassian.confluence.content.render.xhtml.XmlOutputFactoryProvider;
+import com.atlassian.confluence.plugins.attachment.reconciliation.marshalling.UnknownAttachmentFragmentTransformerErrorHandler;
+import com.atlassian.confluence.plugins.attachment.reconciliation.marshalling.UnknownAttachmentTransformerBase;
+import com.atlassian.event.api.EventPublisher;
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+import java.io.Reader;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLStreamException;
+
+public class UnknownAttachmentTransformerStorageToView
+extends UnknownAttachmentTransformerBase {
+    public UnknownAttachmentTransformerStorageToView(@ComponentImport XmlOutputFactoryProvider xmlOutputFactoryProvider, @ComponentImport XmlEventReaderFactory xmlEventReaderFactory, UnknownAttachmentFragmentTransformerErrorHandler fragmentTransformationErrorHandler, @ComponentImport EventPublisher eventPublisher, @ComponentImport MarshallingRegistry marshallingRegistry) {
+        super(MarshallingType.VIEW, MarshallingType.STORAGE, xmlOutputFactoryProvider, xmlEventReaderFactory, fragmentTransformationErrorHandler, eventPublisher, marshallingRegistry);
+    }
+
+    @Override
+    protected XMLEventReader createXmlEventReader(Reader input) throws XMLStreamException {
+        return this.xmlEventReaderFactory.createStorageXmlEventReader(input);
+    }
+
+    @Override
+    public String transform(Reader input, ConversionContext conversionContext) throws XhtmlException {
+        return super.transform(input, conversionContext);
+    }
+}
+

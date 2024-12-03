@@ -1,0 +1,80 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.openxmlformats.schemas.wordprocessingml.x2006.main;
+
+import org.apache.poi.schemas.ooxml.system.ooxml.TypeSystemHolder;
+import org.apache.xmlbeans.SchemaType;
+import org.apache.xmlbeans.XmlObject;
+import org.apache.xmlbeans.impl.schema.DocumentFactory;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STHexColor;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STThemeColor;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STUcharHexNumber;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STUnderline;
+
+public interface CTUnderline
+extends XmlObject {
+    public static final DocumentFactory<CTUnderline> Factory = new DocumentFactory(TypeSystemHolder.typeSystem, "ctunderline8406type");
+    public static final SchemaType type = Factory.getType();
+
+    public STUnderline.Enum getVal();
+
+    public STUnderline xgetVal();
+
+    public boolean isSetVal();
+
+    public void setVal(STUnderline.Enum var1);
+
+    public void xsetVal(STUnderline var1);
+
+    public void unsetVal();
+
+    public Object getColor();
+
+    public STHexColor xgetColor();
+
+    public boolean isSetColor();
+
+    public void setColor(Object var1);
+
+    public void xsetColor(STHexColor var1);
+
+    public void unsetColor();
+
+    public STThemeColor.Enum getThemeColor();
+
+    public STThemeColor xgetThemeColor();
+
+    public boolean isSetThemeColor();
+
+    public void setThemeColor(STThemeColor.Enum var1);
+
+    public void xsetThemeColor(STThemeColor var1);
+
+    public void unsetThemeColor();
+
+    public byte[] getThemeTint();
+
+    public STUcharHexNumber xgetThemeTint();
+
+    public boolean isSetThemeTint();
+
+    public void setThemeTint(byte[] var1);
+
+    public void xsetThemeTint(STUcharHexNumber var1);
+
+    public void unsetThemeTint();
+
+    public byte[] getThemeShade();
+
+    public STUcharHexNumber xgetThemeShade();
+
+    public boolean isSetThemeShade();
+
+    public void setThemeShade(byte[] var1);
+
+    public void xsetThemeShade(STUcharHexNumber var1);
+
+    public void unsetThemeShade();
+}
+

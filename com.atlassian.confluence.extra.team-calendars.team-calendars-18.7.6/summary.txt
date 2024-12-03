@@ -1,0 +1,240 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.extra.team-calendars.team-calendars-18.7.6.jar
+Decompiled with CFR 0.152
+
+
+org.apache.xmlgraphics.image.loader.impl.ImageLoaderRawJPEG
+----------------------------
+
+loadImage(org.apache.xmlgraphics.image.loader.ImageInfo java.util.Map org.apache.xmlgraphics.image.loader.ImageSessionContext )
+  Unable to fully structure code
+
+
+groovy.util.AntBuilder
+----------------------------
+
+nodeCompleted(java.lang.Object java.lang.Object )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [19[SIMPLE_IF_TAKEN]], but top level block is 4[MONITOR]
+performTask(org.apache.tools.ant.Task )
+  Loose catch block
+
+
+groovy.swing.SwingBuilder
+----------------------------
+
+lookAndFeel(java.lang.Object[] )
+  Loose catch block
+
+
+groovyjarjarantlr.actions.csharp.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.codehaus.groovy.tools.shell.completion.GroovySyntaxCompletor
+----------------------------
+
+complete(java.lang.String int java.util.List<java.lang.CharSequence> )
+  Unable to fully structure code
+tokenizeBuffer(java.lang.String java.util.List<java.lang.String> java.util.List<org.codehaus.groovy.antlr.GroovySourceToken> )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [11[UNCONDITIONALDOLOOP]], but top level block is 2[TRYBLOCK]
+
+
+org.codehaus.groovy.tools.shell.RelaxedParser
+----------------------------
+
+parse(java.util.Collection<java.lang.String> )
+  Unable to fully structure code
+
+
+groovyjarjarantlr.ANTLRLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [31[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+groovyjarjarantlr.actions.java.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.codehaus.groovy.tools.groovydoc.GroovyDocTemplateEngine
+----------------------------
+
+copyBinaryResource(java.lang.String java.lang.String )
+  Loose catch block
+
+
+groovy.swing.factory.RichActionWidgetFactory
+----------------------------
+
+newInstance(groovy.util.FactoryBuilderSupport java.lang.Object java.lang.Object java.util.Map )
+  Unable to fully structure code
+
+
+org.codehaus.groovy.tools.shell.ComplexCommandSupport
+----------------------------
+
+<init>(org.codehaus.groovy.tools.shell.Groovysh java.lang.String java.lang.String java.util.List<java.lang.String> java.lang.String )
+  Unable to fully structure code
+
+
+org.codehaus.groovy.vmplugin.v7.Selector
+----------------------------
+
+setHandleForMetaMethod()
+  Unable to fully structure code
+
+
+groovyjarjarantlr.PreservingFileWriter
+----------------------------
+
+close()
+  Unable to fully structure code
+
+
+groovyjarjarantlr.actions.cpp.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.bedework.caldav.server.RequestPars
+----------------------------
+
+<init>(javax.servlet.http.HttpServletRequest org.bedework.caldav.server.CaldavBWIntf java.lang.String )
+  Unable to fully structure code
+
+
+org.codehaus.groovy.tools.shell.BufferManager
+----------------------------
+
+select(int )
+  Unable to fully structure code
+delete(int )
+  Unable to fully structure code
+
+
+org.apache.xmlgraphics.image.loader.impl.imageio.ImageLoaderImageIO
+----------------------------
+
+loadImage(org.apache.xmlgraphics.image.loader.ImageInfo java.util.Map org.apache.xmlgraphics.image.loader.ImageSessionContext )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [7[CATCHBLOCK]], but top level block is 3[TRYBLOCK]
+
+
+org.codehaus.groovy.antlr.java.JavaLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [23[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+groovyjarjarantlr.actions.python.CodeLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+groovyjarjarantlr.actions.python.ActionLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [4[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+groovyjarjarasm.asm.Type
+----------------------------
+
+getReturnType(java.lang.String )
+  Unable to fully structure code
+
+
+org.apache.batik.util.RunnableQueue
+----------------------------
+
+run()
+  Unable to fully structure code
+
+
+org.apache.commons.lang.text.ExtendedMessageFormat
+----------------------------
+
+readArgumentIndex(java.lang.String java.text.ParsePosition )
+  Unable to fully structure code
+
+
+org.bedework.access.Acl
+----------------------------
+
+evaluateAccessInt(org.bedework.access.Access$AccessCb org.bedework.access.AccessPrincipal org.bedework.access.AccessPrincipal org.bedework.access.Privilege[] char[] org.bedework.access.PrivilegeSet )
+  Unable to fully structure code
+
+
+com.querydsl.sql.AbstractSQLQuery
+----------------------------
+
+fetch()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [7[CATCHBLOCK]], but top level block is 5[TRYBLOCK]
+
+
+org.codehaus.groovy.antlr.parser.GroovyLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [21[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+groovy.swing.factory.BindFactory
+----------------------------
+
+newInstance(groovy.util.FactoryBuilderSupport java.lang.Object java.lang.Object java.util.Map )
+  Unable to fully structure code
+  Could not resolve type clashes
+
+
+groovyjarjarantlr.preprocessor.PreprocessorLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [20[DOLOOP]], but top level block is 1[TRYBLOCK]
+
+
+org.codehaus.groovy.antlr.parser.GroovyRecognizer
+----------------------------
+
+argList()
+  Unable to fully structure code
+
+
+org.codehaus.groovy.tools.shell.InteractiveShellRunner
+----------------------------
+
+readLine()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [5[CATCHBLOCK]], but top level block is 3[TRYBLOCK]
+
+
+groovy.util.GroovyShellTestCase
+----------------------------
+
+withBinding(java.util.Map java.lang.String )
+  Unable to fully structure code
+
+
+groovy.lang.MetaClassImpl
+----------------------------
+
+invokeMethod(java.lang.Class java.lang.Object java.lang.String java.lang.Object[] boolean boolean )
+  Unable to fully structure code
+
+
+groovyjarjarantlr.ANTLRTokdefLexer
+----------------------------
+
+nextToken()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [13[DOLOOP]], but top level block is 1[TRYBLOCK]

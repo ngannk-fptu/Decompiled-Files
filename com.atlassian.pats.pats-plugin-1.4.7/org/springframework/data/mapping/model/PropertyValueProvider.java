@@ -1,0 +1,16 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.springframework.lang.Nullable
+ */
+package org.springframework.data.mapping.model;
+
+import org.springframework.data.mapping.PersistentProperty;
+import org.springframework.lang.Nullable;
+
+public interface PropertyValueProvider<P extends PersistentProperty<P>> {
+    @Nullable
+    public <T> T getPropertyValue(P var1);
+}
+

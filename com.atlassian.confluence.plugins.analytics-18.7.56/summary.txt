@@ -1,0 +1,30 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence.plugins.analytics-18.7.56.jar
+Decompiled with CFR 0.152
+
+
+com.addonengine.addons.analytics.store.server.SampleEventRepositoryServerImpl
+----------------------------
+
+calculateSampleDateRange(java.lang.Long java.lang.Long )
+  Unable to fully structure code
+
+
+com.addonengine.addons.analytics.service.SpaceAnalyticsServiceImpl
+----------------------------
+
+invokeSuspend(java.lang.Object )
+  Unable to fully structure code
+
+
+com.addonengine.addons.analytics.service.confluence.server.SpaceServiceServerImpl
+----------------------------
+
+invokeSuspend(java.lang.Object )
+  Unable to fully structure code
+
+
+com.addonengine.addons.analytics.service.InstanceAnalyticsServiceImpl
+----------------------------
+
+invokeSuspend(java.lang.Object )
+  Unable to fully structure code

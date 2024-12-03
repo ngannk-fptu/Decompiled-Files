@@ -1,0 +1,151 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.servlet.ServletConfig
+ *  javax.servlet.ServletContext
+ *  org.springframework.beans.factory.config.BeanPostProcessor
+ *  org.springframework.beans.factory.config.ConfigurableListableBeanFactory
+ *  org.springframework.context.ApplicationContext
+ *  org.springframework.context.support.AbstractRefreshableConfigApplicationContext
+ *  org.springframework.core.env.ConfigurableEnvironment
+ *  org.springframework.core.io.Resource
+ *  org.springframework.core.io.ResourceLoader
+ *  org.springframework.core.io.support.ResourcePatternResolver
+ *  org.springframework.lang.Nullable
+ *  org.springframework.ui.context.Theme
+ *  org.springframework.ui.context.ThemeSource
+ *  org.springframework.ui.context.support.UiApplicationContextUtils
+ *  org.springframework.util.Assert
+ */
+package org.springframework.web.context.support;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractRefreshableConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.lang.Nullable;
+import org.springframework.ui.context.Theme;
+import org.springframework.ui.context.ThemeSource;
+import org.springframework.ui.context.support.UiApplicationContextUtils;
+import org.springframework.util.Assert;
+import org.springframework.web.context.ConfigurableWebApplicationContext;
+import org.springframework.web.context.ConfigurableWebEnvironment;
+import org.springframework.web.context.ServletConfigAware;
+import org.springframework.web.context.ServletContextAware;
+import org.springframework.web.context.support.ServletContextAwareProcessor;
+import org.springframework.web.context.support.ServletContextResource;
+import org.springframework.web.context.support.ServletContextResourcePatternResolver;
+import org.springframework.web.context.support.StandardServletEnvironment;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+public abstract class AbstractRefreshableWebApplicationContext
+extends AbstractRefreshableConfigApplicationContext
+implements ConfigurableWebApplicationContext,
+ThemeSource {
+    @Nullable
+    private ServletContext servletContext;
+    @Nullable
+    private ServletConfig servletConfig;
+    @Nullable
+    private String namespace;
+    @Nullable
+    private ThemeSource themeSource;
+
+    public AbstractRefreshableWebApplicationContext() {
+        this.setDisplayName("Root WebApplicationContext");
+    }
+
+    @Override
+    public void setServletContext(@Nullable ServletContext servletContext) {
+        this.servletContext = servletContext;
+    }
+
+    @Override
+    @Nullable
+    public ServletContext getServletContext() {
+        return this.servletContext;
+    }
+
+    @Override
+    public void setServletConfig(@Nullable ServletConfig servletConfig) {
+        this.servletConfig = servletConfig;
+        if (servletConfig != null && this.servletContext == null) {
+            this.setServletContext(servletConfig.getServletContext());
+        }
+    }
+
+    @Override
+    @Nullable
+    public ServletConfig getServletConfig() {
+        return this.servletConfig;
+    }
+
+    @Override
+    public void setNamespace(@Nullable String namespace) {
+        this.namespace = namespace;
+        if (namespace != null) {
+            this.setDisplayName("WebApplicationContext for namespace '" + namespace + "'");
+        }
+    }
+
+    @Override
+    @Nullable
+    public String getNamespace() {
+        return this.namespace;
+    }
+
+    @Override
+    public String[] getConfigLocations() {
+        return super.getConfigLocations();
+    }
+
+    public String getApplicationName() {
+        return this.servletContext != null ? this.servletContext.getContextPath() : "";
+    }
+
+    protected ConfigurableEnvironment createEnvironment() {
+        return new StandardServletEnvironment();
+    }
+
+    protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+        beanFactory.addBeanPostProcessor((BeanPostProcessor)new ServletContextAwareProcessor(this.servletContext, this.servletConfig));
+        beanFactory.ignoreDependencyInterface(ServletContextAware.class);
+        beanFactory.ignoreDependencyInterface(ServletConfigAware.class);
+        WebApplicationContextUtils.registerWebApplicationScopes(beanFactory, this.servletContext);
+        WebApplicationContextUtils.registerEnvironmentBeans(beanFactory, this.servletContext, this.servletConfig);
+    }
+
+    protected Resource getResourceByPath(String path) {
+        Assert.state((this.servletContext != null ? 1 : 0) != 0, (String)"No ServletContext available");
+        return new ServletContextResource(this.servletContext, path);
+    }
+
+    protected ResourcePatternResolver getResourcePatternResolver() {
+        return new ServletContextResourcePatternResolver((ResourceLoader)this);
+    }
+
+    protected void onRefresh() {
+        this.themeSource = UiApplicationContextUtils.initThemeSource((ApplicationContext)this);
+    }
+
+    protected void initPropertySources() {
+        ConfigurableEnvironment env = this.getEnvironment();
+        if (env instanceof ConfigurableWebEnvironment) {
+            ((ConfigurableWebEnvironment)env).initPropertySources(this.servletContext, this.servletConfig);
+        }
+    }
+
+    @Nullable
+    public Theme getTheme(String themeName) {
+        Assert.state((this.themeSource != null ? 1 : 0) != 0, (String)"No ThemeSource available");
+        return this.themeSource.getTheme(themeName);
+    }
+}
+

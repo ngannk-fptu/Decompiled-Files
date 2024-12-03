@@ -1,0 +1,58 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.atlassian.confluence_confluence-8.7.2.jar
+Decompiled with CFR 0.152
+
+
+com.atlassian.confluence.util.velocity.Velocity13CompatibleResourceLoader
+----------------------------
+
+getResourceStream(java.lang.String )
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Started 3 blocks at once
+
+
+com.atlassian.confluence.impl.pages.thumbnail.renderer.ThumbnailRenderer
+----------------------------
+
+createThumbnail(java.io.InputStream java.io.File int int )
+  Loose catch block
+
+
+com.atlassian.confluence.impl.backuprestore.backup.exporters.site.GenericSiteExporter
+----------------------------
+
+exportAllRecords()
+  Exception : org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [2[DOLOOP]], but top level block is 5[SIMPLE_IF_TAKEN]
+
+
+com.atlassian.confluence.impl.search.contentnames.lucene.LuceneQueryTokenizer
+----------------------------
+
+tokenize(java.lang.String )
+  Loose catch block
+
+
+com.atlassian.confluence.pages.templates.XhtmlTemplateHandler
+----------------------------
+
+getTemplateVariables(com.atlassian.confluence.pages.templates.PageTemplate )
+  Loose catch block
+
+
+com.atlassian.confluence.rpc.auth.TokenAuthenticationInvocationHandler
+----------------------------
+
+invokeAuthenticatedMethod(com.atlassian.confluence.user.ConfluenceUser java.lang.reflect.Method java.lang.Object[] )
+  Loose catch block
+
+
+com.atlassian.confluence.content.render.xhtml.storage.macro.inlinebody.InlineBodyMacroFixingTransformer
+----------------------------
+
+transform(java.io.Reader com.atlassian.confluence.content.render.xhtml.ConversionContext )
+  Loose catch block
+
+
+com.atlassian.confluence.admin.actions.mail.MailServerTestConnectionAction
+----------------------------
+
+execute()
+  Loose catch block

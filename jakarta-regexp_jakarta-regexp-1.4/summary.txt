@@ -1,0 +1,20 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\jakarta-regexp_jakarta-regexp-1.4.jar
+Decompiled with CFR 0.152
+
+
+org.apache.regexp.RE
+----------------------------
+
+match(org.apache.regexp.CharacterIterator int )
+  Unable to fully structure code
+
+
+org.apache.regexp.RECompiler
+----------------------------
+
+atom()
+  Unable to fully structure code
+closure(int[] )
+  Unable to fully structure code
+delete(int )
+  Unable to fully structure code

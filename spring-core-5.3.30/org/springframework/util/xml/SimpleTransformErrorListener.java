@@ -1,0 +1,36 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.commons.logging.Log
+ */
+package org.springframework.util.xml;
+
+import javax.xml.transform.ErrorListener;
+import javax.xml.transform.TransformerException;
+import org.apache.commons.logging.Log;
+
+public class SimpleTransformErrorListener
+implements ErrorListener {
+    private final Log logger;
+
+    public SimpleTransformErrorListener(Log logger) {
+        this.logger = logger;
+    }
+
+    @Override
+    public void warning(TransformerException ex) throws TransformerException {
+        this.logger.warn((Object)"XSLT transformation warning", (Throwable)ex);
+    }
+
+    @Override
+    public void error(TransformerException ex) throws TransformerException {
+        this.logger.error((Object)"XSLT transformation error", (Throwable)ex);
+    }
+
+    @Override
+    public void fatalError(TransformerException ex) throws TransformerException {
+        throw ex;
+    }
+}
+

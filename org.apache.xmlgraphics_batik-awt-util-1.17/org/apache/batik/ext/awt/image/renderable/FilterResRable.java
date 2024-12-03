@@ -1,0 +1,22 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.apache.batik.ext.awt.image.renderable;
+
+import org.apache.batik.ext.awt.image.renderable.Filter;
+
+public interface FilterResRable
+extends Filter {
+    public Filter getSource();
+
+    public void setSource(Filter var1);
+
+    public int getFilterResolutionX();
+
+    public void setFilterResolutionX(int var1);
+
+    public int getFilterResolutionY();
+
+    public void setFilterResolutionY(int var1);
+}
+

@@ -1,0 +1,38 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.w3c.dom.svg;
+
+import org.w3c.dom.events.EventTarget;
+import org.w3c.dom.svg.SVGAnimatedLength;
+import org.w3c.dom.svg.SVGElement;
+import org.w3c.dom.svg.SVGElementInstance;
+import org.w3c.dom.svg.SVGExternalResourcesRequired;
+import org.w3c.dom.svg.SVGLangSpace;
+import org.w3c.dom.svg.SVGStylable;
+import org.w3c.dom.svg.SVGTests;
+import org.w3c.dom.svg.SVGTransformable;
+import org.w3c.dom.svg.SVGURIReference;
+
+public interface SVGUseElement
+extends SVGElement,
+SVGURIReference,
+SVGTests,
+SVGLangSpace,
+SVGExternalResourcesRequired,
+SVGStylable,
+SVGTransformable,
+EventTarget {
+    public SVGAnimatedLength getX();
+
+    public SVGAnimatedLength getY();
+
+    public SVGAnimatedLength getWidth();
+
+    public SVGAnimatedLength getHeight();
+
+    public SVGElementInstance getInstanceRoot();
+
+    public SVGElementInstance getAnimatedInstanceRoot();
+}
+

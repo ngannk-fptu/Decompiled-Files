@@ -1,0 +1,35 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.apache.hc.core5.http.ClassicHttpRequest
+ *  org.apache.hc.core5.http.ClassicHttpResponse
+ *  org.apache.hc.core5.http.HttpException
+ */
+package org.apache.hc.client5.http.impl.classic;
+
+import java.io.IOException;
+import org.apache.hc.client5.http.classic.ExecChain;
+import org.apache.hc.client5.http.classic.ExecChainHandler;
+import org.apache.hc.core5.http.ClassicHttpRequest;
+import org.apache.hc.core5.http.ClassicHttpResponse;
+import org.apache.hc.core5.http.HttpException;
+
+class ExecChainElement {
+    private final ExecChainHandler handler;
+    private final ExecChainElement next;
+
+    ExecChainElement(ExecChainHandler handler, ExecChainElement next) {
+        this.handler = handler;
+        this.next = next;
+    }
+
+    public ClassicHttpResponse execute(ClassicHttpRequest request, ExecChain.Scope scope) throws IOException, HttpException {
+        return this.handler.execute(request, scope, this.next != null ? this.next::execute : null);
+    }
+
+    public String toString() {
+        return "{handler=" + this.handler.getClass() + ", next=" + (this.next != null ? this.next.handler.getClass() : "null") + '}';
+    }
+}
+

@@ -1,0 +1,28 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.atlassian.migration.agent.service.guardrails.logs;
+
+public enum PageType {
+    VIEW_PAGE,
+    EDIT_PAGE,
+    VIEW_HOME_PAGE,
+    PUBLISH_PAGE,
+    ADD_COMMENT,
+    QUICK_SEARCH,
+    ADVANCED_SEARCH,
+    PAGE_HISTORY_VIEW,
+    LIKE_PAGE_OR_COMMENT,
+    ADD_OR_RESOLVE_INLINE_COMMENT,
+    CREATE_DRAFT,
+    REST,
+    VIEW_BLOG,
+    UNKNOWN,
+    ADD_LABELS,
+    CQL_SEARCH_BY_TITLE,
+    CQL_RANDOM_PAGEID_SEARCH,
+    CQL_SEARCH_BY_USERNAME,
+    CHANGE_SPACE_PERMISSIONS_FOR_GROUP;
+
+}
+

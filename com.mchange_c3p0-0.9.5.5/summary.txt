@@ -1,0 +1,39 @@
+Summary for D:\xogSeXoa\conffluence_9.1.1\all_jar\com.mchange_c3p0-0.9.5.5.jar
+Decompiled with CFR 0.152
+
+
+com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool
+----------------------------
+
+refurbishResourceOnCheckin(java.lang.Object )
+  Unable to fully structure code
+
+
+com.mchange.v2.c3p0.impl.DefaultConnectionTester
+----------------------------
+
+activeCheckConnection(java.sql.Connection java.lang.String java.lang.Throwable[] )
+  Loose catch block
+activeCheckConnectionNoQuery(java.sql.Connection java.lang.Throwable[] )
+  Loose catch block
+
+
+com.mchange.v2.c3p0.stmt.StatementCacheBenchmark
+----------------------------
+
+main(java.lang.String[] )
+  Unable to fully structure code
+
+
+com.mchange.v2.c3p0.test.C3P0BenchmarkApp
+----------------------------
+
+main(java.lang.String[] )
+  Loose catch block
+
+
+com.mchange.v2.c3p0.test.PSLoadPoolBackedDataSource
+----------------------------
+
+run()
+  Unable to fully structure code

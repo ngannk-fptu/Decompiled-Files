@@ -1,0 +1,126 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.ctc.wstx.io;
+
+import com.ctc.wstx.util.StringUtil;
+import java.io.Serializable;
+import javax.xml.stream.Location;
+import org.codehaus.stax2.XMLStreamLocation2;
+
+public class WstxInputLocation
+implements Serializable,
+XMLStreamLocation2 {
+    private static final long serialVersionUID = 1L;
+    private static final WstxInputLocation sEmptyLocation = new WstxInputLocation(null, "", "", -1, -1, -1);
+    protected final WstxInputLocation mContext;
+    protected final String mPublicId;
+    protected final String mSystemId;
+    protected final int mCharOffset;
+    protected final int mCol;
+    protected final int mRow;
+    protected transient String mDesc = null;
+
+    public WstxInputLocation(WstxInputLocation ctxt, String pubId, String sysId, int charOffset, int row, int col) {
+        this.mContext = ctxt;
+        this.mPublicId = pubId;
+        this.mSystemId = sysId;
+        this.mCharOffset = charOffset < 0 ? Integer.MAX_VALUE : charOffset;
+        this.mCol = col;
+        this.mRow = row;
+    }
+
+    public static WstxInputLocation getEmptyLocation() {
+        return sEmptyLocation;
+    }
+
+    public int getCharacterOffset() {
+        return this.mCharOffset;
+    }
+
+    public int getColumnNumber() {
+        return this.mCol;
+    }
+
+    public int getLineNumber() {
+        return this.mRow;
+    }
+
+    public String getPublicId() {
+        return this.mPublicId;
+    }
+
+    public String getSystemId() {
+        return this.mSystemId;
+    }
+
+    public XMLStreamLocation2 getContext() {
+        return this.mContext;
+    }
+
+    public String toString() {
+        if (this.mDesc == null) {
+            StringBuffer sb = this.mContext != null ? new StringBuffer(200) : new StringBuffer(80);
+            this.appendDesc(sb);
+            this.mDesc = sb.toString();
+        }
+        return this.mDesc;
+    }
+
+    public int hashCode() {
+        return this.mCharOffset ^ this.mRow ^ this.mCol + (this.mCol << 3);
+    }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof Location)) {
+            return false;
+        }
+        Location other = (Location)o;
+        if (other.getCharacterOffset() != this.getCharacterOffset()) {
+            return false;
+        }
+        String otherPub = other.getPublicId();
+        if (otherPub == null) {
+            otherPub = "";
+        }
+        if (!otherPub.equals(this.mPublicId)) {
+            return false;
+        }
+        String otherSys = other.getSystemId();
+        if (otherSys == null) {
+            otherSys = "";
+        }
+        return otherSys.equals(this.mSystemId);
+    }
+
+    private void appendDesc(StringBuffer sb) {
+        String srcId;
+        if (this.mSystemId != null) {
+            sb.append("[row,col,system-id]: ");
+            srcId = this.mSystemId;
+        } else if (this.mPublicId != null) {
+            sb.append("[row,col,public-id]: ");
+            srcId = this.mPublicId;
+        } else {
+            sb.append("[row,col {unknown-source}]: ");
+            srcId = null;
+        }
+        sb.append('[');
+        sb.append(this.mRow);
+        sb.append(',');
+        sb.append(this.mCol);
+        if (srcId != null) {
+            sb.append(',');
+            sb.append('\"');
+            sb.append(srcId);
+            sb.append('\"');
+        }
+        sb.append(']');
+        if (this.mContext != null) {
+            StringUtil.appendLF(sb);
+            sb.append(" from ");
+            this.mContext.appendDesc(sb);
+        }
+    }
+}
+
